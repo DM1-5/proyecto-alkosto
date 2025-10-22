@@ -1,0 +1,935 @@
+{
+	"info": {
+		"_postman_id": "alkosto-api-collection",
+		"name": "Alkosto E-commerce API",
+		"description": "Colección completa de endpoints de la API REST de Alkosto desarrollada con Django REST Framework",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "🔐 Autenticación",
+			"item": [
+				{
+					"name": "Registro de Usuario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"usuario_prueba\",\n  \"email\": \"usuario@ejemplo.com\",\n  \"password\": \"MiPassword123!\",\n  \"password2\": \"MiPassword123!\",\n  \"first_name\": \"Juan\",\n  \"last_name\": \"Pérez\",\n  \"phone\": \"3001234567\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/register/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"register",
+								""
+							]
+						},
+						"description": "Registra un nuevo usuario en el sistema"
+					},
+					"response": []
+				},
+				{
+					"name": "Login (Obtener Token)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"if (jsonData.access) {",
+									"    pm.environment.set(\"access_token\", jsonData.access);",
+									"}",
+									"if (jsonData.refresh) {",
+									"    pm.environment.set(\"refresh_token\", jsonData.refresh);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"usuario_prueba\",\n  \"password\": \"MiPassword123!\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/login/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"login",
+								""
+							]
+						},
+						"description": "Autentica un usuario y devuelve tokens JWT (access y refresh)"
+					},
+					"response": []
+				},
+				{
+					"name": "Refrescar Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"if (jsonData.access) {",
+									"    pm.environment.set(\"access_token\", jsonData.access);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"refresh\": \"{{refresh_token}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/refresh/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"refresh",
+								""
+							]
+						},
+						"description": "Obtiene un nuevo access token usando el refresh token"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Usuario Actual",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/user/me/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"me",
+								""
+							]
+						},
+						"description": "Obtiene la información del usuario autenticado"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Usuario",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"first_name\": \"Juan Carlos\",\n  \"last_name\": \"Pérez García\",\n  \"phone\": \"3001234567\",\n  \"address\": \"Calle 123 #45-67 Apto 801\",\n  \"city\": \"Bogotá\",\n  \"department\": \"Cundinamarca\",\n  \"postal_code\": \"110111\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/user/update/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"update",
+								""
+							]
+						},
+						"description": "Actualiza la información del usuario autenticado"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "📦 Categorías",
+			"item": [
+				{
+					"name": "Listar Categorías",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/categories/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories",
+								""
+							]
+						},
+						"description": "Obtiene todas las categorías disponibles"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Categoría por Slug",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/categories/celulares/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories",
+								"celulares",
+								""
+							]
+						},
+						"description": "Obtiene una categoría específica por su slug"
+					},
+					"response": []
+				},
+				{
+					"name": "Productos de una Categoría",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/categories/celulares/products/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories",
+								"celulares",
+								"products",
+								""
+							]
+						},
+						"description": "Obtiene todos los productos de una categoría"
+					},
+					"response": []
+				},
+				{
+					"name": "Productos de Categoría con Filtros",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/categories/celulares/products/?min_price=3000000&max_price=6000000&brand=apple&ordering=-price",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories",
+								"celulares",
+								"products",
+								""
+							],
+							"query": [
+								{
+									"key": "min_price",
+									"value": "3000000"
+								},
+								{
+									"key": "max_price",
+									"value": "6000000"
+								},
+								{
+									"key": "brand",
+									"value": "apple"
+								},
+								{
+									"key": "ordering",
+									"value": "-price"
+								}
+							]
+						},
+						"description": "Filtra productos de una categoría por precio, marca y ordenamiento"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "🏷️ Marcas",
+			"item": [
+				{
+					"name": "Listar Marcas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/brands/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"brands",
+								""
+							]
+						},
+						"description": "Obtiene todas las marcas disponibles"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Marca por Slug",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/brands/apple/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"brands",
+								"apple",
+								""
+							]
+						},
+						"description": "Obtiene una marca específica por su slug"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "🛍️ Productos",
+			"item": [
+				{
+					"name": "Listar Productos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/products/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								""
+							]
+						},
+						"description": "Lista todos los productos con paginación (20 por página)"
+					},
+					"response": []
+				},
+				{
+					"name": "Productos con Paginación",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/products/?page=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								""
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Obtiene productos con paginación específica"
+					},
+					"response": []
+				},
+				{
+					"name": "Filtrar por Categoría",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/products/?category=gaming",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								""
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "gaming"
+								}
+							]
+						},
+						"description": "Filtra productos por categoría"
+					},
+					"response": []
+				},
+				{
+					"name": "Filtrar por Marca",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/products/?brand=samsung",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								""
+							],
+							"query": [
+								{
+									"key": "brand",
+									"value": "samsung"
+								}
+							]
+						},
+						"description": "Filtra productos por marca"
+					},
+					"response": []
+				},
+				{
+					"name": "Filtrar por Rango de Precio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/products/?min_price=1000000&max_price=3000000",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								""
+							],
+							"query": [
+								{
+									"key": "min_price",
+									"value": "1000000"
+								},
+								{
+									"key": "max_price",
+									"value": "3000000"
+								}
+							]
+						},
+						"description": "Filtra productos por rango de precio"
+					},
+					"response": []
+				},
+				{
+					"name": "Filtrar por Rating",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/products/?min_rating=4.5",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								""
+							],
+							"query": [
+								{
+									"key": "min_rating",
+									"value": "4.5"
+								}
+							]
+						},
+						"description": "Filtra productos por rating mínimo"
+					},
+					"response": []
+				},
+				{
+					"name": "Productos Destacados",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/products/?featured=true",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								""
+							],
+							"query": [
+								{
+									"key": "featured",
+									"value": "true"
+								}
+							]
+						},
+						"description": "Obtiene solo productos destacados"
+					},
+					"response": []
+				},
+				{
+					"name": "Ordenar Productos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/products/?ordering=-price",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								""
+							],
+							"query": [
+								{
+									"key": "ordering",
+									"value": "-price",
+									"description": "Opciones: price, -price, rating, -rating, name, -created_at"
+								}
+							]
+						},
+						"description": "Ordena productos por diferentes criterios"
+					},
+					"response": []
+				},
+				{
+					"name": "Filtros Combinados",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/products/?category=celulares&brand=apple&min_price=3000000&max_price=6000000&min_rating=4.5&ordering=-rating",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								""
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "celulares"
+								},
+								{
+									"key": "brand",
+									"value": "apple"
+								},
+								{
+									"key": "min_price",
+									"value": "3000000"
+								},
+								{
+									"key": "max_price",
+									"value": "6000000"
+								},
+								{
+									"key": "min_rating",
+									"value": "4.5"
+								},
+								{
+									"key": "ordering",
+									"value": "-rating"
+								}
+							]
+						},
+						"description": "Combina múltiples filtros para búsqueda avanzada"
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Productos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/products/search/?q=iPhone",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								"search",
+								""
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "iPhone"
+								}
+							]
+						},
+						"description": "Búsqueda de productos por texto (nombre, descripción, marca, etc.)"
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar con Filtros",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/products/search/?q=smartphone&category=celulares&brand=samsung",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								"search",
+								""
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "smartphone"
+								},
+								{
+									"key": "category",
+									"value": "celulares"
+								},
+								{
+									"key": "brand",
+									"value": "samsung"
+								}
+							]
+						},
+						"description": "Búsqueda de productos con filtros adicionales"
+					},
+					"response": []
+				},
+				{
+					"name": "Productos Destacados (Endpoint)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/products/featured/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								"featured",
+								""
+							]
+						},
+						"description": "Endpoint específico para obtener productos destacados (máximo 20)"
+					},
+					"response": []
+				},
+				{
+					"name": "Detalle de Producto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/products/iphone-15-pro-max/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								"iphone-15-pro-max",
+								""
+							]
+						},
+						"description": "Obtiene los detalles completos de un producto específico"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "🛒 Carrito de Compras",
+			"item": [
+				{
+					"name": "Obtener Carrito Actual",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/cart/current/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cart",
+								"current",
+								""
+							]
+						},
+						"description": "Obtiene el carrito actual del usuario autenticado"
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar Producto al Carrito",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"product_id\": 1,\n  \"quantity\": 2\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/cart/add_item/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cart",
+								"add_item",
+								""
+							]
+						},
+						"description": "Agrega un producto al carrito (si ya existe, suma la cantidad)"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Cantidad de Item",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"item_id\": 1,\n  \"quantity\": 5\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/cart/update_item/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cart",
+								"update_item",
+								""
+							]
+						},
+						"description": "Actualiza la cantidad de un item del carrito. Si quantity es 0 o menor, elimina el item"
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Item del Carrito",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"item_id\": 1\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/cart/remove_item/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cart",
+								"remove_item",
+								""
+							]
+						},
+						"description": "Elimina un item específico del carrito"
+					},
+					"response": []
+				},
+				{
+					"name": "Vaciar Carrito",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/cart/clear/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cart",
+								"clear",
+								""
+							]
+						},
+						"description": "Elimina todos los items del carrito"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "📋 Órdenes",
+			"item": [
+				{
+					"name": "Listar Mis Órdenes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/orders/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"orders",
+								""
+							]
+						},
+						"description": "Lista todas las órdenes del usuario autenticado"
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Orden desde Carrito",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"shipping_address\": \"Calle 123 #45-67 Apto 801\",\n  \"shipping_city\": \"Bogotá\",\n  \"shipping_department\": \"Cundinamarca\",\n  \"shipping_postal_code\": \"110111\",\n  \"notes\": \"Favor llamar antes de entregar. Horario: 8am-6pm\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/orders/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"orders",
+								""
+							]
+						},
+						"description": "Crea una nueva orden a partir del carrito actual. El carrito se vacía después de crear la orden."
+					},
+					"response": []
+				},
+				{
+					"name": "Detalle de Orden",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/orders/1/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"orders",
+								"1",
+								""
+							]
+						},
+						"description": "Obtiene los detalles completos de una orden específica"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000/api",
+			"type": "string"
+		}
+	]
+}
