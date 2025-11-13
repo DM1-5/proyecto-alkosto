@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colchones y Descanso - Alkosto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="colchones.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="templates/alkosto-logo-header.svg" alt="Alkosto" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index-colchones.html">Colchones</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button class="btn btn-outline-primary me-2">
+                        <i class="bi bi-search"></i>
+                    </button>
+                    <button class="btn btn-outline-primary me-2">
+                        <i class="bi bi-heart"></i>
+                    </button>
+                    <button class="btn btn-primary">
+                        <i class="bi bi-cart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🔹 Pop-up de Mi cuenta -->
+<div id="account-popup" class="account-popup">
+  <div class="popup-content">
+    <h5>Ingresar o crear cuenta</h5>
+    <p>Accede a tus datos personales, pedidos y solicitudes de devolución.</p>
+    <input type="email" placeholder="Correo electrónico" class="form-control mb-3">
+    <button class="btn btn-warning w-100">Continuar</button>
+
+    <hr class="my-3">
+
+    <div class="extra-options">
+      <a href="#">Sigue tu pedido</a>
+      <a href="#">Descarga tu factura</a>
+    </div>
+  </div>
+</div>
+
+    <!-- Hero Banner -->
+    <section class="colchones-hero-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="colchones-hero-title">Colchones & Descanso</h1>
+                    <p class="colchones-hero-subtitle">Tu mejor descanso comienza con el colchón perfecto</p>
+                    <div class="colchones-hero-features">
+                        <div class="feature-item">
+                            <i class="bi bi-moon-stars"></i>
+                            <span>Descanso Premium</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-shield-check"></i>
+                            <span>Garantía Extendida</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-heart-pulse"></i>
+                            <span>Soporte Ortopédico</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-truck"></i>
+                            <span>Entrega e Instalación</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 colchones-hero-image">
+                    <img src="templates/c-colchones.webp" alt="Colchones" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Navigation -->
+    <section class="colchones-categories py-4">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="colchones-cat-btn" data-category="memory-foam">
+                        <i class="bi bi-cloud"></i>
+                        <span>Memory Foam</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="colchones-cat-btn" data-category="resortes">
+                        <i class="bi bi-diagram-3"></i>
+                        <span>Resortes</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="colchones-cat-btn" data-category="hibridos">
+                        <i class="bi bi-layers"></i>
+                        <span>Híbridos</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="colchones-cat-btn" data-category="latex">
+                        <i class="bi bi-tree"></i>
+                        <span>Látex</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="colchones-cat-btn" data-category="ortopedicos">
+                        <i class="bi bi-hospital"></i>
+                        <span>Ortopédicos</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="colchones-cat-btn" data-category="bases">
+                        <i class="bi bi-grid-3x3"></i>
+                        <span>Bases & Somieres</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="colchones-cat-btn" data-category="almohadas">
+                        <i class="bi bi-circle"></i>
+                        <span>Almohadas</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="colchones-cat-btn" data-category="accesorios">
+                        <i class="bi bi-plus-circle"></i>
+                        <span>Accesorios</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Filters Sidebar -->
+            <div class="col-lg-3 mb-4">
+                <div class="filters-sidebar">
+                    <h5><i class="bi bi-funnel"></i> Filtros</h5>
+
+                    <!-- Mattress Type Filter -->
+                    <div class="filter-section">
+                        <h6>Tipo de Colchón</h6>
+                        <div class="filter-option">
+                            <input type="checkbox" id="memory-foam" class="filter-checkbox" data-filter="categories" value="memory-foam">
+                            <label for="memory-foam">
+                                <span>Memory Foam</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="resortes" class="filter-checkbox" data-filter="categories" value="resortes">
+                            <label for="resortes">
+                                <span>Resortes</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="hibridos" class="filter-checkbox" data-filter="categories" value="hibridos">
+                            <label for="hibridos">
+                                <span>Híbridos</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="latex" class="filter-checkbox" data-filter="categories" value="latex">
+                            <label for="latex">
+                                <span>Látex</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="ortopedicos" class="filter-checkbox" data-filter="categories" value="ortopedicos">
+                            <label for="ortopedicos">
+                                <span>Ortopédicos</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="bases" class="filter-checkbox" data-filter="categories" value="bases">
+                            <label for="bases">
+                                <span>Bases & Somieres</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="almohadas" class="filter-checkbox" data-filter="categories" value="almohadas">
+                            <label for="almohadas">
+                                <span>Almohadas</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="accesorios" class="filter-checkbox" data-filter="categories" value="accesorios">
+                            <label for="accesorios">
+                                <span>Accesorios</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Firmness Filter -->
+                    <div class="filter-section">
+                        <h6>Firmeza</h6>
+                        <div class="filter-option">
+                            <input type="checkbox" id="suave" class="filter-checkbox" data-filter="firmness" value="suave">
+                            <label for="suave">
+                                <span>Suave</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="medio-suave" class="filter-checkbox" data-filter="firmness" value="medio-suave">
+                            <label for="medio-suave">
+                                <span>Medio Suave</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="medio" class="filter-checkbox" data-filter="firmness" value="medio">
+                            <label for="medio">
+                                <span>Medio</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="medio-firme" class="filter-checkbox" data-filter="firmness" value="medio-firme">
+                            <label for="medio-firme">
+                                <span>Medio Firme</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="firme" class="filter-checkbox" data-filter="firmness" value="firme">
+                            <label for="firme">
+                                <span>Firme</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Size Filter -->
+                    <div class="filter-section">
+                        <h6>Tamaño</h6>
+                        <div class="filter-option">
+                            <input type="checkbox" id="individual" class="filter-checkbox" data-filter="sizes" value="individual">
+                            <label for="individual">
+                                <span>Individual (90x190)</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="semi-doble" class="filter-checkbox" data-filter="sizes" value="semi-doble">
+                            <label for="semi-doble">
+                                <span>Semi Doble (120x190)</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="doble" class="filter-checkbox" data-filter="sizes" value="doble">
+                            <label for="doble">
+                                <span>Doble (140x190)</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="queen" class="filter-checkbox" data-filter="sizes" value="queen">
+                            <label for="queen">
+                                <span>Queen (160x190)</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="king" class="filter-checkbox" data-filter="sizes" value="king">
+                            <label for="king">
+                                <span>King (180x200)</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Brand Filter -->
+                    <div class="filter-section">
+                        <h6>Marcas</h6>
+                        <div class="filter-option">
+                            <input type="checkbox" id="simmons" class="filter-checkbox" data-filter="brands" value="Simmons">
+                            <label for="simmons">
+                                <span>Simmons</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="serta" class="filter-checkbox" data-filter="brands" value="Serta">
+                            <label for="serta">
+                                <span>Serta</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="sealy" class="filter-checkbox" data-filter="brands" value="Sealy">
+                            <label for="sealy">
+                                <span>Sealy</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="tempur-pedic" class="filter-checkbox" data-filter="brands" value="Tempur-Pedic">
+                            <label for="tempur-pedic">
+                                <span>Tempur-Pedic</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="purple" class="filter-checkbox" data-filter="brands" value="Purple">
+                            <label for="purple">
+                                <span>Purple</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="casper" class="filter-checkbox" data-filter="brands" value="Casper">
+                            <label for="casper">
+                                <span>Casper</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Sleep Position Filter -->
+                    <div class="filter-section">
+                        <h6>Posición al Dormir</h6>
+                        <div class="filter-option">
+                            <input type="checkbox" id="boca-arriba" class="filter-checkbox" data-filter="sleepPositions" value="boca-arriba">
+                            <label for="boca-arriba">
+                                <span>Boca Arriba</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="lado" class="filter-checkbox" data-filter="sleepPositions" value="lado">
+                            <label for="lado">
+                                <span>De Lado</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="boca-abajo" class="filter-checkbox" data-filter="sleepPositions" value="boca-abajo">
+                            <label for="boca-abajo">
+                                <span>Boca Abajo</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="combinado" class="filter-checkbox" data-filter="sleepPositions" value="combinado">
+                            <label for="combinado">
+                                <span>Combinado</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Special Features Filter -->
+                    <div class="filter-section">
+                        <h6>Características Especiales</h6>
+                        <div class="filter-option">
+                            <input type="checkbox" id="regulacion-temperatura" class="filter-checkbox" data-filter="features" value="regulacion-temperatura">
+                            <label for="regulacion-temperatura">
+                                <span>Regulación de Temperatura</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="anti-alergico" class="filter-checkbox" data-filter="features" value="anti-alergico">
+                            <label for="anti-alergico">
+                                <span>Anti-alérgico</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="edge-support" class="filter-checkbox" data-filter="features" value="edge-support">
+                            <label for="edge-support">
+                                <span>Soporte de Bordes</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="motion-isolation" class="filter-checkbox" data-filter="features" value="motion-isolation">
+                            <label for="motion-isolation">
+                                <span>Aislamiento de Movimiento</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Price Filter -->
+                    <div class="filter-section">
+                        <h6>Rango de Precio</h6>
+                        <div class="price-filter">
+                            <input type="range" class="form-range" id="priceRange" min="0" max="8000000" step="200000">
+                            <div class="price-display">
+                                <span>Precio máximo:</span>
+                                <span class="price-current" id="priceDisplay">$8,000,000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Clear Filters -->
+                    <button class="btn btn-outline-danger w-100 mt-3" id="clearFilters">
+                        <i class="bi bi-x-circle"></i> Limpiar Filtros
+                    </button>
+                </div>
+            </div>
+
+            <!-- Products Section -->
+            <div class="col-lg-9">
+                <!-- Results Header -->
+                <div class="results-header">
+                    <div class="results-info" id="resultsInfo">
+                        Mostrando colchones y accesorios de descanso
+                    </div>
+                    <div class="sort-options">
+                        <select class="form-select" id="sortSelect">
+                            <option value="featured">Destacados</option>
+                            <option value="price-low">Precio: Menor a Mayor</option>
+                            <option value="price-high">Precio: Mayor a Menor</option>
+                            <option value="rating">Mejor Calificación</option>
+                            <option value="newest">Más Nuevos</option>
+                            <option value="name">Nombre A-Z</option>
+                            <option value="brand">Marca A-Z</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be loaded here by JavaScript -->
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination-container mt-4" id="pagination">
+                    <!-- Pagination will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sleep Guide Section -->
+    <section class="sleep-guide py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-4">
+                    <h2 class="sleep-guide-title">Guía para Elegir tu Colchón Perfecto</h2>
+                    <p class="sleep-guide-subtitle">Encuentra el descanso ideal según tus necesidades</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="sleep-guide-card">
+                        <div class="guide-icon">
+                            <i class="bi bi-person-standing"></i>
+                        </div>
+                        <h4>Posición al Dormir</h4>
+                        <p>Elige la firmeza según si duermes boca arriba, de lado o boca abajo</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="sleep-guide-card">
+                        <div class="guide-icon">
+                            <i class="bi bi-thermometer-half"></i>
+                        </div>
+                        <h4>Control de Temperatura</h4>
+                        <p>Memory foam con gel o látex natural para regular la temperatura corporal</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="sleep-guide-card">
+                        <div class="guide-icon">
+                            <i class="bi bi-heart-pulse"></i>
+                        </div>
+                        <h4>Soporte Ortopédico</h4>
+                        <p>Colchones híbridos o de resortes para soporte de columna y articulaciones</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="sleep-guide-card">
+                        <div class="guide-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h4>Pareja</h4>
+                        <p>Memory foam o híbridos con aislamiento de movimiento para no molestar</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Features -->
+    <section class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="colchones-footer-features">
+                <span><i class="bi bi-truck"></i> Entrega e instalación gratuita en tu dormitorio</span>
+                <span><i class="bi bi-shield-check"></i> Garantía hasta 15 años en colchones premium</span>
+                <span><i class="bi bi-moon-stars"></i> 100 noches de prueba - devolución gratuita</span>
+                <span><i class="bi bi-credit-card"></i> Financiamiento 0% interés hasta 24 meses</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>`n    <script src="search-universal.js"></script>
+    <script src="colchones.js"></script>
+</body>
+</html>

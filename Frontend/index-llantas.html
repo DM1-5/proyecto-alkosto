@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Llantas - Alkosto</title>
+    <meta name="description" content="Encuentra las mejores llantas para tu vehículo en Alkosto. Llantas para automóviles, camionetas, motos y más. Marcas reconocidas, servicios profesionales y garantía.">
+    <meta name="keywords" content="llantas, neumáticos, automotive, automóvil, camioneta, moto, Bridgestone, Michelin, Goodyear, servicios automotriz">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link href="llantas.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <img src="templates/alkosto-logo-header.svg" alt="Alkosto" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="bi bi-house"></i> Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="bi bi-search"></i> Buscar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link position-relative" href="#">
+                            <i class="bi bi-cart"></i> Carrito
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning" id="cartCounter" style="display: none;">
+                                0
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🔹 Pop-up de Mi cuenta -->
+<div id="account-popup" class="account-popup">
+  <div class="popup-content">
+    <h5>Ingresar o crear cuenta</h5>
+    <p>Accede a tus datos personales, pedidos y solicitudes de devolución.</p>
+    <input type="email" placeholder="Correo electrónico" class="form-control mb-3">
+    <button class="btn btn-warning w-100">Continuar</button>
+
+    <hr class="my-3">
+
+    <div class="extra-options">
+      <a href="#">Sigue tu pedido</a>
+      <a href="#">Descarga tu factura</a>
+    </div>
+  </div>
+</div>
+
+    <!-- Hero Banner -->
+    <section class="llantas-hero-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="llantas-hero-title">Llantas Premium</h1>
+                    <p class="llantas-hero-subtitle">Rendimiento, seguridad y durabilidad para tu vehículo</p>
+                    <div class="llantas-hero-features">
+                        <div class="feature-item">
+                            <i class="bi bi-shield-check"></i>
+                            <span>Garantía Extendida</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-tools"></i>
+                            <span>Instalación Profesional</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-truck"></i>
+                            <span>Envío Gratis</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-award"></i>
+                            <span>Marcas Reconocidas</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="llantas-hero-image text-center">
+                        <img src="templates/c-llantas.webp" alt="Llantas Premium" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Navigation -->
+    <section class="llantas-categories py-4">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="llantas-cat-btn active" data-category="todos">
+                        <i class="bi bi-grid"></i>
+                        <span>Todas</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="llantas-cat-btn" data-category="automovil">
+                        <i class="bi bi-car-front"></i>
+                        <span>Automóvil</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="llantas-cat-btn" data-category="camioneta">
+                        <i class="bi bi-truck"></i>
+                        <span>Camioneta</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="llantas-cat-btn" data-category="moto">
+                        <i class="bi bi-bicycle"></i>
+                        <span>Moto</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="llantas-cat-btn" data-category="comercial">
+                        <i class="bi bi-truck-flatbed"></i>
+                        <span>Comercial</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="llantas-cat-btn" data-category="servicios">
+                        <i class="bi bi-wrench-adjustable"></i>
+                        <span>Servicios</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Filters Sidebar -->
+            <div class="col-lg-3 mb-4">
+                <div class="filters-sidebar">
+                    <h5><i class="bi bi-funnel"></i> Filtros</h5>
+                    
+                    <!-- Tipo de Vehículo -->
+                    <div class="filter-section">
+                        <h6>Tipo de Vehículo</h6>
+                        <div class="filter-option">
+                            <input type="checkbox" id="automovil" name="vehiculo" value="automovil">
+                            <label for="automovil">
+                                <span>Automóvil</span>
+                                <span class="count" data-count="automovil">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="camioneta" name="vehiculo" value="camioneta">
+                            <label for="camioneta">
+                                <span>Camioneta/SUV</span>
+                                <span class="count" data-count="camioneta">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="moto" name="vehiculo" value="moto">
+                            <label for="moto">
+                                <span>Motocicleta</span>
+                                <span class="count" data-count="moto">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="comercial" name="vehiculo" value="comercial">
+                            <label for="comercial">
+                                <span>Comercial</span>
+                                <span class="count" data-count="comercial">0</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Marca -->
+                    <div class="filter-section">
+                        <h6>Marca</h6>
+                        <div class="filter-option">
+                            <input type="checkbox" id="bridgestone" name="marca" value="Bridgestone">
+                            <label for="bridgestone">
+                                <span>Bridgestone</span>
+                                <span class="count" data-count="Bridgestone">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="michelin" name="marca" value="Michelin">
+                            <label for="michelin">
+                                <span>Michelin</span>
+                                <span class="count" data-count="Michelin">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="goodyear" name="marca" value="Goodyear">
+                            <label for="goodyear">
+                                <span>Goodyear</span>
+                                <span class="count" data-count="Goodyear">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="continental" name="marca" value="Continental">
+                            <label for="continental">
+                                <span>Continental</span>
+                                <span class="count" data-count="Continental">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="pirelli" name="marca" value="Pirelli">
+                            <label for="pirelli">
+                                <span>Pirelli</span>
+                                <span class="count" data-count="Pirelli">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="hankook" name="marca" value="Hankook">
+                            <label for="hankook">
+                                <span>Hankook</span>
+                                <span class="count" data-count="Hankook">0</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Medida -->
+                    <div class="filter-section">
+                        <h6>Medida Popular</h6>
+                        <div class="filter-option">
+                            <input type="checkbox" id="r13" name="medida" value="R13">
+                            <label for="r13">
+                                <span>R13</span>
+                                <span class="count" data-count="R13">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="r14" name="medida" value="R14">
+                            <label for="r14">
+                                <span>R14</span>
+                                <span class="count" data-count="R14">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="r15" name="medida" value="R15">
+                            <label for="r15">
+                                <span>R15</span>
+                                <span class="count" data-count="R15">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="r16" name="medida" value="R16">
+                            <label for="r16">
+                                <span>R16</span>
+                                <span class="count" data-count="R16">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="r17" name="medida" value="R17">
+                            <label for="r17">
+                                <span>R17</span>
+                                <span class="count" data-count="R17">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="r18" name="medida" value="R18">
+                            <label for="r18">
+                                <span>R18+</span>
+                                <span class="count" data-count="R18">0</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Temporada -->
+                    <div class="filter-section">
+                        <h6>Temporada</h6>
+                        <div class="filter-option">
+                            <input type="checkbox" id="verano" name="temporada" value="verano">
+                            <label for="verano">
+                                <span>Verano</span>
+                                <span class="count" data-count="verano">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="invierno" name="temporada" value="invierno">
+                            <label for="invierno">
+                                <span>Invierno</span>
+                                <span class="count" data-count="invierno">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="todo-terreno" name="temporada" value="todo-terreno">
+                            <label for="todo-terreno">
+                                <span>Todo Terreno</span>
+                                <span class="count" data-count="todo-terreno">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="cuatro-estaciones" name="temporada" value="cuatro-estaciones">
+                            <label for="cuatro-estaciones">
+                                <span>4 Estaciones</span>
+                                <span class="count" data-count="cuatro-estaciones">0</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Características -->
+                    <div class="filter-section">
+                        <h6>Características</h6>
+                        <div class="filter-option">
+                            <input type="checkbox" id="run-flat" name="caracteristicas" value="run-flat">
+                            <label for="run-flat">
+                                <span>Run Flat</span>
+                                <span class="count" data-count="run-flat">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="bajo-ruido" name="caracteristicas" value="bajo-ruido">
+                            <label for="bajo-ruido">
+                                <span>Bajo Ruido</span>
+                                <span class="count" data-count="bajo-ruido">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="eco-friendly" name="caracteristicas" value="eco-friendly">
+                            <label for="eco-friendly">
+                                <span>Eco Friendly</span>
+                                <span class="count" data-count="eco-friendly">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="alta-velocidad" name="caracteristicas" value="alta-velocidad">
+                            <label for="alta-velocidad">
+                                <span>Alta Velocidad</span>
+                                <span class="count" data-count="alta-velocidad">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="larga-duracion" name="caracteristicas" value="larga-duracion">
+                            <label for="larga-duracion">
+                                <span>Larga Duración</span>
+                                <span class="count" data-count="larga-duracion">0</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Precio -->
+                    <div class="filter-section">
+                        <h6>Rango de Precio</h6>
+                        <div class="price-filter">
+                            <input type="range" class="form-range" id="priceRange" min="50000" max="1500000" value="1500000" step="25000">
+                            <div class="price-display">
+                                <span class="price-current" id="priceValue">$1.500.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-outline-secondary w-100 mt-3" id="clearFilters">
+                        <i class="bi bi-arrow-clockwise"></i> Limpiar Filtros
+                    </button>
+                </div>
+            </div>
+
+            <!-- Products Section -->
+            <div class="col-lg-9">
+                <!-- Results Header -->
+                <div class="results-header">
+                    <div class="results-info" id="resultsInfo">
+                        Cargando productos...
+                    </div>
+                    <div class="sort-options">
+                        <select class="form-select" id="sortSelect">
+                            <option value="relevancia">Más Relevante</option>
+                            <option value="precio-asc">Precio: Menor a Mayor</option>
+                            <option value="precio-desc">Precio: Mayor a Menor</option>
+                            <option value="rating">Mejor Calificación</option>
+                            <option value="descuento">Mayor Descuento</option>
+                            <option value="nombre">Nombre A-Z</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be loaded here by JavaScript -->
+                </div>
+
+                <!-- Pagination -->
+                <nav aria-label="Navegación de productos" class="mt-4">
+                    <ul class="pagination justify-content-center" id="pagination">
+                        <!-- Pagination will be generated by JavaScript -->
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section class="llantas-services py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="llantas-services-title">Servicios Automotrices</h2>
+                    <p class="llantas-services-subtitle">Profesionales certificados para el cuidado de tu vehículo</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-tools"></i>
+                        </div>
+                        <h4>Instalación</h4>
+                        <p>Montaje profesional de llantas con balanceado incluido</p>
+                        <div class="service-price">Desde $25.000</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-speedometer2"></i>
+                        </div>
+                        <h4>Balanceado</h4>
+                        <p>Equilibrio perfecto para mayor durabilidad y confort</p>
+                        <div class="service-price">Desde $15.000</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-arrow-left-right"></i>
+                        </div>
+                        <h4>Alineación</h4>
+                        <p>Ajuste preciso de la dirección del vehículo</p>
+                        <div class="service-price">Desde $35.000</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-patch-check"></i>
+                        </div>
+                        <h4>Reparación</h4>
+                        <p>Parches y reparaciones menores especializadas</p>
+                        <div class="service-price">Desde $20.000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Features -->
+    <section class="py-4 bg-light">
+        <div class="container">
+            <div class="llantas-footer-features">
+                <span><i class="bi bi-truck"></i> Envío gratis en compras mayores a $200.000</span>
+                <span><i class="bi bi-shield-check"></i> Garantía hasta 5 años</span>
+                <span><i class="bi bi-tools"></i> Instalación profesional incluida</span>
+                <span><i class="bi bi-credit-card"></i> Financiación hasta 24 meses</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>`n    <script src="search-universal.js"></script>
+    <!-- Custom JS -->
+    <script src="llantas.js"></script>
+</body>
+</html>

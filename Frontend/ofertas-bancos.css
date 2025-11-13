@@ -1,0 +1,794 @@
+/* Ofertas Bancos Page Styles */
+
+/* Color Palette */
+:root {
+    --bancos-primary: #1a5f3f;
+    --bancos-secondary: #2d8659;
+    --bancos-accent: #4ade80;
+    --bancos-gold: #fbbf24;
+    --bancos-light: #f0fdf4;
+    --bancos-dark: #14532d;
+    --bancos-trust: #059669;
+    --bancos-premium: #d97706;
+    --bancos-gradient: linear-gradient(135deg, var(--bancos-primary) 0%, var(--bancos-secondary) 50%, var(--bancos-accent) 100%);
+    --bancos-shadow: 0 8px 32px rgba(26, 95, 63, 0.3);
+    --bancos-gold-gradient: linear-gradient(135deg, #fbbf24, #f59e0b);
+}
+
+/* Hero Banner */
+.bancos-hero-banner {
+    background: var(--bancos-gradient);
+    color: white;
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.bancos-hero-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="30" r="3" fill="rgba(77,222,128,0.1)" opacity="0.8"><animate attributeName="opacity" values="0.3;0.8;0.3" dur="4s" repeatCount="indefinite"/></circle><circle cx="70" cy="60" r="4" fill="rgba(251,191,36,0.1)" opacity="0.6"><animate attributeName="opacity" values="0.2;0.7;0.2" dur="5s" repeatCount="indefinite"/></circle><circle cx="50" cy="20" r="2" fill="rgba(45,134,89,0.1)" opacity="0.9"><animate attributeName="opacity" values="0.4;0.9;0.4" dur="3s" repeatCount="indefinite"/></circle><circle cx="80" cy="80" r="5" fill="rgba(5,150,105,0.1)" opacity="0.5"><animate attributeName="opacity" values="0.1;0.6;0.1" dur="6s" repeatCount="indefinite"/></circle></svg>') repeat;
+    animation: financial-flow 20s ease-in-out infinite;
+}
+
+@keyframes financial-flow {
+    0%, 100% { transform: translateX(0px) translateY(0px) scale(1); }
+    25% { transform: translateX(-15px) translateY(-10px) scale(1.02); }
+    50% { transform: translateX(-30px) translateY(-20px) scale(1.05); }
+    75% { transform: translateX(-20px) translateY(-15px) scale(1.03); }
+}
+
+.bancos-hero-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    background: linear-gradient(45deg, #fff, var(--bancos-gold));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: title-gold 8s ease-in-out infinite alternate;
+}
+
+@keyframes title-gold {
+    from { 
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        transform: scale(1);
+    }
+    to { 
+        text-shadow: 2px 2px 25px rgba(251, 191, 36, 0.8);
+        transform: scale(1.02);
+    }
+}
+
+.bancos-hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    font-weight: 400;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.bancos-hero-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.7rem 1.3rem;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    animation: feature-trust 6s ease-in-out infinite;
+}
+
+.feature-item:nth-child(1) { animation-delay: 0s; }
+.feature-item:nth-child(2) { animation-delay: 1.5s; }
+.feature-item:nth-child(3) { animation-delay: 3s; }
+.feature-item:nth-child(4) { animation-delay: 4.5s; }
+
+@keyframes feature-trust {
+    0%, 100% { 
+        transform: translateY(0px) scale(1);
+        box-shadow: 0 0 15px rgba(77, 222, 128, 0.3);
+    }
+    50% { 
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 0 25px rgba(77, 222, 128, 0.6);
+    }
+}
+
+.feature-item:hover {
+    background: rgba(45, 134, 89, 0.25);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 35px rgba(45, 134, 89, 0.4);
+}
+
+.feature-item i {
+    font-size: 1.2rem;
+    color: var(--bancos-gold);
+}
+
+.bancos-hero-image img {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 15px 35px rgba(0,0,0,0.4));
+    animation: financial-pulse 10s ease-in-out infinite;
+}
+
+@keyframes financial-pulse {
+    0%, 100% { 
+        transform: rotate(0deg) scale(1);
+        filter: drop-shadow(0 15px 35px rgba(0,0,0,0.4)) brightness(1);
+    }
+    25% { 
+        transform: rotate(0.5deg) scale(1.01);
+        filter: drop-shadow(0 15px 35px rgba(45, 134, 89, 0.3)) brightness(1.1);
+    }
+    50% { 
+        transform: rotate(0deg) scale(1.02);
+        filter: drop-shadow(0 15px 35px rgba(77, 222, 128, 0.4)) brightness(1.2);
+    }
+    75% { 
+        transform: rotate(-0.5deg) scale(1.01);
+        filter: drop-shadow(0 15px 35px rgba(45, 134, 89, 0.3)) brightness(1.1);
+    }
+}
+
+/* Category Buttons */
+.bancos-categories {
+    background: linear-gradient(to bottom, var(--bancos-light), rgba(240, 253, 244, 0.8));
+    border-bottom: 3px solid var(--bancos-primary);
+}
+
+.bancos-cat-btn {
+    background: rgba(26, 95, 63, 0.05);
+    border: 2px solid rgba(26, 95, 63, 0.2);
+    color: var(--bancos-primary);
+    padding: 0.8rem 1.5rem;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.bancos-cat-btn:hover,
+.bancos-cat-btn.active {
+    background: var(--bancos-secondary);
+    border-color: var(--bancos-secondary);
+    color: white;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(45, 134, 89, 0.4);
+}
+
+.bancos-cat-btn.active {
+    background: var(--bancos-accent);
+    border-color: var(--bancos-accent);
+}
+
+.bancos-cat-btn i {
+    font-size: 1.1rem;
+}
+
+/* Filters Sidebar */
+.filters-sidebar {
+    background: linear-gradient(145deg, #ffffff, var(--bancos-light));
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: var(--bancos-shadow);
+    position: sticky;
+    top: 20px;
+    border: 2px solid rgba(26, 95, 63, 0.1);
+}
+
+.filters-sidebar h5 {
+    color: var(--bancos-primary);
+    margin-bottom: 1.5rem;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.filters-sidebar h5 i {
+    color: var(--bancos-secondary);
+}
+
+.filter-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid rgba(26, 95, 63, 0.1);
+}
+
+.filter-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.filter-section h6 {
+    color: var(--bancos-dark);
+    margin-bottom: 1rem;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.filter-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.filter-option:hover {
+    background: rgba(45, 134, 89, 0.1);
+    transform: translateX(5px);
+}
+
+.filter-option input[type="checkbox"] {
+    margin-right: 0.75rem;
+    accent-color: var(--bancos-secondary);
+    transform: scale(1.2);
+}
+
+.filter-option label {
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.filter-option .count {
+    color: var(--bancos-secondary);
+    font-weight: 700;
+    font-size: 0.8rem;
+    background: rgba(45, 134, 89, 0.1);
+    padding: 0.2rem 0.4rem;
+    border-radius: 10px;
+}
+
+/* Price Filter */
+.price-filter {
+    padding: 1rem;
+    background: rgba(26, 95, 63, 0.05);
+    border-radius: 10px;
+}
+
+.form-range {
+    accent-color: var(--bancos-secondary);
+}
+
+.price-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.price-current {
+    color: var(--bancos-secondary);
+    font-weight: 700;
+}
+
+/* Results Header */
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--bancos-light), rgba(240, 253, 244, 0.5));
+    border-radius: 12px;
+    border-left: 4px solid var(--bancos-secondary);
+}
+
+.results-info {
+    color: var(--bancos-primary);
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sort-options select {
+    border: 2px solid var(--bancos-primary);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    background: white;
+    color: var(--bancos-primary);
+    font-weight: 600;
+}
+
+.sort-options select:focus {
+    border-color: var(--bancos-secondary);
+    box-shadow: 0 0 0 0.2rem rgba(45, 134, 89, 0.25);
+}
+
+/* Offers Grid */
+.offers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.offer-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(26, 95, 63, 0.15);
+    transition: all 0.3s ease;
+    position: relative;
+    border: 2px solid transparent;
+}
+
+.offer-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--bancos-shadow);
+    border-color: var(--bancos-accent);
+}
+
+.offer-header {
+    background: var(--bancos-gradient);
+    color: white;
+    padding: 1.5rem;
+    position: relative;
+}
+
+.bank-logo {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 50px;
+    height: 30px;
+    background: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.7rem;
+    color: var(--bancos-primary);
+}
+
+.offer-type {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.9;
+    margin-bottom: 0.5rem;
+}
+
+.offer-title {
+    font-size: 1.3rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.offer-highlight {
+    background: var(--bancos-gold);
+    color: var(--bancos-dark);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: inline-block;
+    margin-top: 0.5rem;
+    animation: highlight-glow 3s infinite;
+}
+
+@keyframes highlight-glow {
+    0%, 100% { 
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+    }
+    50% { 
+        transform: scale(1.02);
+        box-shadow: 0 0 20px rgba(251, 191, 36, 0.8);
+    }
+}
+
+.offer-content {
+    padding: 1.5rem;
+}
+
+.offer-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.offer-features li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--bancos-dark);
+}
+
+.offer-features li i {
+    color: var(--bancos-trust);
+    margin-right: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.offer-terms {
+    background: rgba(26, 95, 63, 0.05);
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.offer-terms h6 {
+    color: var(--bancos-primary);
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.terms-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+}
+
+.term-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+}
+
+.term-label {
+    color: #666;
+}
+
+.term-value {
+    font-weight: 700;
+    color: var(--bancos-secondary);
+}
+
+.btn-apply {
+    width: 100%;
+    background: var(--bancos-gold-gradient);
+    border: none;
+    color: var(--bancos-dark);
+    padding: 0.75rem;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-apply:hover {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(251, 191, 36, 0.4);
+    color: white;
+}
+
+/* Specialty Badges */
+.bank-badge {
+    background: linear-gradient(135deg, var(--bancos-primary), var(--bancos-secondary));
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.interest-badge {
+    background: linear-gradient(135deg, var(--bancos-trust), var(--bancos-accent));
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.term-badge {
+    background: linear-gradient(135deg, var(--bancos-gold), var(--bancos-premium));
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.benefit-badge {
+    background: linear-gradient(135deg, var(--bancos-secondary), var(--bancos-accent));
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+/* Financial Guide Section */
+.financial-guide {
+    background: var(--bancos-gradient);
+    color: white;
+}
+
+.financial-guide-title {
+    color: white;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.financial-guide-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.financial-guide-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.financial-guide-card:hover {
+    transform: translateY(-5px);
+    background: rgba(45, 134, 89, 0.2);
+    box-shadow: 0 10px 30px rgba(45, 134, 89, 0.3);
+}
+
+.guide-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: var(--bancos-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: guide-trust 5s ease-in-out infinite;
+}
+
+@keyframes guide-trust {
+    0%, 100% { 
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
+    }
+    50% { 
+        transform: scale(1.05);
+        box-shadow: 0 0 30px rgba(251, 191, 36, 0.6);
+    }
+}
+
+.guide-icon i {
+    font-size: 2rem;
+    color: var(--bancos-dark);
+}
+
+.financial-guide-card h4 {
+    color: white;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.financial-guide-card p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.guide-specs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.guide-specs li {
+    color: var(--bancos-accent);
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+}
+
+.guide-specs li::before {
+    content: '✓ ';
+    color: var(--bancos-gold);
+    font-weight: bold;
+}
+
+/* Trust Section */
+.trust-section {
+    background: var(--bancos-light);
+    border-top: 3px solid var(--bancos-secondary);
+}
+
+/* Footer */
+.bancos-footer-features {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.bancos-footer-features span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--bancos-primary);
+}
+
+.bancos-footer-features i {
+    color: var(--bancos-trust);
+    font-size: 1.1rem;
+}
+
+/* Pagination */
+.pagination .page-link {
+    border: 2px solid var(--bancos-primary);
+    color: var(--bancos-primary);
+    font-weight: 600;
+}
+
+.pagination .page-item.active .page-link {
+    background: var(--bancos-secondary);
+    border-color: var(--bancos-secondary);
+}
+
+.pagination .page-link:hover {
+    background: var(--bancos-light);
+    border-color: var(--bancos-secondary);
+    color: var(--bancos-secondary);
+}
+
+/* Search Box */
+.search-box {
+    position: relative;
+}
+
+.search-box input {
+    padding-right: 2.5rem;
+    border: 2px solid var(--bancos-primary);
+    border-radius: 25px;
+}
+
+.search-box input:focus {
+    border-color: var(--bancos-secondary);
+    box-shadow: 0 0 0 0.2rem rgba(45, 134, 89, 0.25);
+}
+
+.search-icon {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--bancos-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .bancos-hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .bancos-hero-features {
+        justify-content: center;
+    }
+    
+    .feature-item {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+    }
+    
+    .results-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .offers-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .bancos-footer-features {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .bancos-cat-btn {
+        font-size: 0.85rem;
+        padding: 0.6rem 1rem;
+    }
+    
+    .financial-guide-card {
+        padding: 1.5rem;
+    }
+    
+    .guide-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .guide-icon i {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .bancos-hero-title {
+        font-size: 2rem;
+    }
+    
+    .bancos-hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .feature-item {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.8rem;
+    }
+    
+    .offer-card {
+        margin: 0 auto;
+        max-width: 350px;
+    }
+    
+    .bancos-cat-btn {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.8rem;
+    }
+    
+    .financial-guide-card {
+        padding: 1rem;
+    }
+    
+    .financial-guide-title {
+        font-size: 2rem;
+    }
+    
+    .terms-grid {
+        grid-template-columns: 1fr;
+    }
+}

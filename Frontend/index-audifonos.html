@@ -1,0 +1,421 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AudÃ­fonos - Alkosto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="audifonos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header/Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #ffe400; border-bottom: 2px solid #ff6b35;">
+      <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand" href="index.html">
+          <img src="templates/alkosto-logo-header.svg" alt="Alkosto" style="height: 40px;">
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <!-- Categories Dropdown -->
+          <div class="dropdown me-3">
+            <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown">
+              <i class="bi bi-list"></i> CategorÃ­as
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="index-televisores.html"><i class="bi bi-tv"></i> Televisores</a></li>
+              <li><a class="dropdown-item" href="index-celulares.html"><i class="bi bi-phone"></i> Celulares</a></li>
+              <li><a class="dropdown-item" href="index-computadores.html"><i class="bi bi-laptop"></i> Computadores</a></li>
+              <li><a class="dropdown-item" href="index-electrohogar.html"><i class="bi bi-house"></i> Electrohogar</a></li>
+              <li><a class="dropdown-item" href="index-electro.html"><i class="bi bi-lightning"></i> Electro</a></li>
+              <li><a class="dropdown-item" href="index-gaming.html"><i class="bi bi-controller"></i> Gaming</a></li>
+              <li><a class="dropdown-item" href="index-audio.html"><i class="bi bi-speaker"></i> Audio</a></li>
+              <li><a class="dropdown-item" href="index-domotica.html"><i class="bi bi-house-gear"></i> DomÃ³tica</a></li>
+            </ul>
+          </div>
+
+          <!-- Navigation Links -->
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index-ofertas-bancos.html">Ofertas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index-hiperofertas.html">Hiperofertas</a>
+            </li>
+          </ul>
+
+          <!-- Search Form -->
+          <form class="d-flex me-3 search-form" style="min-width: 300px;">
+            <div class="input-group">
+              <input class="form-control" type="search" placeholder="Â¿QuÃ© estÃ¡s buscando?" aria-label="Search">
+              <button class="btn btn-outline-secondary" type="submit">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
+          </form>
+
+          <!-- Account & Cart -->
+          <div class="d-flex align-items-center">
+            <a href="#" class="nav-link me-3" onclick="toggleAccountPopup()">
+              <i class="bi bi-person"></i> Mi cuenta
+            </a>
+            <a href="#" class="nav-link position-relative">
+              <i class="bi bi-cart"></i> Carrito
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count">
+                0
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Audifonos Hero Banner -->
+    <section class="audifonos-hero-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="audifonos-hero-title">AudÃ­fonos</h1>
+                    <p class="audifonos-hero-subtitle">SumÃ©rgete en tu mÃºsica favorita</p>
+                    <div class="audifonos-hero-features">
+                        <span class="feature-item"><i class="bi bi-music-note-beamed"></i> Alta Fidelidad</span>
+                        <span class="feature-item"><i class="bi bi-volume-off"></i> CancelaciÃ³n de Ruido</span>
+                        <span class="feature-item"><i class="bi bi-bluetooth"></i> Conectividad InalÃ¡mbrica</span>
+                        <span class="feature-item"><i class="bi bi-battery-charging"></i> Larga DuraciÃ³n</span>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="audifonos-hero-image">
+                        <img src="templates/c-audifonos.webp" alt="AudÃ­fonos" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Filters -->
+    <section class="audifonos-categories py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex flex-wrap gap-2 justify-content-center">
+                        <button class="audifonos-cat-btn active" data-category="all">
+                            <i class="bi bi-grid-3x3-gap"></i> Todo
+                        </button>
+                        <button class="audifonos-cat-btn" data-category="over-ear">
+                            <i class="bi bi-headphones"></i> Over-Ear
+                        </button>
+                        <button class="audifonos-cat-btn" data-category="on-ear">
+                            <i class="bi bi-earbuds"></i> On-Ear
+                        </button>
+                        <button class="audifonos-cat-btn" data-category="in-ear">
+                            <i class="bi bi-music-note"></i> In-Ear
+                        </button>
+                        <button class="audifonos-cat-btn" data-category="gaming">
+                            <i class="bi bi-controller"></i> Gaming
+                        </button>
+                        <button class="audifonos-cat-btn" data-category="deportivos">
+                            <i class="bi bi-heart-pulse"></i> Deportivos
+                        </button>
+                        <button class="audifonos-cat-btn" data-category="profesionales">
+                            <i class="bi bi-broadcast"></i> Profesionales
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container my-4">
+        <div class="row">
+            <!-- Sidebar Filters -->
+            <div class="col-lg-3">
+                <div class="filters-sidebar">
+                    <h5>Filtros</h5>
+                    
+                    <!-- Category Filter -->
+                    <div class="filter-section">
+                        <h6>Tipo</h6>
+                        <div class="filter-options">
+                            <div class="filter-option">
+                                <input type="checkbox" id="cat-over" name="categoria" value="over-ear">
+                                <label for="cat-over">Over-Ear <span class="count">(6)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="cat-on" name="categoria" value="on-ear">
+                                <label for="cat-on">On-Ear <span class="count">(4)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="cat-in" name="categoria" value="in-ear">
+                                <label for="cat-in">In-Ear <span class="count">(6)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="cat-gaming" name="categoria" value="gaming">
+                                <label for="cat-gaming">Gaming <span class="count">(4)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="cat-deportivos" name="categoria" value="deportivos">
+                                <label for="cat-deportivos">Deportivos <span class="count">(3)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="cat-pro" name="categoria" value="profesionales">
+                                <label for="cat-pro">Profesionales <span class="count">(2)</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Brand Filter -->
+                    <div class="filter-section">
+                        <h6>Marca</h6>
+                        <div class="filter-options">
+                            <div class="filter-option">
+                                <input type="checkbox" id="brand-sony" name="marca" value="sony">
+                                <label for="brand-sony">Sony <span class="count">(5)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="brand-apple" name="marca" value="apple">
+                                <label for="brand-apple">Apple <span class="count">(3)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="brand-bose" name="marca" value="bose">
+                                <label for="brand-bose">Bose <span class="count">(4)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="brand-samsung" name="marca" value="samsung">
+                                <label for="brand-samsung">Samsung <span class="count">(3)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="brand-jbl" name="marca" value="jbl">
+                                <label for="brand-jbl">JBL <span class="count">(4)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="brand-sennheiser" name="marca" value="sennheiser">
+                                <label for="brand-sennheiser">Sennheiser <span class="count">(3)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="brand-beats" name="marca" value="beats">
+                                <label for="brand-beats">Beats <span class="count">(3)</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Connectivity Filter -->
+                    <div class="filter-section">
+                        <h6>Conectividad</h6>
+                        <div class="filter-options">
+                            <div class="filter-option">
+                                <input type="checkbox" id="conn-bluetooth" name="conectividad" value="bluetooth">
+                                <label for="conn-bluetooth">Bluetooth <span class="count">(22)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="conn-wireless" name="conectividad" value="inalambrico">
+                                <label for="conn-wireless">InalÃ¡mbrico <span class="count">(20)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="conn-wired" name="conectividad" value="cableado">
+                                <label for="conn-wired">Con Cable <span class="count">(8)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="conn-usb-c" name="conectividad" value="usb-c">
+                                <label for="conn-usb-c">USB-C <span class="count">(15)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="conn-lightning" name="conectividad" value="lightning">
+                                <label for="conn-lightning">Lightning <span class="count">(3)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="conn-jack" name="conectividad" value="3.5mm">
+                                <label for="conn-jack">Jack 3.5mm <span class="count">(12)</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Audio Features Filter -->
+                    <div class="filter-section">
+                        <h6>CaracterÃ­sticas de Audio</h6>
+                        <div class="filter-options">
+                            <div class="filter-option">
+                                <input type="checkbox" id="audio-anc" name="audio" value="cancelacion-ruido">
+                                <label for="audio-anc">CancelaciÃ³n de Ruido <span class="count">(12)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="audio-hifi" name="audio" value="alta-fidelidad">
+                                <label for="audio-hifi">Alta Fidelidad <span class="count">(18)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="audio-bass" name="audio" value="extra-bass">
+                                <label for="audio-bass">Extra Bass <span class="count">(10)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="audio-spatial" name="audio" value="audio-espacial">
+                                <label for="audio-spatial">Audio Espacial <span class="count">(8)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="audio-adaptive" name="audio" value="sonido-adaptativo">
+                                <label for="audio-adaptive">Sonido Adaptativo <span class="count">(6)</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Special Features Filter -->
+                    <div class="filter-section">
+                        <h6>Funciones Especiales</h6>
+                        <div class="filter-options">
+                            <div class="filter-option">
+                                <input type="checkbox" id="feat-water" name="caracteristicas" value="resistente-agua">
+                                <label for="feat-water">Resistente al Agua <span class="count">(8)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="feat-mic" name="caracteristicas" value="microfono-integrado">
+                                <label for="feat-mic">MicrÃ³fono Integrado <span class="count">(20)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="feat-touch" name="caracteristicas" value="controles-tactiles">
+                                <label for="feat-touch">Controles TÃ¡ctiles <span class="count">(15)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="feat-assistant" name="caracteristicas" value="asistente-voz">
+                                <label for="feat-assistant">Asistente de Voz <span class="count">(12)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="feat-wireless-charge" name="caracteristicas" value="carga-inalambrica">
+                                <label for="feat-wireless-charge">Carga InalÃ¡mbrica <span class="count">(6)</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Battery Life Filter -->
+                    <div class="filter-section">
+                        <h6>DuraciÃ³n de BaterÃ­a</h6>
+                        <div class="filter-options">
+                            <div class="filter-option">
+                                <input type="checkbox" id="battery-5-10" name="bateria" value="5-10-horas">
+                                <label for="battery-5-10">5-10 horas <span class="count">(8)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="battery-10-20" name="bateria" value="10-20-horas">
+                                <label for="battery-10-20">10-20 horas <span class="count">(7)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="battery-20-30" name="bateria" value="20-30-horas">
+                                <label for="battery-20-30">20-30 horas <span class="count">(6)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="battery-30plus" name="bateria" value="30-horas-mas">
+                                <label for="battery-30plus">30+ horas <span class="count">(4)</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Price Filter -->
+                    <div class="filter-section">
+                        <h6>Precio</h6>
+                        <div class="price-filter">
+                            <input type="range" id="price-range" min="0" max="2000000" value="2000000" class="form-range">
+                            <div class="price-display">
+                                <span>$0</span>
+                                <div class="price-current">Hasta: <strong>$2.000.000</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="col-lg-9">
+                <!-- Results Header -->
+                <div class="results-header">
+                    <div class="results-info">
+                        <span>Mostrando <span id="showing-count">25</span> de <span id="total-count">25</span> productos</span>
+                    </div>
+                    <div class="sort-options">
+                        <select id="sort-select" class="form-select">
+                            <option value="relevancia">Relevancia</option>
+                            <option value="precio-menor">Precio: Menor a Mayor</option>
+                            <option value="precio-mayor">Precio: Mayor a Menor</option>
+                            <option value="mejor-valorados">Mejor Valorados</option>
+                            <option value="mas-vendidos">MÃ¡s Vendidos</option>
+                            <option value="descuento">Mayor Descuento</option>
+                            <option value="bateria">Mayor DuraciÃ³n BaterÃ­a</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="products-grid" id="products-grid">
+                    <!-- Products will be rendered here by JavaScript -->
+                </div>
+
+                <!-- Pagination -->
+                <nav aria-label="PaginaciÃ³n de productos" class="mt-4">
+                    <ul class="pagination justify-content-center" id="pagination">
+                        <!-- Pagination will be rendered here -->
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h6>AudÃ­fonos - Alkosto</h6>
+                    <p>La mejor experiencia de audio para tus oÃ­dos</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="audifonos-footer-features">
+                        <span><i class="bi bi-truck"></i> EnvÃ­o gratis</span>
+                        <span><i class="bi bi-shield-check"></i> GarantÃ­a</span>
+                        <span><i class="bi bi-headset"></i> Soporte</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Account Popup -->
+    <div id="account-popup" class="account-popup" style="display: none;">
+      <div class="account-options">
+        <div class="account-option" onclick="login()">
+          <i class="bi bi-box-arrow-in-right"></i>
+          <span>Iniciar SesiÃ³n</span>
+        </div>
+        <div class="account-option" onclick="createAccount()">
+          <i class="bi bi-person-plus"></i>
+          <span>Crear Cuenta</span>
+        </div>
+        <div class="account-option" onclick="viewOrders()">
+          <i class="bi bi-bag-check"></i>
+          <span>Mis Pedidos</span>
+        </div>
+        <div class="account-option" onclick="viewWishlist()">
+          <i class="bi bi-heart"></i>
+          <span>Lista de Deseos</span>
+        </div>
+        <div class="account-option" onclick="accountSettings()">
+          <i class="bi bi-gear"></i>
+          <span>ConfiguraciÃ³n</span>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>`n    <script src="search-universal.js"></script>
+    <script type="module">
+    import universalLoader from './js/universal-category-loader.js';
+    window.addEventListener('DOMContentLoaded', async () => { await universalLoader.inicializar(); });
+  </script>
+  
+  <script src="audifonos.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cámaras - Alkosto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="camaras.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header/Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #ffe400; border-bottom: 2px solid #ff6b35;">
+      <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand" href="index.html">
+          <img src="templates/alkosto-logo-header.svg" alt="Alkosto" style="height: 40px;">
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <!-- Categories Dropdown -->
+          <div class="dropdown me-3">
+            <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown">
+              <i class="bi bi-list"></i> Categorías
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="index-televisores.html"><i class="bi bi-tv"></i> Televisores</a></li>
+              <li><a class="dropdown-item" href="index-celulares.html"><i class="bi bi-phone"></i> Celulares</a></li>
+              <li><a class="dropdown-item" href="index-computadores.html"><i class="bi bi-laptop"></i> Computadores</a></li>
+              <li><a class="dropdown-item" href="index-electrohogar.html"><i class="bi bi-house"></i> Electrohogar</a></li>
+              <li><a class="dropdown-item" href="index-electro.html"><i class="bi bi-lightning"></i> Electro</a></li>
+              <li><a class="dropdown-item" href="index-gaming.html"><i class="bi bi-controller"></i> Gaming</a></li>
+              <li><a class="dropdown-item" href="index-audio.html"><i class="bi bi-speaker"></i> Audio</a></li>
+              <li><a class="dropdown-item" href="index-domotica.html"><i class="bi bi-house-gear"></i> Domótica</a></li>
+            </ul>
+          </div>
+
+          <!-- Navigation Links -->
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index-ofertas-bancos.html">Ofertas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index-hiperofertas.html">Hiperofertas</a>
+            </li>
+          </ul>
+
+          <!-- Search Form -->
+          <form class="d-flex me-3 search-form" style="min-width: 300px;">
+            <div class="input-group">
+              <input class="form-control" type="search" placeholder="¿Qué estás buscando?" aria-label="Search">
+              <button class="btn btn-outline-secondary" type="submit">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
+          </form>
+
+          <!-- Account & Cart -->
+          <div class="d-flex align-items-center">
+            <a href="#" class="nav-link me-3" onclick="toggleAccountPopup()">
+              <i class="bi bi-person"></i> Mi cuenta
+            </a>
+            <a href="#" class="nav-link position-relative">
+              <i class="bi bi-cart"></i> Carrito
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count">
+                0
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Camaras Hero Banner -->
+    <section class="camaras-hero-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="camaras-hero-title">Cámaras</h1>
+                    <p class="camaras-hero-subtitle">Captura cada momento con la mejor calidad</p>
+                    <div class="camaras-hero-features">
+                        <span class="feature-item"><i class="bi bi-camera"></i> Alta Resolución</span>
+                        <span class="feature-item"><i class="bi bi-play-circle"></i> Video 4K</span>
+                        <span class="feature-item"><i class="bi bi-wifi"></i> Conectividad</span>
+                        <span class="feature-item"><i class="bi bi-eye"></i> Enfoque Automático</span>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="camaras-hero-image">
+                        <img src="templates/c-camera-2.webp" alt="Cámaras" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Filters -->
+    <section class="camaras-categories py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex flex-wrap gap-2 justify-content-center">
+                        <button class="camaras-cat-btn active" data-category="all">
+                            <i class="bi bi-grid-3x3-gap"></i> Todo
+                        </button>
+                        <button class="camaras-cat-btn" data-category="dslr">
+                            <i class="bi bi-camera-reels"></i> DSLR
+                        </button>
+                        <button class="camaras-cat-btn" data-category="mirrorless">
+                            <i class="bi bi-camera"></i> Mirrorless
+                        </button>
+                        <button class="camaras-cat-btn" data-category="compacta">
+                            <i class="bi bi-camera-fill"></i> Compacta
+                        </button>
+                        <button class="camaras-cat-btn" data-category="accion">
+                            <i class="bi bi-camera-video"></i> Acción
+                        </button>
+                        <button class="camaras-cat-btn" data-category="instantanea">
+                            <i class="bi bi-images"></i> Instantánea
+                        </button>
+                        <button class="camaras-cat-btn" data-category="profesional">
+                            <i class="bi bi-broadcast"></i> Profesional
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container my-4">
+        <div class="row">
+            <!-- Sidebar Filters -->
+            <div class="col-lg-3">
+                <div class="filters-sidebar">
+                    <h5>Filtros</h5>
+                    
+                    <!-- Category Filter -->
+                    <div class="filter-section">
+                        <h6>Tipo de Cámara</h6>
+                        <div class="filter-options">
+                            <div class="filter-option">
+                                <input type="checkbox" id="cat-dslr" name="categoria" value="dslr">
+                                <label for="cat-dslr">DSLR <span class="count">(5)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="cat-mirrorless" name="categoria" value="mirrorless">
+                                <label for="cat-mirrorless">Mirrorless <span class="count">(6)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="cat-compacta" name="categoria" value="compacta">
+                                <label for="cat-compacta">Compacta <span class="count">(4)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="cat-accion" name="categoria" value="accion">
+                                <label for="cat-accion">Acción <span class="count">(4)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="cat-instantanea" name="categoria" value="instantanea">
+                                <label for="cat-instantanea">Instantánea <span class="count">(3)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="cat-profesional" name="categoria" value="profesional">
+                                <label for="cat-profesional">Profesional <span class="count">(3)</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Brand Filter -->
+                    <div class="filter-section">
+                        <h6>Marca</h6>
+                        <div class="filter-options">
+                            <div class="filter-option">
+                                <input type="checkbox" id="brand-canon" name="marca" value="canon">
+                                <label for="brand-canon">Canon <span class="count">(6)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="brand-nikon" name="marca" value="nikon">
+                                <label for="brand-nikon">Nikon <span class="count">(5)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="brand-sony" name="marca" value="sony">
+                                <label for="brand-sony">Sony <span class="count">(6)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="brand-fujifilm" name="marca" value="fujifilm">
+                                <label for="brand-fujifilm">Fujifilm <span class="count">(4)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="brand-gopro" name="marca" value="gopro">
+                                <label for="brand-gopro">GoPro <span class="count">(4)</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resolution Filter -->
+                    <div class="filter-section">
+                        <h6>Resolución</h6>
+                        <div class="filter-options">
+                            <div class="filter-option">
+                                <input type="checkbox" id="res-12mp" name="resolucion" value="12-mp">
+                                <label for="res-12mp">12-20 MP <span class="count">(5)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="res-24mp" name="resolucion" value="24-mp">
+                                <label for="res-24mp">20-30 MP <span class="count">(8)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="res-32mp" name="resolucion" value="32-mp">
+                                <label for="res-32mp">30-45 MP <span class="count">(6)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="res-45mp" name="resolucion" value="45-mp">
+                                <label for="res-45mp">45+ MP <span class="count">(4)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="res-4k" name="resolucion" value="4k-video">
+                                <label for="res-4k">Video 4K <span class="count">(18)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="res-8k" name="resolucion" value="8k-video">
+                                <label for="res-8k">Video 8K <span class="count">(6)</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photo Features Filter -->
+                    <div class="filter-section">
+                        <h6>Características Fotográficas</h6>
+                        <div class="filter-options">
+                            <div class="filter-option">
+                                <input type="checkbox" id="feat-autofocus" name="caracteristicas" value="enfoque-automatico">
+                                <label for="feat-autofocus">Enfoque Automático <span class="count">(22)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="feat-stabilization" name="caracteristicas" value="estabilizacion-imagen">
+                                <label for="feat-stabilization">Estabilización <span class="count">(18)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="feat-touchscreen" name="caracteristicas" value="pantalla-tactil">
+                                <label for="feat-touchscreen">Pantalla Táctil <span class="count">(15)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="feat-viewfinder" name="caracteristicas" value="visor-electronico">
+                                <label for="feat-viewfinder">Visor Electrónico <span class="count">(16)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="feat-burst" name="caracteristicas" value="modo-rafaga">
+                                <label for="feat-burst">Modo Ráfaga <span class="count">(20)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="feat-hdr" name="caracteristicas" value="hdr">
+                                <label for="feat-hdr">HDR <span class="count">(17)</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Connectivity Filter -->
+                    <div class="filter-section">
+                        <h6>Conectividad</h6>
+                        <div class="filter-options">
+                            <div class="filter-option">
+                                <input type="checkbox" id="conn-wifi" name="conectividad" value="wifi">
+                                <label for="conn-wifi">WiFi <span class="count">(20)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="conn-bluetooth" name="conectividad" value="bluetooth">
+                                <label for="conn-bluetooth">Bluetooth <span class="count">(18)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="conn-nfc" name="conectividad" value="nfc">
+                                <label for="conn-nfc">NFC <span class="count">(12)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="conn-usb" name="conectividad" value="usb-c">
+                                <label for="conn-usb">USB-C <span class="count">(15)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="conn-hdmi" name="conectividad" value="hdmi">
+                                <label for="conn-hdmi">HDMI <span class="count">(14)</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Special Features Filter -->
+                    <div class="filter-section">
+                        <h6>Funciones Especiales</h6>
+                        <div class="filter-options">
+                            <div class="filter-option">
+                                <input type="checkbox" id="spec-weather" name="especiales" value="resistente-clima">
+                                <label for="spec-weather">Resistente al Clima <span class="count">(8)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="spec-lowlight" name="especiales" value="poca-luz">
+                                <label for="spec-lowlight">Fotografía Nocturna <span class="count">(14)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="spec-macro" name="especiales" value="macro">
+                                <label for="spec-macro">Fotografía Macro <span class="count">(10)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="spec-sports" name="especiales" value="deportes">
+                                <label for="spec-sports">Modo Deportes <span class="count">(16)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="spec-portrait" name="especiales" value="retrato">
+                                <label for="spec-portrait">Modo Retrato <span class="count">(19)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="spec-timelapse" name="especiales" value="timelapse">
+                                <label for="spec-timelapse">Time-lapse <span class="count">(12)</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Battery Life Filter -->
+                    <div class="filter-section">
+                        <h6>Duración de Batería</h6>
+                        <div class="filter-options">
+                            <div class="filter-option">
+                                <input type="checkbox" id="battery-200" name="bateria" value="200-fotos">
+                                <label for="battery-200">200-400 fotos <span class="count">(6)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="battery-500" name="bateria" value="500-fotos">
+                                <label for="battery-500">400-700 fotos <span class="count">(8)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="battery-800" name="bateria" value="800-fotos">
+                                <label for="battery-800">700-1000 fotos <span class="count">(7)</span></label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="battery-1000" name="bateria" value="1000-fotos">
+                                <label for="battery-1000">1000+ fotos <span class="count">(4)</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Price Filter -->
+                    <div class="filter-section">
+                        <h6>Precio</h6>
+                        <div class="price-filter">
+                            <input type="range" id="price-range" min="0" max="15000000" value="15000000" class="form-range">
+                            <div class="price-display">
+                                <span>$0</span>
+                                <div class="price-current">Hasta: <strong>$15.000.000</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="col-lg-9">
+                <!-- Results Header -->
+                <div class="results-header">
+                    <div class="results-info">
+                        <span>Mostrando <span id="showing-count">25</span> de <span id="total-count">25</span> productos</span>
+                    </div>
+                    <div class="sort-options">
+                        <select id="sort-select" class="form-select">
+                            <option value="relevancia">Relevancia</option>
+                            <option value="precio-menor">Precio: Menor a Mayor</option>
+                            <option value="precio-mayor">Precio: Mayor a Menor</option>
+                            <option value="mejor-valorados">Mejor Valorados</option>
+                            <option value="mas-vendidos">Más Vendidos</option>
+                            <option value="descuento">Mayor Descuento</option>
+                            <option value="resolucion">Mayor Resolución</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="products-grid" id="products-grid">
+                    <!-- Products will be rendered here by JavaScript -->
+                </div>
+
+                <!-- Pagination -->
+                <nav aria-label="Paginación de productos" class="mt-4">
+                    <ul class="pagination justify-content-center" id="pagination">
+                        <!-- Pagination will be rendered here -->
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h6>Cámaras - Alkosto</h6>
+                    <p>Captura la vida con la mejor tecnología fotográfica</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="camaras-footer-features">
+                        <span><i class="bi bi-truck"></i> Envío gratis</span>
+                        <span><i class="bi bi-shield-check"></i> Garantía</span>
+                        <span><i class="bi bi-headset"></i> Soporte</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Account Popup -->
+    <div id="account-popup" class="account-popup" style="display: none;">
+      <div class="account-options">
+        <div class="account-option" onclick="login()">
+          <i class="bi bi-box-arrow-in-right"></i>
+          <span>Iniciar Sesión</span>
+        </div>
+        <div class="account-option" onclick="createAccount()">
+          <i class="bi bi-person-plus"></i>
+          <span>Crear Cuenta</span>
+        </div>
+        <div class="account-option" onclick="viewOrders()">
+          <i class="bi bi-bag-check"></i>
+          <span>Mis Pedidos</span>
+        </div>
+        <div class="account-option" onclick="viewWishlist()">
+          <i class="bi bi-heart"></i>
+          <span>Lista de Deseos</span>
+        </div>
+        <div class="account-option" onclick="accountSettings()">
+          <i class="bi bi-gear"></i>
+          <span>Configuración</span>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>`n    <script src="search-universal.js"></script>
+    <script src="camaras.js"></script>
+</body>
+</html>

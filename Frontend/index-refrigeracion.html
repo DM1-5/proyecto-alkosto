@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refrigeración - Alkosto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="refrigeracion.css">
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="templates/alkosto-logo-header.svg" alt="Alkosto" height="40">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                            Categorías
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="index-celulares.html">Celulares</a></li>
+                            <li><a class="dropdown-item" href="index-electro.html">Electrodomésticos</a></li>
+                            <li><a class="dropdown-item" href="index-computadores.html">Computadores</a></li>
+                            <li><a class="dropdown-item" href="index-televisores.html">Televisores</a></li>
+                            <li><a class="dropdown-item" href="index-refrigeracion.html">Refrigeración</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <div class="d-flex align-items-center gap-3">
+                    <div class="search-box">
+                        <input type="text" class="form-control" placeholder="Buscar refrigeración..." id="searchInput">
+                        <i class="bi bi-search search-icon"></i>
+                    </div>
+                    <a href="#" class="position-relative">
+                        <i class="bi bi-cart3 fs-4"></i>
+                        <span class="cart-count badge bg-danger position-absolute top-0 start-100 translate-middle">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🔹 Pop-up de Mi cuenta -->
+    <div id="account-popup" class="account-popup">
+        <div class="popup-content">
+            <h5>Ingresar o crear cuenta</h5>
+            <p>Accede a tus datos personales, pedidos y solicitudes de devolución.</p>
+            <input type="email" placeholder="Correo electrónico" class="form-control mb-3">
+            <button class="btn btn-warning w-100">Continuar</button>
+
+            <hr class="my-3">
+
+            <div class="extra-options">
+                <a href="#">Sigue tu pedido</a>
+                <a href="#">Descarga tu factura</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Banner -->
+    <section class="refrigeracion-hero-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="refrigeracion-hero-title">Refrigeración y Climatización</h1>
+                    <p class="refrigeracion-hero-subtitle">Mantén todo fresco con la mejor tecnología en refrigeración</p>
+                    <div class="refrigeracion-hero-features">
+                        <div class="feature-item">
+                            <i class="bi bi-thermometer-snow"></i>
+                            <span>Eficiencia Energética</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-award"></i>
+                            <span>Garantía Extendida</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-tools"></i>
+                            <span>Instalación Incluida</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-shield-check"></i>
+                            <span>Soporte Técnico</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="refrigeracion-hero-image">
+                        <img src="templates/c-refrigeracion.webp" alt="Refrigeración" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Navigation -->
+    <section class="refrigeracion-categories py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex flex-wrap gap-2 justify-content-center">
+                        <button class="refrigeracion-cat-btn active" data-category="todos">
+                            <i class="bi bi-grid-3x3-gap"></i> Todos
+                        </button>
+                        <button class="refrigeracion-cat-btn" data-category="neveras">
+                            <i class="bi bi-thermometer-snow"></i> Neveras
+                        </button>
+                        <button class="refrigeracion-cat-btn" data-category="congeladores">
+                            <i class="bi bi-snow"></i> Congeladores
+                        </button>
+                        <button class="refrigeracion-cat-btn" data-category="aire-acondicionado">
+                            <i class="bi bi-wind"></i> Aire Acondicionado
+                        </button>
+                        <button class="refrigeracion-cat-btn" data-category="nevecones">
+                            <i class="bi bi-box"></i> Nevecones
+                        </button>
+                        <button class="refrigeracion-cat-btn" data-category="vinotecas">
+                            <i class="bi bi-cup"></i> Vinotecas
+                        </button>
+                        <button class="refrigeracion-cat-btn" data-category="minibar">
+                            <i class="bi bi-house"></i> Minibar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Energy Efficiency Alert -->
+    <section class="efficiency-alert">
+        <div class="container">
+            <div class="alert alert-success d-flex align-items-center" role="alert">
+                <i class="bi bi-lightning-charge-fill me-3 fs-4"></i>
+                <div>
+                    <strong>¡Ahorra en tu factura eléctrica!</strong> Todos nuestros electrodomésticos cuentan con certificación energética A+ o superior.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="filters-section py-4">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar Filters -->
+                <div class="col-lg-3">
+                    <div class="filters-sidebar">
+                        <h5 class="filters-title">
+                            <i class="bi bi-funnel me-2"></i>Filtros
+                        </h5>
+                        
+                        <!-- Capacity Filter -->
+                        <div class="filter-group">
+                            <h6 class="filter-group-title">Capacidad</h6>
+                            <div class="filter-options">
+                                <div class="filter-option">
+                                    <input type="checkbox" id="cap-small" name="capacity" value="pequena">
+                                    <label for="cap-small">Hasta 300L</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="cap-medium" name="capacity" value="mediana">
+                                    <label for="cap-medium">300L - 500L</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="cap-large" name="capacity" value="grande">
+                                    <label for="cap-large">500L - 700L</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="cap-xlarge" name="capacity" value="extragrande">
+                                    <label for="cap-xlarge">Más de 700L</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Energy Efficiency Filter -->
+                        <div class="filter-group">
+                            <h6 class="filter-group-title">Eficiencia Energética</h6>
+                            <div class="filter-options">
+                                <div class="filter-option">
+                                    <input type="checkbox" id="efficiency-a" name="efficiency" value="a+++">
+                                    <label for="efficiency-a">A+++</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="efficiency-b" name="efficiency" value="a++">
+                                    <label for="efficiency-b">A++</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="efficiency-c" name="efficiency" value="a+">
+                                    <label for="efficiency-c">A+</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Brand Filter -->
+                        <div class="filter-group">
+                            <h6 class="filter-group-title">Marca</h6>
+                            <div class="filter-options">
+                                <div class="filter-option">
+                                    <input type="checkbox" id="brand-lg" name="brand" value="lg">
+                                    <label for="brand-lg">LG</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="brand-samsung" name="brand" value="samsung">
+                                    <label for="brand-samsung">Samsung</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="brand-whirlpool" name="brand" value="whirlpool">
+                                    <label for="brand-whirlpool">Whirlpool</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="brand-electrolux" name="brand" value="electrolux">
+                                    <label for="brand-electrolux">Electrolux</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="brand-haceb" name="brand" value="haceb">
+                                    <label for="brand-haceb">Haceb</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Price Range Filter -->
+                        <div class="filter-group">
+                            <h6 class="filter-group-title">Rango de Precio</h6>
+                            <div class="filter-options">
+                                <div class="filter-option">
+                                    <input type="checkbox" id="price-1" name="price-range" value="500000">
+                                    <label for="price-1">Hasta $500.000</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="price-2" name="price-range" value="1000000">
+                                    <label for="price-2">$500.000 - $1.000.000</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="price-3" name="price-range" value="2000000">
+                                    <label for="price-3">$1.000.000 - $2.000.000</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="price-4" name="price-range" value="3000000">
+                                    <label for="price-4">$2.000.000 - $3.000.000</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="price-5" name="price-range" value="3000001">
+                                    <label for="price-5">Más de $3.000.000</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Features Filter -->
+                        <div class="filter-group">
+                            <h6 class="filter-group-title">Características</h6>
+                            <div class="filter-options">
+                                <div class="filter-option">
+                                    <input type="checkbox" id="feat-nofrost" name="features" value="no-frost">
+                                    <label for="feat-nofrost">No Frost</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="feat-inverter" name="features" value="inverter">
+                                    <label for="feat-inverter">Inverter</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="feat-smart" name="features" value="smart">
+                                    <label for="feat-smart">Smart / WiFi</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="feat-dispensador" name="features" value="dispensador">
+                                    <label for="feat-dispensador">Dispensador Agua</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="feat-display" name="features" value="display">
+                                    <label for="feat-display">Display Digital</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="col-lg-9">
+                    <!-- Sorting and Results -->
+                    <div class="sorting-section d-flex justify-content-between align-items-center mb-4">
+                        <div class="results-count">
+                            <span id="resultsCount">Loading...</span>
+                        </div>
+                        <div class="sorting-controls">
+                            <select class="form-select" id="sortSelect">
+                                <option value="featured">Destacados</option>
+                                <option value="price-low">Precio: Menor a Mayor</option>
+                                <option value="price-high">Precio: Mayor a Menor</option>
+                                <option value="capacity">Capacidad</option>
+                                <option value="efficiency">Eficiencia Energética</option>
+                                <option value="rating">Mejor Valorados</option>
+                                <option value="newest">Más Nuevos</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Products Grid -->
+                    <div class="row" id="productsGrid">
+                        <!-- Products will be loaded here by JavaScript -->
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination-container mt-5">
+                        <nav aria-label="Navegación de productos">
+                            <div id="pagination"></div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section py-5 bg-light">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <div class="benefit-item">
+                        <i class="bi bi-truck benefit-icon"></i>
+                        <h5>Entrega e Instalación</h5>
+                        <p>Instalación profesional incluida en toda Colombia</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="benefit-item">
+                        <i class="bi bi-shield-check benefit-icon"></i>
+                        <h5>Garantía Extendida</h5>
+                        <p>Hasta 3 años de garantía en todos los productos</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="benefit-item">
+                        <i class="bi bi-credit-card benefit-icon"></i>
+                        <h5>Financiación</h5>
+                        <p>Hasta 36 meses sin intereses con tarjetas aliadas</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="benefit-item">
+                        <i class="bi bi-tools benefit-icon"></i>
+                        <h5>Soporte Técnico</h5>
+                        <p>Servicio técnico especializado 24/7</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section py-4 bg-primary text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h4>¡No te pierdas las ofertas en refrigeración!</h4>
+                    <p class="mb-0">Suscríbete y recibe descuentos exclusivos en electrodomésticos</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Tu correo electrónico" id="newsletterEmail">
+                        <button class="btn btn-warning" type="button" onclick="subscribeNewsletter()">Suscribirse</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>`n    <script src="search-universal.js"></script>
+    <!-- Custom JS -->
+    <script src="refrigeracion.js"></script>
+</body>
+</html>

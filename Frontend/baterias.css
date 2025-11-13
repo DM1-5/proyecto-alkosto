@@ -1,0 +1,722 @@
+/* Baterías Page Styles */
+
+:root {
+    /* Battery Color Palette - Electric Blues and Energy Yellows */
+    --baterias-primary: #2563eb;
+    --baterias-secondary: #1e40af;
+    --baterias-accent: #3b82f6;
+    --baterias-energy: #eab308;
+    --baterias-power: #f59e0b;
+    --baterias-light: #dbeafe;
+    --baterias-electric: #06b6d4;
+    --baterias-volt: #10b981;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+    --success-color: #22c55e;
+    --warning-color: #f59e0b;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+}
+
+/* Header Styles */
+.navbar {
+    box-shadow: 0 2px 10px rgba(37, 99, 235, 0.1);
+}
+
+.navbar-brand img {
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover img {
+    transform: scale(1.05);
+}
+
+.search-box {
+    position: relative;
+    min-width: 300px;
+}
+
+.search-box input {
+    padding-right: 40px;
+    border: 2px solid var(--baterias-light);
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+    border-color: var(--baterias-primary);
+    box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.25);
+}
+
+.search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--baterias-primary);
+}
+
+.cart-count {
+    font-size: 0.75rem;
+}
+
+/* Account Popup */
+.account-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: popupSlideIn 0.3s ease-out;
+}
+
+@keyframes popupSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.popup-content h5 {
+    color: var(--baterias-primary);
+    margin-bottom: 1rem;
+}
+
+.popup-content .extra-options a {
+    color: var(--baterias-secondary);
+    text-decoration: none;
+    display: block;
+    margin: 0.5rem 0;
+    transition: color 0.3s ease;
+}
+
+.popup-content .extra-options a:hover {
+    color: var(--baterias-primary);
+}
+
+/* Hero Banner */
+.baterias-hero-banner {
+    background: linear-gradient(135deg, var(--baterias-light) 0%, #f8fafc 100%);
+    padding: 4rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.baterias-hero-banner::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: energyPulse 4s ease-in-out infinite;
+}
+
+@keyframes energyPulse {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.3; }
+    50% { transform: scale(1.2) rotate(180deg); opacity: 0.6; }
+}
+
+.baterias-hero-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--baterias-primary), var(--baterias-energy));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    animation: titleSlideIn 1s ease-out;
+}
+
+@keyframes titleSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.baterias-hero-subtitle {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    animation: subtitleSlideIn 1s ease-out 0.2s both;
+}
+
+@keyframes subtitleSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.baterias-hero-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    animation: featuresSlideIn 1s ease-out 0.4s both;
+}
+
+@keyframes featuresSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.1);
+    transition: all 0.3s ease;
+    animation: featureCharge 3s infinite;
+}
+
+@keyframes featureCharge {
+    0%, 100% { transform: scale(1); box-shadow: 0 4px 15px rgba(37, 99, 235, 0.1); }
+    50% { transform: scale(1.05); box-shadow: 0 6px 20px rgba(245, 158, 11, 0.2); }
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.2);
+}
+
+.feature-item i {
+    color: var(--baterias-energy);
+    font-size: 1.2rem;
+}
+
+.baterias-hero-image {
+    text-align: center;
+    animation: imageSlideIn 1s ease-out 0.6s both;
+}
+
+@keyframes imageSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.baterias-hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(37, 99, 235, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.baterias-hero-image img:hover {
+    transform: scale(1.05);
+}
+
+/* Category Navigation */
+.baterias-categories {
+    background: white;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.baterias-cat-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--baterias-light);
+    background: white;
+    color: var(--baterias-primary);
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.baterias-cat-btn:hover,
+.baterias-cat-btn.active {
+    background: linear-gradient(135deg, var(--baterias-primary), var(--baterias-energy));
+    color: white;
+    border-color: var(--baterias-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+}
+
+.baterias-cat-btn i {
+    font-size: 1.1rem;
+}
+
+/* Power Alert */
+.power-alert {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    padding: 1rem 0;
+}
+
+.power-alert .alert {
+    border: none;
+    background: linear-gradient(135deg, var(--warning-color), #d97706);
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+}
+
+/* Filters Section */
+.filters-sidebar {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    height: fit-content;
+    position: sticky;
+    top: 2rem;
+}
+
+.filters-title {
+    color: var(--baterias-primary);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--baterias-light);
+}
+
+.filter-group {
+    margin-bottom: 2rem;
+}
+
+.filter-group-title {
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.filter-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.filter-option:hover {
+    transform: translateX(5px);
+}
+
+.filter-option input[type="checkbox"] {
+    margin-right: 0.75rem;
+    transform: scale(1.2);
+    accent-color: var(--baterias-primary);
+}
+
+.filter-option label {
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    margin: 0;
+}
+
+.filter-option:hover label {
+    color: var(--baterias-primary);
+}
+
+/* Sorting Section */
+.sorting-section {
+    background: white;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+#resultsCount {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+#sortSelect {
+    border: 2px solid var(--baterias-light);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    min-width: 200px;
+    transition: border-color 0.3s ease;
+}
+
+#sortSelect:focus {
+    border-color: var(--baterias-primary);
+    box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.25);
+}
+
+/* Products Grid */
+.product-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    height: 100%;
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.15);
+}
+
+.product-image {
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+    background: linear-gradient(135deg, var(--baterias-light), white);
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.1);
+}
+
+.capacity-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--baterias-volt);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.voltage-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--baterias-energy);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    animation: voltPulse 2s infinite;
+}
+
+@keyframes voltPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.discount-badge {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background: var(--warning-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.product-info {
+    padding: 1.5rem;
+}
+
+.product-brand {
+    color: var(--baterias-primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.product-name {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0.5rem 0 1rem 0;
+    line-height: 1.3;
+    height: 2.6rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.product-specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.spec-tag {
+    background: var(--baterias-light);
+    color: var(--baterias-primary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.price-section {
+    margin-bottom: 1rem;
+}
+
+.current-price {
+    font-size: 1.5rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--baterias-primary), var(--baterias-energy));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.original-price {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    text-decoration: line-through;
+    margin-left: 0.5rem;
+}
+
+.savings {
+    display: block;
+    color: var(--success-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 0.25rem;
+}
+
+.product-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.stars {
+    color: #fbbf24;
+}
+
+.rating-text {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.btn-add-cart {
+    width: 100%;
+    background: linear-gradient(135deg, var(--baterias-primary), var(--baterias-energy));
+    border: none;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-add-cart:hover {
+    background: linear-gradient(135deg, var(--baterias-secondary), var(--baterias-power));
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+}
+
+/* Benefits Section */
+.benefits-section {
+    background: var(--baterias-light);
+}
+
+.benefit-item {
+    text-align: center;
+    padding: 2rem 1rem;
+    transition: transform 0.3s ease;
+}
+
+.benefit-item:hover {
+    transform: translateY(-10px);
+}
+
+.benefit-icon {
+    font-size: 3rem;
+    color: var(--baterias-energy);
+    margin-bottom: 1rem;
+    display: block;
+    animation: iconPulse 3s infinite;
+}
+
+@keyframes iconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.benefit-item h5 {
+    color: var(--text-primary);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.benefit-item p {
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Newsletter Section */
+.newsletter-section {
+    background: linear-gradient(135deg, var(--baterias-primary), var(--baterias-secondary));
+}
+
+.newsletter-section h4 {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.newsletter-section .input-group {
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.newsletter-section .form-control {
+    border: none;
+    padding: 0.75rem 1.25rem;
+}
+
+.newsletter-section .btn {
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+}
+
+/* Pagination */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination .page-link {
+    color: var(--baterias-primary);
+    border: 1px solid var(--baterias-light);
+    margin: 0 0.25rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.pagination .page-link:hover {
+    background: var(--baterias-primary);
+    color: white;
+    border-color: var(--baterias-primary);
+}
+
+.pagination .page-item.active .page-link {
+    background: var(--baterias-primary);
+    border-color: var(--baterias-primary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .baterias-hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .baterias-hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .baterias-hero-features {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .feature-item {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .search-box {
+        min-width: unset;
+        width: 100%;
+    }
+    
+    .filters-sidebar {
+        margin-bottom: 2rem;
+    }
+    
+    .baterias-cat-btn {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .baterias-hero-title {
+        font-size: 2rem;
+    }
+    
+    .product-card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .newsletter-section .input-group {
+        flex-direction: column;
+    }
+    
+    .newsletter-section .form-control {
+        margin-bottom: 1rem;
+        border-radius: 25px;
+    }
+    
+    .newsletter-section .btn {
+        border-radius: 25px;
+    }
+}

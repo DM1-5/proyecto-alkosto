@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baterías y Energía - Alkosto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="baterias.css">
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="templates/alkosto-logo-header.svg" alt="Alkosto" height="40">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                            Categorías
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="index-celulares.html">Celulares</a></li>
+                            <li><a class="dropdown-item" href="index-electro.html">Electrodomésticos</a></li>
+                            <li><a class="dropdown-item" href="index-computadores.html">Computadores</a></li>
+                            <li><a class="dropdown-item" href="index-televisores.html">Televisores</a></li>
+                            <li><a class="dropdown-item" href="index-baterias.html">Baterías</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <div class="d-flex align-items-center gap-3">
+                    <div class="search-box">
+                        <input type="text" class="form-control" placeholder="Buscar baterías..." id="searchInput">
+                        <i class="bi bi-search search-icon"></i>
+                    </div>
+                    <a href="#" class="position-relative">
+                        <i class="bi bi-cart3 fs-4"></i>
+                        <span class="cart-count badge bg-danger position-absolute top-0 start-100 translate-middle">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🔹 Pop-up de Mi cuenta -->
+    <div id="account-popup" class="account-popup">
+        <div class="popup-content">
+            <h5>Ingresar o crear cuenta</h5>
+            <p>Accede a tus datos personales, pedidos y solicitudes de devolución.</p>
+            <input type="email" placeholder="Correo electrónico" class="form-control mb-3">
+            <button class="btn btn-warning w-100">Continuar</button>
+
+            <hr class="my-3">
+
+            <div class="extra-options">
+                <a href="#">Sigue tu pedido</a>
+                <a href="#">Descarga tu factura</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Banner -->
+    <section class="baterias-hero-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="baterias-hero-title">Baterías y Energía</h1>
+                    <p class="baterias-hero-subtitle">Mantén todo encendido con la mejor tecnología en baterías y sistemas de energía</p>
+                    <div class="baterias-hero-features">
+                        <div class="feature-item">
+                            <i class="bi bi-lightning-charge"></i>
+                            <span>Alta Capacidad</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-battery-full"></i>
+                            <span>Larga Duración</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-shield-check"></i>
+                            <span>Garantía Extendida</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-tools"></i>
+                            <span>Instalación Profesional</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="baterias-hero-image">
+                        <img src="templates/header-foto-baterias.webp" alt="Baterías" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Navigation -->
+    <section class="baterias-categories py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex flex-wrap gap-2 justify-content-center">
+                        <button class="baterias-cat-btn active" data-category="todos">
+                            <i class="bi bi-grid-3x3-gap"></i> Todos
+                        </button>
+                        <button class="baterias-cat-btn" data-category="automotrices">
+                            <i class="bi bi-car-front"></i> Automotrices
+                        </button>
+                        <button class="baterias-cat-btn" data-category="power-banks">
+                            <i class="bi bi-phone"></i> Power Banks
+                        </button>
+                        <button class="baterias-cat-btn" data-category="ups">
+                            <i class="bi bi-pc-display"></i> UPS
+                        </button>
+                        <button class="baterias-cat-btn" data-category="solares">
+                            <i class="bi bi-sun"></i> Solares
+                        </button>
+                        <button class="baterias-cat-btn" data-category="recargables">
+                            <i class="bi bi-battery-charging"></i> Recargables
+                        </button>
+                        <button class="baterias-cat-btn" data-category="cargadores">
+                            <i class="bi bi-plug"></i> Cargadores
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Power Alert -->
+    <section class="power-alert">
+        <div class="container">
+            <div class="alert alert-warning d-flex align-items-center" role="alert">
+                <i class="bi bi-exclamation-triangle-fill me-3 fs-4"></i>
+                <div>
+                    <strong>¡Importante!</strong> Todas nuestras baterías incluyen reciclaje ecológico y son libres de mercurio y cadmio.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="filters-section py-4">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar Filters -->
+                <div class="col-lg-3">
+                    <div class="filters-sidebar">
+                        <h5 class="filters-title">
+                            <i class="bi bi-funnel me-2"></i>Filtros
+                        </h5>
+                        
+                        <!-- Capacity Filter -->
+                        <div class="filter-group">
+                            <h6 class="filter-group-title">Capacidad</h6>
+                            <div class="filter-options">
+                                <div class="filter-option">
+                                    <input type="checkbox" id="cap-low" name="capacity" value="baja">
+                                    <label for="cap-low">Hasta 5000mAh</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="cap-medium" name="capacity" value="media">
+                                    <label for="cap-medium">5000-15000mAh</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="cap-high" name="capacity" value="alta">
+                                    <label for="cap-high">15000-30000mAh</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="cap-ultra" name="capacity" value="ultra">
+                                    <label for="cap-ultra">Más de 30000mAh</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Voltage Filter -->
+                        <div class="filter-group">
+                            <h6 class="filter-group-title">Voltaje</h6>
+                            <div class="filter-options">
+                                <div class="filter-option">
+                                    <input type="checkbox" id="volt-12v" name="voltage" value="12v">
+                                    <label for="volt-12v">12V</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="volt-24v" name="voltage" value="24v">
+                                    <label for="volt-24v">24V</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="volt-usb" name="voltage" value="usb">
+                                    <label for="volt-usb">5V USB</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Brand Filter -->
+                        <div class="filter-group">
+                            <h6 class="filter-group-title">Marca</h6>
+                            <div class="filter-options">
+                                <div class="filter-option">
+                                    <input type="checkbox" id="brand-mac" name="brand" value="mac">
+                                    <label for="brand-mac">MAC</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="brand-moura" name="brand" value="moura">
+                                    <label for="brand-moura">Moura</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="brand-anker" name="brand" value="anker">
+                                    <label for="brand-anker">Anker</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="brand-xiaomi" name="brand" value="xiaomi">
+                                    <label for="brand-xiaomi">Xiaomi</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="brand-apc" name="brand" value="apc">
+                                    <label for="brand-apc">APC</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Price Range Filter -->
+                        <div class="filter-group">
+                            <h6 class="filter-group-title">Rango de Precio</h6>
+                            <div class="filter-options">
+                                <div class="filter-option">
+                                    <input type="checkbox" id="price-1" name="price-range" value="50000">
+                                    <label for="price-1">Hasta $50.000</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="price-2" name="price-range" value="100000">
+                                    <label for="price-2">$50.000 - $100.000</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="price-3" name="price-range" value="300000">
+                                    <label for="price-3">$100.000 - $300.000</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="price-4" name="price-range" value="500000">
+                                    <label for="price-4">$300.000 - $500.000</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="price-5" name="price-range" value="500001">
+                                    <label for="price-5">Más de $500.000</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Features Filter -->
+                        <div class="filter-group">
+                            <h6 class="filter-group-title">Características</h6>
+                            <div class="filter-options">
+                                <div class="filter-option">
+                                    <input type="checkbox" id="feat-fast-charge" name="features" value="fast-charge">
+                                    <label for="feat-fast-charge">Carga Rápida</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="feat-wireless" name="features" value="wireless">
+                                    <label for="feat-wireless">Carga Inalámbrica</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="feat-solar" name="features" value="solar">
+                                    <label for="feat-solar">Panel Solar</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="feat-display" name="features" value="display">
+                                    <label for="feat-display">Display LED</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="feat-waterproof" name="features" value="waterproof">
+                                    <label for="feat-waterproof">Resistente al Agua</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="col-lg-9">
+                    <!-- Sorting and Results -->
+                    <div class="sorting-section d-flex justify-content-between align-items-center mb-4">
+                        <div class="results-count">
+                            <span id="resultsCount">Loading...</span>
+                        </div>
+                        <div class="sorting-controls">
+                            <select class="form-select" id="sortSelect">
+                                <option value="featured">Destacados</option>
+                                <option value="price-low">Precio: Menor a Mayor</option>
+                                <option value="price-high">Precio: Mayor a Menor</option>
+                                <option value="capacity">Capacidad</option>
+                                <option value="rating">Mejor Valorados</option>
+                                <option value="newest">Más Nuevos</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Products Grid -->
+                    <div class="row" id="productsGrid">
+                        <!-- Products will be loaded here by JavaScript -->
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination-container mt-5">
+                        <nav aria-label="Navegación de productos">
+                            <div id="pagination"></div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section py-5 bg-light">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <div class="benefit-item">
+                        <i class="bi bi-recycle benefit-icon"></i>
+                        <h5>Reciclaje Ecológico</h5>
+                        <p>Programa de reciclaje gratuito para todas las baterías</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="benefit-item">
+                        <i class="bi bi-shield-check benefit-icon"></i>
+                        <h5>Garantía Extendida</h5>
+                        <p>Hasta 2 años de garantía en baterías automotrices</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="benefit-item">
+                        <i class="bi bi-tools benefit-icon"></i>
+                        <h5>Instalación</h5>
+                        <p>Instalación profesional de baterías automotrices</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="benefit-item">
+                        <i class="bi bi-lightning-charge benefit-icon"></i>
+                        <h5>Tecnología Avanzada</h5>
+                        <p>Las mejores tecnologías en almacenamiento de energía</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section py-4 bg-primary text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h4>¡Mantente siempre encendido!</h4>
+                    <p class="mb-0">Suscríbete y recibe ofertas exclusivas en baterías y sistemas de energía</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Tu correo electrónico" id="newsletterEmail">
+                        <button class="btn btn-warning" type="button" onclick="subscribeNewsletter()">Suscribirse</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>`n    <script src="search-universal.js"></script>
+    <!-- Custom JS -->
+    <script src="baterias.js"></script>
+</body>
+</html>

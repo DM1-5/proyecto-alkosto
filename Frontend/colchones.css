@@ -1,0 +1,701 @@
+/* Colchones Page Styles */
+
+/* Color Palette */
+:root {
+    --colchones-primary: #4a5d7a;
+    --colchones-secondary: #7b8fa3;
+    --colchones-accent: #e8f1ff;
+    --colchones-highlight: #2c3e50;
+    --colchones-light: #f0f6ff;
+    --colchones-dark: #1a252f;
+    --colchones-cloud: #e3edf7;
+    --colchones-dream: #d6e8f5;
+    --colchones-gradient: linear-gradient(135deg, var(--colchones-primary) 0%, var(--colchones-secondary) 50%, var(--colchones-accent) 100%);
+    --colchones-shadow: 0 8px 32px rgba(74, 93, 122, 0.3);
+}
+
+/* Hero Banner */
+.colchones-hero-banner {
+    background: var(--colchones-gradient);
+    color: white;
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.colchones-hero-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><ellipse cx="20" cy="30" rx="15" ry="8" fill="rgba(255,255,255,0.03)" transform="rotate(15)"/><ellipse cx="70" cy="60" rx="12" ry="6" fill="rgba(255,255,255,0.04)" transform="rotate(-10)"/><circle cx="50" cy="20" r="4" fill="rgba(255,255,255,0.05)"/><ellipse cx="80" cy="80" rx="8" ry="12" fill="rgba(255,255,255,0.02)" transform="rotate(25)"/></svg>') repeat;
+    animation: cloud-drift 25s ease-in-out infinite;
+}
+
+@keyframes cloud-drift {
+    0%, 100% { transform: translateX(0px) translateY(0px); }
+    25% { transform: translateX(-15px) translateY(-8px); }
+    50% { transform: translateX(-25px) translateY(-4px); }
+    75% { transform: translateX(-10px) translateY(-12px); }
+}
+
+.colchones-hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    background: linear-gradient(45deg, #fff, var(--colchones-accent));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: title-serenity 6s ease-in-out infinite alternate;
+}
+
+@keyframes title-serenity {
+    from { 
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        transform: scale(1);
+    }
+    to { 
+        text-shadow: 2px 2px 20px rgba(232, 241, 255, 0.6);
+        transform: scale(1.01);
+    }
+}
+
+.colchones-hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.colchones-hero-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.7rem 1.3rem;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    animation: feature-breathe 8s ease-in-out infinite;
+}
+
+.feature-item:nth-child(1) { animation-delay: 0s; }
+.feature-item:nth-child(2) { animation-delay: 2s; }
+.feature-item:nth-child(3) { animation-delay: 4s; }
+.feature-item:nth-child(4) { animation-delay: 6s; }
+
+@keyframes feature-breathe {
+    0%, 100% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-6px) scale(1.02); }
+}
+
+.feature-item:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+}
+
+.feature-item i {
+    font-size: 1.2rem;
+    color: var(--colchones-accent);
+}
+
+.colchones-hero-image img {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 15px 35px rgba(0,0,0,0.3));
+    animation: mattress-comfort 12s ease-in-out infinite;
+}
+
+@keyframes mattress-comfort {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(0.3deg) scale(1.005); }
+    50% { transform: rotate(0deg) scale(1.01); }
+    75% { transform: rotate(-0.3deg) scale(1.005); }
+}
+
+/* Category Buttons */
+.colchones-categories {
+    background: linear-gradient(to bottom, var(--colchones-light), var(--colchones-cloud));
+    border-bottom: 3px solid var(--colchones-primary);
+}
+
+.colchones-cat-btn {
+    background: rgba(74, 93, 122, 0.1);
+    border: 2px solid rgba(74, 93, 122, 0.3);
+    color: var(--colchones-primary);
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.colchones-cat-btn:hover,
+.colchones-cat-btn.active {
+    background: var(--colchones-primary);
+    border-color: var(--colchones-primary);
+    color: white;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(74, 93, 122, 0.4);
+}
+
+.colchones-cat-btn i {
+    font-size: 1.1rem;
+}
+
+/* Filters Sidebar */
+.filters-sidebar {
+    background: linear-gradient(145deg, #ffffff, var(--colchones-light));
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: var(--colchones-shadow);
+    position: sticky;
+    top: 20px;
+    border: 2px solid rgba(74, 93, 122, 0.1);
+}
+
+.filters-sidebar h5 {
+    color: var(--colchones-primary);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filters-sidebar h5 i {
+    color: var(--colchones-secondary);
+}
+
+.filter-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid rgba(74, 93, 122, 0.1);
+}
+
+.filter-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.filter-section h6 {
+    color: var(--colchones-dark);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.filter-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.filter-option:hover {
+    background: rgba(74, 93, 122, 0.1);
+    transform: translateX(5px);
+}
+
+.filter-option input[type="checkbox"] {
+    margin-right: 0.75rem;
+    accent-color: var(--colchones-primary);
+    transform: scale(1.2);
+}
+
+.filter-option label {
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.filter-option .count {
+    color: var(--colchones-primary);
+    font-weight: 600;
+    font-size: 0.8rem;
+    background: rgba(74, 93, 122, 0.1);
+    padding: 0.2rem 0.4rem;
+    border-radius: 10px;
+}
+
+/* Price Filter */
+.price-filter {
+    padding: 1rem;
+    background: rgba(74, 93, 122, 0.1);
+    border-radius: 10px;
+}
+
+.form-range {
+    accent-color: var(--colchones-primary);
+}
+
+.price-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.price-current {
+    color: var(--colchones-primary);
+    font-weight: 600;
+}
+
+/* Results Header */
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--colchones-light), rgba(240, 246, 255, 0.5));
+    border-radius: 12px;
+    border-left: 4px solid var(--colchones-primary);
+}
+
+.results-info {
+    color: var(--colchones-primary);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.sort-options select {
+    border: 2px solid var(--colchones-primary);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    background: white;
+    color: var(--colchones-primary);
+    font-weight: 500;
+}
+
+.sort-options select:focus {
+    border-color: var(--colchones-secondary);
+    box-shadow: 0 0 0 0.2rem rgba(123, 143, 163, 0.25);
+}
+
+/* Products Grid */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.product-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(74, 93, 122, 0.15);
+    transition: all 0.3s ease;
+    position: relative;
+    border: 2px solid transparent;
+}
+
+.product-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--colchones-shadow);
+    border-color: var(--colchones-primary);
+}
+
+.product-image {
+    position: relative;
+    overflow: hidden;
+    height: 220px;
+    background: linear-gradient(145deg, var(--colchones-light), var(--colchones-cloud));
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.1);
+}
+
+.discount-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--colchones-secondary);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 2;
+    animation: discount-dream 4s infinite;
+}
+
+@keyframes discount-dream {
+    0%, 100% { 
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(123, 143, 163, 0.5);
+    }
+    50% { 
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(123, 143, 163, 0.8);
+    }
+}
+
+.product-info {
+    padding: 1.5rem;
+}
+
+.product-brand {
+    font-size: 0.8rem;
+    color: var(--colchones-primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.product-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--colchones-dark);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.product-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+.feature-badge {
+    background: rgba(74, 93, 122, 0.1);
+    color: var(--colchones-dark);
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+.feature-badge.highlight {
+    background: var(--colchones-secondary);
+    color: white;
+}
+
+.feature-badge.comfort {
+    background: var(--colchones-primary);
+    color: white;
+}
+
+.feature-badge.size {
+    background: var(--colchones-accent);
+    color: var(--colchones-dark);
+}
+
+.feature-badge.firmness {
+    background: var(--colchones-dream);
+    color: var(--colchones-dark);
+}
+
+.price-section {
+    margin-bottom: 1rem;
+}
+
+.current-price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--colchones-secondary);
+}
+
+.original-price {
+    font-size: 0.9rem;
+    color: #999;
+    text-decoration: line-through;
+    margin-left: 0.5rem;
+}
+
+.product-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.stars {
+    color: #ffc107;
+}
+
+.rating-count {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.btn-add-cart {
+    width: 100%;
+    background: linear-gradient(135deg, var(--colchones-primary), var(--colchones-secondary));
+    border: none;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-add-cart:hover {
+    background: linear-gradient(135deg, var(--colchones-secondary), var(--colchones-highlight));
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 93, 122, 0.4);
+}
+
+/* Specialty Badges */
+.type-badge {
+    background: linear-gradient(135deg, var(--colchones-primary), var(--colchones-highlight));
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.firmness-badge {
+    background: linear-gradient(135deg, var(--colchones-secondary), var(--colchones-primary));
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.size-badge {
+    background: linear-gradient(135deg, var(--colchones-accent), var(--colchones-cloud));
+    color: var(--colchones-dark);
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.feature-special-badge {
+    background: linear-gradient(135deg, var(--colchones-dream), var(--colchones-secondary));
+    color: var(--colchones-dark);
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+/* Sleep Guide Section */
+.sleep-guide {
+    background: var(--colchones-light);
+}
+
+.sleep-guide-title {
+    color: var(--colchones-primary);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.sleep-guide-subtitle {
+    color: var(--colchones-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.sleep-guide-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(74, 93, 122, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.sleep-guide-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(74, 93, 122, 0.2);
+    border-color: var(--colchones-primary);
+}
+
+.guide-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: var(--colchones-gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.guide-icon i {
+    font-size: 2rem;
+    color: white;
+}
+
+.sleep-guide-card h4 {
+    color: var(--colchones-primary);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.sleep-guide-card p {
+    color: var(--colchones-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Footer */
+.colchones-footer-features {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.colchones-footer-features span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.colchones-footer-features i {
+    color: var(--colchones-accent);
+    font-size: 1.1rem;
+}
+
+/* Pagination */
+.pagination .page-link {
+    border: 2px solid var(--colchones-primary);
+    color: var(--colchones-primary);
+    font-weight: 500;
+}
+
+.pagination .page-item.active .page-link {
+    background: var(--colchones-primary);
+    border-color: var(--colchones-primary);
+}
+
+.pagination .page-link:hover {
+    background: var(--colchones-light);
+    border-color: var(--colchones-secondary);
+    color: var(--colchones-primary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .colchones-hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .colchones-hero-features {
+        justify-content: center;
+    }
+    
+    .feature-item {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+    }
+    
+    .results-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+    
+    .colchones-footer-features {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .colchones-cat-btn {
+        font-size: 0.85rem;
+        padding: 0.6rem 1rem;
+    }
+    
+    .sleep-guide-card {
+        padding: 1.5rem;
+    }
+    
+    .guide-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .guide-icon i {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .colchones-hero-title {
+        font-size: 2rem;
+    }
+    
+    .colchones-hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .feature-item {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.8rem;
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .product-card {
+        margin: 0 auto;
+        max-width: 300px;
+    }
+    
+    .colchones-cat-btn {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.8rem;
+    }
+    
+    .sleep-guide-card {
+        padding: 1rem;
+    }
+}

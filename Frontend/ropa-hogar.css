@@ -1,0 +1,709 @@
+/* Ropa Hogar Page Styles */
+
+/* Color Palette */
+:root {
+    --hogar-primary: #8b6f47;
+    --hogar-secondary: #d4a574;
+    --hogar-accent: #f7f1e8;
+    --hogar-highlight: #a0845c;
+    --hogar-light: #faf8f5;
+    --hogar-dark: #5c4a35;
+    --hogar-cream: #f5f0e8;
+    --hogar-warm: #e6d5c2;
+    --hogar-gradient: linear-gradient(135deg, var(--hogar-primary) 0%, var(--hogar-secondary) 50%, var(--hogar-accent) 100%);
+    --hogar-shadow: 0 8px 32px rgba(139, 111, 71, 0.3);
+}
+
+/* Hero Banner */
+.ropa-hogar-hero-banner {
+    background: var(--hogar-gradient);
+    color: white;
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.ropa-hogar-hero-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,30 Q30,20 40,30 T60,30" stroke="rgba(255,255,255,0.1)" stroke-width="1" fill="none"/><path d="M70,60 Q80,50 90,60" stroke="rgba(255,255,255,0.08)" stroke-width="1" fill="none"/><circle cx="15" cy="70" r="3" fill="rgba(255,255,255,0.06)"/><circle cx="85" cy="20" r="2" fill="rgba(255,255,255,0.08)"/></svg>') repeat;
+    animation: textile-flow 30s ease-in-out infinite;
+}
+
+@keyframes textile-flow {
+    0%, 100% { transform: translateX(0px) translateY(0px); }
+    25% { transform: translateX(-10px) translateY(-5px); }
+    50% { transform: translateX(-20px) translateY(-10px); }
+    75% { transform: translateX(-15px) translateY(-8px); }
+}
+
+.ropa-hogar-hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    background: linear-gradient(45deg, #fff, var(--hogar-accent));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: title-elegance 8s ease-in-out infinite alternate;
+}
+
+@keyframes title-elegance {
+    from { 
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        transform: scale(1);
+    }
+    to { 
+        text-shadow: 2px 2px 20px rgba(247, 241, 232, 0.6);
+        transform: scale(1.01);
+    }
+}
+
+.ropa-hogar-hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    font-weight: 300;
+    font-style: italic;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.ropa-hogar-hero-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.7rem 1.3rem;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    animation: feature-comfort 12s ease-in-out infinite;
+}
+
+.feature-item:nth-child(1) { animation-delay: 0s; }
+.feature-item:nth-child(2) { animation-delay: 3s; }
+.feature-item:nth-child(3) { animation-delay: 6s; }
+.feature-item:nth-child(4) { animation-delay: 9s; }
+
+@keyframes feature-comfort {
+    0%, 100% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-4px) scale(1.02); }
+}
+
+.feature-item:hover {
+    background: rgba(212, 165, 116, 0.25);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 35px rgba(212, 165, 116, 0.3);
+}
+
+.feature-item i {
+    font-size: 1.2rem;
+    color: var(--hogar-accent);
+}
+
+.ropa-hogar-hero-image img {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 15px 35px rgba(0,0,0,0.3));
+    animation: textile-sway 10s ease-in-out infinite;
+}
+
+@keyframes textile-sway {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(0.5deg) scale(1.005); }
+    50% { transform: rotate(0deg) scale(1.01); }
+    75% { transform: rotate(-0.5deg) scale(1.005); }
+}
+
+/* Category Buttons */
+.ropa-hogar-categories {
+    background: linear-gradient(to bottom, var(--hogar-light), var(--hogar-cream));
+    border-bottom: 3px solid var(--hogar-primary);
+}
+
+.ropa-hogar-cat-btn {
+    background: rgba(139, 111, 71, 0.1);
+    border: 2px solid rgba(139, 111, 71, 0.3);
+    color: var(--hogar-primary);
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.ropa-hogar-cat-btn:hover,
+.ropa-hogar-cat-btn.active {
+    background: var(--hogar-primary);
+    border-color: var(--hogar-primary);
+    color: white;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(139, 111, 71, 0.4);
+}
+
+.ropa-hogar-cat-btn.active {
+    background: var(--hogar-secondary);
+    border-color: var(--hogar-secondary);
+}
+
+.ropa-hogar-cat-btn i {
+    font-size: 1.1rem;
+}
+
+/* Filters Sidebar */
+.filters-sidebar {
+    background: linear-gradient(145deg, #ffffff, var(--hogar-light));
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: var(--hogar-shadow);
+    position: sticky;
+    top: 20px;
+    border: 2px solid rgba(139, 111, 71, 0.1);
+}
+
+.filters-sidebar h5 {
+    color: var(--hogar-primary);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filters-sidebar h5 i {
+    color: var(--hogar-secondary);
+}
+
+.filter-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid rgba(139, 111, 71, 0.1);
+}
+
+.filter-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.filter-section h6 {
+    color: var(--hogar-dark);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.filter-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.filter-option:hover {
+    background: rgba(139, 111, 71, 0.1);
+    transform: translateX(5px);
+}
+
+.filter-option input[type="checkbox"] {
+    margin-right: 0.75rem;
+    accent-color: var(--hogar-secondary);
+    transform: scale(1.2);
+}
+
+.filter-option label {
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.filter-option .count {
+    color: var(--hogar-secondary);
+    font-weight: 600;
+    font-size: 0.8rem;
+    background: rgba(212, 165, 116, 0.1);
+    padding: 0.2rem 0.4rem;
+    border-radius: 10px;
+}
+
+/* Price Filter */
+.price-filter {
+    padding: 1rem;
+    background: rgba(139, 111, 71, 0.1);
+    border-radius: 10px;
+}
+
+.form-range {
+    accent-color: var(--hogar-secondary);
+}
+
+.price-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.price-current {
+    color: var(--hogar-secondary);
+    font-weight: 600;
+}
+
+/* Results Header */
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--hogar-light), rgba(250, 248, 245, 0.5));
+    border-radius: 12px;
+    border-left: 4px solid var(--hogar-secondary);
+}
+
+.results-info {
+    color: var(--hogar-primary);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.sort-options select {
+    border: 2px solid var(--hogar-primary);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    background: white;
+    color: var(--hogar-primary);
+    font-weight: 500;
+}
+
+.sort-options select:focus {
+    border-color: var(--hogar-secondary);
+    box-shadow: 0 0 0 0.2rem rgba(212, 165, 116, 0.25);
+}
+
+/* Products Grid */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.product-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(139, 111, 71, 0.15);
+    transition: all 0.3s ease;
+    position: relative;
+    border: 2px solid transparent;
+}
+
+.product-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--hogar-shadow);
+    border-color: var(--hogar-secondary);
+}
+
+.product-image {
+    position: relative;
+    overflow: hidden;
+    height: 220px;
+    background: linear-gradient(145deg, var(--hogar-light), var(--hogar-cream));
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.1);
+}
+
+.discount-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--hogar-secondary);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 2;
+    animation: discount-cozy 4s infinite;
+}
+
+@keyframes discount-cozy {
+    0%, 100% { 
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(212, 165, 116, 0.5);
+    }
+    50% { 
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(212, 165, 116, 0.8);
+    }
+}
+
+.product-info {
+    padding: 1.5rem;
+}
+
+.product-brand {
+    font-size: 0.8rem;
+    color: var(--hogar-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.product-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--hogar-dark);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.product-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+.feature-badge {
+    background: rgba(139, 111, 71, 0.1);
+    color: var(--hogar-dark);
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+.feature-badge.highlight {
+    background: var(--hogar-secondary);
+    color: white;
+}
+
+.feature-badge.material {
+    background: var(--hogar-primary);
+    color: white;
+}
+
+.feature-badge.size {
+    background: var(--hogar-warm);
+    color: var(--hogar-dark);
+}
+
+.feature-badge.color {
+    background: var(--hogar-cream);
+    color: var(--hogar-dark);
+}
+
+.price-section {
+    margin-bottom: 1rem;
+}
+
+.current-price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--hogar-secondary);
+}
+
+.original-price {
+    font-size: 0.9rem;
+    color: #999;
+    text-decoration: line-through;
+    margin-left: 0.5rem;
+}
+
+.product-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.stars {
+    color: #ffc107;
+}
+
+.rating-count {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.btn-add-cart {
+    width: 100%;
+    background: linear-gradient(135deg, var(--hogar-primary), var(--hogar-secondary));
+    border: none;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-add-cart:hover {
+    background: linear-gradient(135deg, var(--hogar-secondary), var(--hogar-highlight));
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(139, 111, 71, 0.4);
+}
+
+/* Specialty Badges */
+.category-badge {
+    background: linear-gradient(135deg, var(--hogar-primary), var(--hogar-highlight));
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.material-badge {
+    background: linear-gradient(135deg, var(--hogar-secondary), var(--hogar-primary));
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.size-badge {
+    background: linear-gradient(135deg, var(--hogar-warm), var(--hogar-cream));
+    color: var(--hogar-dark);
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.color-badge {
+    background: linear-gradient(135deg, var(--hogar-cream), var(--hogar-accent));
+    color: var(--hogar-dark);
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+/* Care Guide Section */
+.care-guide {
+    background: linear-gradient(135deg, var(--hogar-light), var(--hogar-cream));
+}
+
+.care-guide-title {
+    color: var(--hogar-primary);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.care-guide-subtitle {
+    color: var(--hogar-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.care-guide-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(139, 111, 71, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    height: 100%;
+}
+
+.care-guide-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(139, 111, 71, 0.2);
+    border-color: var(--hogar-secondary);
+}
+
+.guide-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: var(--hogar-gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.guide-icon i {
+    font-size: 2rem;
+    color: white;
+}
+
+.care-guide-card h4 {
+    color: var(--hogar-primary);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.care-guide-card p {
+    color: var(--hogar-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Footer */
+.ropa-hogar-footer-features {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.ropa-hogar-footer-features span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--hogar-primary);
+}
+
+.ropa-hogar-footer-features i {
+    color: var(--hogar-secondary);
+    font-size: 1.1rem;
+}
+
+/* Pagination */
+.pagination .page-link {
+    border: 2px solid var(--hogar-primary);
+    color: var(--hogar-primary);
+    font-weight: 500;
+}
+
+.pagination .page-item.active .page-link {
+    background: var(--hogar-secondary);
+    border-color: var(--hogar-secondary);
+}
+
+.pagination .page-link:hover {
+    background: var(--hogar-light);
+    border-color: var(--hogar-secondary);
+    color: var(--hogar-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .ropa-hogar-hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .ropa-hogar-hero-features {
+        justify-content: center;
+    }
+    
+    .feature-item {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+    }
+    
+    .results-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+    
+    .ropa-hogar-footer-features {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .ropa-hogar-cat-btn {
+        font-size: 0.85rem;
+        padding: 0.6rem 1rem;
+    }
+    
+    .care-guide-card {
+        padding: 1.5rem;
+    }
+    
+    .guide-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .guide-icon i {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .ropa-hogar-hero-title {
+        font-size: 2rem;
+    }
+    
+    .ropa-hogar-hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .feature-item {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.8rem;
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .product-card {
+        margin: 0 auto;
+        max-width: 300px;
+    }
+    
+    .ropa-hogar-cat-btn {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.8rem;
+    }
+    
+    .care-guide-card {
+        padding: 1rem;
+    }
+}

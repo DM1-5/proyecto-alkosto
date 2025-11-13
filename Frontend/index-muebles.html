@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muebles y Decoración - Alkosto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="muebles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="templates/alkosto-logo-header.svg" alt="Alkosto" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index-muebles.html">Muebles</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button class="btn btn-outline-primary me-2">
+                        <i class="bi bi-search"></i>
+                    </button>
+                    <button class="btn btn-outline-primary me-2">
+                        <i class="bi bi-heart"></i>
+                    </button>
+                    <button class="btn btn-primary">
+                        <i class="bi bi-cart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🔹 Pop-up de Mi cuenta -->
+<div id="account-popup" class="account-popup">
+  <div class="popup-content">
+    <h5>Ingresar o crear cuenta</h5>
+    <p>Accede a tus datos personales, pedidos y solicitudes de devolución.</p>
+    <input type="email" placeholder="Correo electrónico" class="form-control mb-3">
+    <button class="btn btn-warning w-100">Continuar</button>
+
+    <hr class="my-3">
+
+    <div class="extra-options">
+      <a href="#">Sigue tu pedido</a>
+      <a href="#">Descarga tu factura</a>
+    </div>
+  </div>
+</div>
+
+    <!-- Hero Banner -->
+    <section class="muebles-hero-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="muebles-hero-title">Muebles & Decoración</h1>
+                    <p class="muebles-hero-subtitle">Transforma tu hogar con estilo y elegancia excepcionales</p>
+                    <div class="muebles-hero-features">
+                        <div class="feature-item">
+                            <i class="bi bi-house-heart"></i>
+                            <span>Diseño Premium</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-award"></i>
+                            <span>Calidad Superior</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-palette"></i>
+                            <span>Estilos Únicos</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-truck"></i>
+                            <span>Entrega e Instalación</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 muebles-hero-image">
+                    <img src="templates/c-muebles.webp" alt="Muebles" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Navigation -->
+    <section class="muebles-categories py-4">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="muebles-cat-btn" data-category="sala">
+                        <i class="bi bi-sofa"></i>
+                        <span>Sala</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="muebles-cat-btn" data-category="comedor">
+                        <i class="bi bi-table"></i>
+                        <span>Comedor</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="muebles-cat-btn" data-category="dormitorio">
+                        <i class="bi bi-bed"></i>
+                        <span>Dormitorio</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="muebles-cat-btn" data-category="oficina">
+                        <i class="bi bi-briefcase"></i>
+                        <span>Oficina</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="muebles-cat-btn" data-category="exterior">
+                        <i class="bi bi-tree"></i>
+                        <span>Exterior</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="muebles-cat-btn" data-category="almacenamiento">
+                        <i class="bi bi-archive"></i>
+                        <span>Almacenamiento</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="muebles-cat-btn" data-category="decoracion">
+                        <i class="bi bi-flower1"></i>
+                        <span>Decoración</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="muebles-cat-btn" data-category="iluminacion">
+                        <i class="bi bi-lightbulb"></i>
+                        <span>Iluminación</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Filters Sidebar -->
+            <div class="col-lg-3 mb-4">
+                <div class="filters-sidebar">
+                    <h5><i class="bi bi-funnel"></i> Filtros</h5>
+
+                    <!-- Room Category Filter -->
+                    <div class="filter-section">
+                        <h6>Habitaciones</h6>
+                        <div class="filter-option">
+                            <input type="checkbox" id="sala" class="filter-checkbox" data-filter="categories" value="sala">
+                            <label for="sala">
+                                <span>Sala</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="comedor" class="filter-checkbox" data-filter="categories" value="comedor">
+                            <label for="comedor">
+                                <span>Comedor</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="dormitorio" class="filter-checkbox" data-filter="categories" value="dormitorio">
+                            <label for="dormitorio">
+                                <span>Dormitorio</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="oficina" class="filter-checkbox" data-filter="categories" value="oficina">
+                            <label for="oficina">
+                                <span>Oficina</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="exterior" class="filter-checkbox" data-filter="categories" value="exterior">
+                            <label for="exterior">
+                                <span>Exterior</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="almacenamiento" class="filter-checkbox" data-filter="categories" value="almacenamiento">
+                            <label for="almacenamiento">
+                                <span>Almacenamiento</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="decoracion" class="filter-checkbox" data-filter="categories" value="decoracion">
+                            <label for="decoracion">
+                                <span>Decoración</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="iluminacion" class="filter-checkbox" data-filter="categories" value="iluminacion">
+                            <label for="iluminacion">
+                                <span>Iluminación</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Material Filter -->
+                    <div class="filter-section">
+                        <h6>Material</h6>
+                        <div class="filter-option">
+                            <input type="checkbox" id="madera" class="filter-checkbox" data-filter="materials" value="madera">
+                            <label for="madera">
+                                <span>Madera</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="metal" class="filter-checkbox" data-filter="materials" value="metal">
+                            <label for="metal">
+                                <span>Metal</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="tela" class="filter-checkbox" data-filter="materials" value="tela">
+                            <label for="tela">
+                                <span>Tela</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="cuero" class="filter-checkbox" data-filter="materials" value="cuero">
+                            <label for="cuero">
+                                <span>Cuero</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="vidrio" class="filter-checkbox" data-filter="materials" value="vidrio">
+                            <label for="vidrio">
+                                <span>Vidrio</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="plastico" class="filter-checkbox" data-filter="materials" value="plastico">
+                            <label for="plastico">
+                                <span>Plástico</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Style Filter -->
+                    <div class="filter-section">
+                        <h6>Estilo</h6>
+                        <div class="filter-option">
+                            <input type="checkbox" id="moderno" class="filter-checkbox" data-filter="styles" value="moderno">
+                            <label for="moderno">
+                                <span>Moderno</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="clasico" class="filter-checkbox" data-filter="styles" value="clasico">
+                            <label for="clasico">
+                                <span>Clásico</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="minimalista" class="filter-checkbox" data-filter="styles" value="minimalista">
+                            <label for="minimalista">
+                                <span>Minimalista</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="industrial" class="filter-checkbox" data-filter="styles" value="industrial">
+                            <label for="industrial">
+                                <span>Industrial</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="rustico" class="filter-checkbox" data-filter="styles" value="rustico">
+                            <label for="rustico">
+                                <span>Rústico</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="contemporaneo" class="filter-checkbox" data-filter="styles" value="contemporaneo">
+                            <label for="contemporaneo">
+                                <span>Contemporáneo</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Brand Filter -->
+                    <div class="filter-section">
+                        <h6>Marcas</h6>
+                        <div class="filter-option">
+                            <input type="checkbox" id="ikea" class="filter-checkbox" data-filter="brands" value="IKEA">
+                            <label for="ikea">
+                                <span>IKEA</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="ashley" class="filter-checkbox" data-filter="brands" value="Ashley">
+                            <label for="ashley">
+                                <span>Ashley</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="lazyboy" class="filter-checkbox" data-filter="brands" value="La-Z-Boy">
+                            <label for="lazyboy">
+                                <span>La-Z-Boy</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="west-elm" class="filter-checkbox" data-filter="brands" value="West Elm">
+                            <label for="west-elm">
+                                <span>West Elm</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="pottery-barn" class="filter-checkbox" data-filter="brands" value="Pottery Barn">
+                            <label for="pottery-barn">
+                                <span>Pottery Barn</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="crate-barrel" class="filter-checkbox" data-filter="brands" value="Crate & Barrel">
+                            <label for="crate-barrel">
+                                <span>Crate & Barrel</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Size Filter -->
+                    <div class="filter-section">
+                        <h6>Tamaño</h6>
+                        <div class="filter-option">
+                            <input type="checkbox" id="pequeño" class="filter-checkbox" data-filter="sizes" value="pequeño">
+                            <label for="pequeño">
+                                <span>Pequeño</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="mediano" class="filter-checkbox" data-filter="sizes" value="mediano">
+                            <label for="mediano">
+                                <span>Mediano</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="grande" class="filter-checkbox" data-filter="sizes" value="grande">
+                            <label for="grande">
+                                <span>Grande</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="extra-grande" class="filter-checkbox" data-filter="sizes" value="extra-grande">
+                            <label for="extra-grande">
+                                <span>Extra Grande</span>
+                                <span class="count">0</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Price Filter -->
+                    <div class="filter-section">
+                        <h6>Rango de Precio</h6>
+                        <div class="price-filter">
+                            <input type="range" class="form-range" id="priceRange" min="0" max="5000000" step="100000">
+                            <div class="price-display">
+                                <span>Precio máximo:</span>
+                                <span class="price-current" id="priceDisplay">$5,000,000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Clear Filters -->
+                    <button class="btn btn-outline-danger w-100 mt-3" id="clearFilters">
+                        <i class="bi bi-x-circle"></i> Limpiar Filtros
+                    </button>
+                </div>
+            </div>
+
+            <!-- Products Section -->
+            <div class="col-lg-9">
+                <!-- Results Header -->
+                <div class="results-header">
+                    <div class="results-info" id="resultsInfo">
+                        Mostrando muebles y decoración
+                    </div>
+                    <div class="sort-options">
+                        <select class="form-select" id="sortSelect">
+                            <option value="featured">Destacados</option>
+                            <option value="price-low">Precio: Menor a Mayor</option>
+                            <option value="price-high">Precio: Mayor a Menor</option>
+                            <option value="rating">Mejor Calificación</option>
+                            <option value="newest">Más Nuevos</option>
+                            <option value="name">Nombre A-Z</option>
+                            <option value="brand">Marca A-Z</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be loaded here by JavaScript -->
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination-container mt-4" id="pagination">
+                    <!-- Pagination will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Features -->
+    <section class="bg-light py-4">
+        <div class="container">
+            <div class="muebles-footer-features">
+                <span><i class="bi bi-truck"></i> Entrega e instalación profesional gratuita</span>
+                <span><i class="bi bi-shield-check"></i> Garantía extendida en todos los muebles</span>
+                <span><i class="bi bi-palette"></i> Asesoría en diseño de interiores</span>
+                <span><i class="bi bi-credit-card"></i> Financiamiento hasta 36 meses sin intereses</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>`n    <script src="search-universal.js"></script>
+    <script src="muebles.js"></script>
+</body>
+</html>

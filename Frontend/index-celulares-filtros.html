@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celulares con Filtros - Alkosto</title>
+    
+    <!-- Bootstrap & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom styles -->
+    <link href="style.css" rel="stylesheet">
+    <link href="celulares.css" rel="stylesheet">
+    
+    <style>
+        /* Layout con sidebar de filtros */
+        .category-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .filters-sidebar {
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+
+        .products-main {
+            min-height: 600px;
+        }
+
+        .category-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .category-header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .category-header p {
+            margin: 0.5rem 0 0 0;
+            opacity: 0.9;
+        }
+
+        .mobile-filter-toggle {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: #ff6600;
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            cursor: pointer;
+        }
+
+        @media (max-width: 992px) {
+            .category-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .filters-sidebar {
+                position: fixed;
+                left: -100%;
+                top: 0;
+                width: 300px;
+                height: 100vh;
+                background: white;
+                z-index: 9999;
+                transition: left 0.3s;
+                padding: 1rem;
+                overflow-y: auto;
+            }
+
+            .filters-sidebar.active {
+                left: 0;
+                box-shadow: 4px 0 12px rgba(0,0,0,0.3);
+            }
+
+            .mobile-filter-toggle {
+                display: block;
+            }
+
+            .filter-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0,0,0,0.5);
+                z-index: 9998;
+            }
+
+            .filter-overlay.active {
+                display: block;
+            }
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .results-info {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .view-toggle {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .view-toggle button {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .view-toggle button.active {
+            background: #ff6600;
+            color: white;
+            border-color: #ff6600;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header (reutiliza el header existente) -->
+    <div class="top-bar">
+        <img src="templates/alkosto-logo-header.webp" class="logo-img" alt="Logo Alkosto">
+        <div class="top-actions">
+            <a href="#" id="account-btn"><i class="bi bi-person"></i> Mi cuenta</a>
+            <a href="carrito.html" class="position-relative">
+                <i class="bi bi-cart"></i> Mi carrito
+                <span id="cart-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: none;">0</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Layout con filtros -->
+    <div class="category-layout">
+        <!-- Sidebar de filtros -->
+        <aside class="filters-sidebar" id="filters-sidebar">
+            <div id="filters-container">
+                <!-- Los filtros se cargan aquí dinámicamente -->
+            </div>
+        </aside>
+
+        <!-- Contenido principal -->
+        <main class="products-main">
+            <!-- Header de categoría -->
+            <div class="category-header">
+                <h1>📱 Celulares</h1>
+                <p>Encuentra los mejores smartphones al mejor precio</p>
+            </div>
+
+            <!-- Barra de resultados y vista -->
+            <div class="results-header">
+                <div class="results-info" id="results-count">
+                    Cargando productos...
+                </div>
+                <div class="view-toggle">
+                    <button class="active" onclick="cambiarVista('grid')" title="Vista cuadrícula">
+                        <i class="bi bi-grid-3x3-gap"></i>
+                    </button>
+                    <button onclick="cambiarVista('list')" title="Vista lista">
+                        <i class="bi bi-list-ul"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Grid de productos -->
+            <div id="products-grid" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                <!-- Los productos se cargan aquí -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Botón flotante para abrir filtros en mobile -->
+    <button class="mobile-filter-toggle" onclick="toggleMobileFilters()">
+        <i class="bi bi-funnel" style="font-size: 1.5rem;"></i>
+    </button>
+
+    <!-- Overlay para cerrar filtros en mobile -->
+    <div class="filter-overlay" id="filter-overlay" onclick="toggleMobileFilters()"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Scripts de la categoría -->
+    <script src="celulares.js"></script>
+
+    <!-- Script de integración -->
+    <script type="module">
+        import universalLoader from './js/universal-category-loader.js';
+        import globalHeader from './js/components/global-header.js';
+
+        window.addEventListener('DOMContentLoaded', async () => {
+            console.log('📱 Cargando categoría Celulares con filtros...');
+            
+            // Hacer globalHeader accesible globalmente
+            window.globalHeader = globalHeader;
+            
+            // Cargar productos y filtros
+            await universalLoader.inicializar();
+            
+            // Actualizar contador de resultados
+            actualizarContadorResultados();
+            
+            console.log('✅ Categoría lista con filtros');
+        });
+
+        // Función para actualizar contador
+        function actualizarContadorResultados() {
+            const productos = window.productosFiltrados || window.celularesProductos || [];
+            const contador = document.getElementById('results-count');
+            if (contador) {
+                contador.textContent = `Mostrando ${productos.length} productos`;
+            }
+        }
+
+        // Función para cambiar vista (grid/list)
+        window.cambiarVista = function(tipo) {
+            const grid = document.getElementById('products-grid');
+            const botones = document.querySelectorAll('.view-toggle button');
+            
+            botones.forEach(btn => btn.classList.remove('active'));
+            event.target.closest('button').classList.add('active');
+            
+            if (tipo === 'list') {
+                grid.className = 'list-view';
+            } else {
+                grid.className = 'row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4';
+            }
+        };
+
+        // Toggle filtros mobile
+        window.toggleMobileFilters = function() {
+            const sidebar = document.getElementById('filters-sidebar');
+            const overlay = document.getElementById('filter-overlay');
+            
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        };
+
+        // Función global para agregar al carrito (requerida por los botones)
+        window.agregarAlCarritoAPI = async function(productoId) {
+            try {
+                const cartService = (await import('./js/services/cart-service.js')).default;
+                const resultado = await cartService.agregarProducto(productoId, 1);
+                
+                if (resultado.success) {
+                    if (window.globalHeader) {
+                        await window.globalHeader.actualizarContadorCarrito();
+                    }
+                    mostrarNotificacion('✅ Producto agregado al carrito', 'success');
+                } else {
+                    mostrarNotificacion('❌ Error al agregar producto', 'danger');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                mostrarNotificacion('❌ Error de conexión', 'danger');
+            }
+        };
+
+        function mostrarNotificacion(mensaje, tipo) {
+            const notif = document.createElement('div');
+            notif.className = `alert alert-${tipo}`;
+            notif.style.cssText = 'position: fixed; top: 20px; right: 20px; z-index: 10000; padding: 1rem 1.5rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);';
+            notif.textContent = mensaje;
+            document.body.appendChild(notif);
+            setTimeout(() => notif.remove(), 3000);
+        }
+    </script>
+
+</body>
+</html>

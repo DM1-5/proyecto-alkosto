@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiperofertas - Alkosto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="hiperofertas.css">
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="templates/alkosto-logo-header.svg" alt="Alkosto" height="40">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                            Categorías
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="index-celulares.html">Celulares</a></li>
+                            <li><a class="dropdown-item" href="index-electrodomesticos.html">Electrodomésticos</a></li>
+                            <li><a class="dropdown-item" href="index-computadores.html">Computadores</a></li>
+                            <li><a class="dropdown-item" href="index-televisores.html">Televisores</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <div class="d-flex align-items-center gap-3">
+                    <div class="search-box">
+                        <input type="text" class="form-control" placeholder="Buscar hiperofertas..." id="searchInput">
+                        <i class="bi bi-search search-icon"></i>
+                    </div>
+                    <a href="#" class="position-relative">
+                        <i class="bi bi-cart3 fs-4"></i>
+                        <span class="cart-count badge bg-danger position-absolute top-0 start-100 translate-middle">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🔹 Pop-up de Mi cuenta -->
+<div id="account-popup" class="account-popup">
+  <div class="popup-content">
+    <h5>Ingresar o crear cuenta</h5>
+    <p>Accede a tus datos personales, pedidos y solicitudes de devolución.</p>
+    <input type="email" placeholder="Correo electrónico" class="form-control mb-3">
+    <button class="btn btn-warning w-100">Continuar</button>
+
+    <hr class="my-3">
+
+    <div class="extra-options">
+      <a href="#">Sigue tu pedido</a>
+      <a href="#">Descarga tu factura</a>
+    </div>
+  </div>
+</div>
+
+    <!-- Hero Banner -->
+    <section class="hiperofertas-hero-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="hiperofertas-hero-title">¡HIPEROFERTAS!</h1>
+                    <p class="hiperofertas-hero-subtitle">Descuentos increíbles por tiempo limitado. ¡No te pierdas estas oportunidades únicas!</p>
+                    <div class="hiperofertas-hero-features">
+                        <div class="feature-item">
+                            <i class="bi bi-lightning-charge"></i>
+                            <span>Ofertas Flash</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-percent"></i>
+                            <span>Hasta 70% OFF</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-clock"></i>
+                            <span>Tiempo Limitado</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-fire"></i>
+                            <span>Últimas Unidades</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Countdown Timer -->
+                    <div class="countdown-container">
+                        <h4 class="countdown-title">🔥 OFERTA FLASH TERMINA EN:</h4>
+                        <div class="countdown-timer" id="countdownTimer">
+                            <div class="countdown-item">
+                                <span class="countdown-number" id="hours">23</span>
+                                <span class="countdown-label">Horas</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span class="countdown-number" id="minutes">45</span>
+                                <span class="countdown-label">Minutos</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span class="countdown-number" id="seconds">30</span>
+                                <span class="countdown-label">Segundos</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center hiperofertas-hero-image">
+                    <img src="templates/c-hiperofertas.webp" alt="Hiperofertas" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deal Categories -->
+    <section class="hiperofertas-categories py-4">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-6 col-md-3">
+                    <a href="#" class="hiperofertas-cat-btn" data-category="todos">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                        <span>Todas las Ofertas</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3">
+                    <a href="#" class="hiperofertas-cat-btn" data-category="flash">
+                        <i class="bi bi-stopwatch"></i>
+                        <span>Ofertas Flash</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3">
+                    <a href="#" class="hiperofertas-cat-btn" data-category="liquidacion">
+                        <i class="bi bi-box-seam"></i>
+                        <span>Liquidación</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3">
+                    <a href="#" class="hiperofertas-cat-btn" data-category="exclusivas">
+                        <i class="bi bi-star-fill"></i>
+                        <span>Exclusivas Web</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3">
+                    <a href="#" class="hiperofertas-cat-btn" data-category="tecnologia">
+                        <i class="bi bi-cpu"></i>
+                        <span>Tech Deals</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3">
+                    <a href="#" class="hiperofertas-cat-btn" data-category="hogar">
+                        <i class="bi bi-house"></i>
+                        <span>Hogar & Cocina</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3">
+                    <a href="#" class="hiperofertas-cat-btn" data-category="moda">
+                        <i class="bi bi-bag"></i>
+                        <span>Moda & Estilo</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3">
+                    <a href="#" class="hiperofertas-cat-btn" data-category="final-stock">
+                        <i class="bi bi-exclamation-triangle"></i>
+                        <span>Fin de Stock</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flash Deal Alert -->
+    <section class="flash-alert py-3">
+        <div class="container">
+            <div class="alert alert-flash text-center mb-0">
+                <div class="d-flex align-items-center justify-content-center gap-3 flex-wrap">
+                    <div class="flash-icon">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                    </div>
+                    <div class="flash-message">
+                        <strong>¡ALERTA FLASH!</strong> Solo por las próximas <span id="flashHours">2</span> horas: <strong>ENVÍO GRATIS</strong> en compras superiores a $150,000
+                    </div>
+                    <div class="flash-timer">
+                        <span id="flashCountdown">01:47:23</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Filters Sidebar -->
+                <div class="col-lg-3 mb-4">
+                    <div class="filters-sidebar">
+                        <h5><i class="bi bi-funnel"></i> Filtrar Ofertas</h5>
+                        
+                        <!-- Discount Filter -->
+                        <div class="filter-section">
+                            <h6>Descuento</h6>
+                            <div class="filter-option">
+                                <input type="checkbox" id="desc-70" name="discount" value="70">
+                                <label for="desc-70">
+                                    <span>Más de 70% OFF</span>
+                                    <span class="count">8</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="desc-50" name="discount" value="50">
+                                <label for="desc-50">
+                                    <span>50% - 70% OFF</span>
+                                    <span class="count">15</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="desc-30" name="discount" value="30">
+                                <label for="desc-30">
+                                    <span>30% - 50% OFF</span>
+                                    <span class="count">22</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="desc-15" name="discount" value="15">
+                                <label for="desc-15">
+                                    <span>15% - 30% OFF</span>
+                                    <span class="count">18</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Price Range Filter -->
+                        <div class="filter-section">
+                            <h6>Rango de Precio</h6>
+                            <div class="filter-option">
+                                <input type="checkbox" id="price-100" name="price-range" value="100000">
+                                <label for="price-100">
+                                    <span>Menos de $100,000</span>
+                                    <span class="count">12</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="price-500" name="price-range" value="500000">
+                                <label for="price-500">
+                                    <span>$100,000 - $500,000</span>
+                                    <span class="count">25</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="price-1m" name="price-range" value="1000000">
+                                <label for="price-1m">
+                                    <span>$500,000 - $1,000,000</span>
+                                    <span class="count">18</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="price-plus" name="price-range" value="1000001">
+                                <label for="price-plus">
+                                    <span>Más de $1,000,000</span>
+                                    <span class="count">8</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Brand Filter -->
+                        <div class="filter-section">
+                            <h6>Marcas en Oferta</h6>
+                            <div class="filter-option">
+                                <input type="checkbox" id="samsung" name="brand" value="samsung">
+                                <label for="samsung">
+                                    <span>Samsung</span>
+                                    <span class="count">14</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="lg" name="brand" value="lg">
+                                <label for="lg">
+                                    <span>LG</span>
+                                    <span class="count">12</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="sony" name="brand" value="sony">
+                                <label for="sony">
+                                    <span>Sony</span>
+                                    <span class="count">9</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="apple" name="brand" value="apple">
+                                <label for="apple">
+                                    <span>Apple</span>
+                                    <span class="count">6</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="whirlpool" name="brand" value="whirlpool">
+                                <label for="whirlpool">
+                                    <span>Whirlpool</span>
+                                    <span class="count">8</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Deal Type Filter -->
+                        <div class="filter-section">
+                            <h6>Tipo de Oferta</h6>
+                            <div class="filter-option">
+                                <input type="checkbox" id="flash-deal" name="deal-type" value="flash">
+                                <label for="flash-deal">
+                                    <span>Oferta Flash</span>
+                                    <span class="count">16</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="clearance" name="deal-type" value="clearance">
+                                <label for="clearance">
+                                    <span>Liquidación</span>
+                                    <span class="count">20</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="exclusive" name="deal-type" value="exclusive">
+                                <label for="exclusive">
+                                    <span>Exclusiva Web</span>
+                                    <span class="count">11</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="bundle" name="deal-type" value="bundle">
+                                <label for="bundle">
+                                    <span>Combo Deal</span>
+                                    <span class="count">7</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Stock Filter */
+                        <div class="filter-section">
+                            <h6>Disponibilidad</h6>
+                            <div class="filter-option">
+                                <input type="checkbox" id="in-stock" name="stock" value="available">
+                                <label for="in-stock">
+                                    <span>Disponible</span>
+                                    <span class="count">45</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="low-stock" name="stock" value="low">
+                                <label for="low-stock">
+                                    <span>Pocas Unidades</span>
+                                    <span class="count">12</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="last-units" name="stock" value="last">
+                                <label for="last-units">
+                                    <span>Últimas Unidades</span>
+                                    <span class="count">6</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deals Grid -->
+                <div class="col-lg-9">
+                    <!-- Results Header -->
+                    <div class="results-header">
+                        <div class="results-info">
+                            <span id="resultsCount">63 hiperofertas disponibles</span>
+                        </div>
+                        <div class="sort-options">
+                            <select class="form-select" id="sortSelect">
+                                <option value="featured">Más Populares</option>
+                                <option value="discount">Mayor Descuento</option>
+                                <option value="price-low">Menor Precio</option>
+                                <option value="price-high">Mayor Precio</option>
+                                <option value="ending-soon">Terminan Pronto</option>
+                                <option value="newest">Más Recientes</option>
+                                <option value="rating">Mejor Calificadas</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Hot Deals Banner -->
+                    <div class="hot-deals-banner mb-4">
+                        <div class="hot-deals-content">
+                            <div class="hot-deals-icon">
+                                <i class="bi bi-fire"></i>
+                            </div>
+                            <div class="hot-deals-text">
+                                <h5>🔥 DEALS MÁS CALIENTES</h5>
+                                <p>¡Las ofertas que todo el mundo está comprando ahora mismo!</p>
+                            </div>
+                            <div class="hot-deals-timer">
+                                <small>Actualizado hace <span id="updateTime">2 min</span></small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Deals Grid -->
+                    <div class="row" id="dealsGrid">
+                        <!-- Deals will be dynamically loaded here -->
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="d-flex justify-content-center mt-5">
+                        <div id="pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="newsletter-section py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <div class="newsletter-card">
+                        <div class="newsletter-icon">
+                            <i class="bi bi-envelope-heart"></i>
+                        </div>
+                        <h3>¡No te pierdas ninguna oferta!</h3>
+                        <p>Suscríbete a nuestro newsletter y recibe alertas de las mejores hiperofertas antes que nadie.</p>
+                        <div class="newsletter-form">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Tu correo electrónico" id="newsletterEmail">
+                                <button class="btn btn-newsletter" type="button" onclick="subscribeNewsletter()">
+                                    <i class="bi bi-send"></i> Suscribirse
+                                </button>
+                            </div>
+                        </div>
+                        <small class="newsletter-benefits">
+                            ✅ Ofertas exclusivas por email &nbsp;&nbsp;
+                            ✅ Alertas de flash sales &nbsp;&nbsp;
+                            ✅ Descuentos adicionales
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust-section py-4 bg-light">
+        <div class="container">
+            <div class="hiperofertas-footer-features">
+                <span><i class="bi bi-shield-check"></i> Precios Garantizados</span>
+                <span><i class="bi bi-truck"></i> Envío Express</span>
+                <span><i class="bi bi-arrow-repeat"></i> Devolución Fácil</span>
+                <span><i class="bi bi-headset"></i> Soporte 24/7</span>
+                <span><i class="bi bi-lightning"></i> Stock en Tiempo Real</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Alkosto</h5>
+                    <p>Tu tienda en línea de confianza con las mejores hiperofertas y descuentos increíbles.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50">Inicio</a></li>
+                        <li><a href="#" class="text-white-50">Ofertas</a></li>
+                        <li><a href="#" class="text-white-50">Ayuda</a></li>
+                        <li><a href="#" class="text-white-50">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Síguenos</h5>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white-50"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white-50"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white-50"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2024 Alkosto. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>`n    <script src="search-universal.js"></script>
+    <script src="hiperofertas.js"></script>
+</body>
+</html>

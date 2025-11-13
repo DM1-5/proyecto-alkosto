@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pines y Tarjetas - Alkosto</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="pines.css">
+</head>
+<body>
+  <!-- Header/Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #ffe400; border-bottom: 2px solid #ff6b35;">
+    <div class="container-fluid">
+      <!-- Logo -->
+      <a class="navbar-brand" href="index.html">
+        <img src="templates/alkosto-logo-header.svg" alt="Alkosto" style="height: 40px;">
+      </a>
+
+      <!-- Mobile Menu Toggle -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- Categories Dropdown -->
+        <div class="dropdown me-3">
+          <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            <i class="bi bi-list"></i> Categorías
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="index-televisores.html"><i class="bi bi-tv"></i> Televisores</a></li>
+            <li><a class="dropdown-item" href="index-celulares.html"><i class="bi bi-phone"></i> Celulares</a></li>
+            <li><a class="dropdown-item" href="index-computadores.html"><i class="bi bi-laptop"></i> Computadores</a></li>
+            <li><a class="dropdown-item" href="index-electrohogar.html"><i class="bi bi-house"></i> Electrohogar</a></li>
+            <li><a class="dropdown-item" href="index-electro.html"><i class="bi bi-lightning"></i> Electro</a></li>
+            <li><a class="dropdown-item" href="index-gaming.html"><i class="bi bi-controller"></i> Gaming</a></li>
+            <li><a class="dropdown-item" href="index-audio.html"><i class="bi bi-speaker"></i> Audio</a></li>
+            <li><a class="dropdown-item" href="index-domotica.html"><i class="bi bi-house-gear"></i> Domótica</a></li>
+          </ul>
+        </div>
+
+        <!-- Navigation Links -->
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index-ofertas-bancos.html">Ofertas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index-hiperofertas.html">Hiperofertas</a>
+          </li>
+        </ul>
+
+        <!-- Search Form -->
+        <form class="d-flex me-3 search-form" style="min-width: 300px;">
+          <div class="input-group">
+            <input class="form-control" type="search" placeholder="¿Qué estás buscando?" aria-label="Search">
+            <button class="btn btn-outline-secondary" type="submit">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+        </form>
+
+        <!-- Account & Cart -->
+        <div class="d-flex align-items-center">
+          <a href="#" class="nav-link me-3" onclick="toggleAccountPopup()">
+            <i class="bi bi-person"></i> Mi cuenta
+          </a>
+          <a href="#" class="nav-link position-relative">
+            <i class="bi bi-cart"></i> Carrito
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count">
+              0
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Navigation -->
+  <nav class="secondary-nav">
+    <div class="container-fluid">
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="#" class="nav-link active">
+          <i class="bi bi-credit-card"></i>
+          Pines y Tarjetas
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Gift Cards Banner -->
+  <section class="gift-hero-banner">
+    <div class="container-fluid">
+      <div class="banner-content">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <div class="banner-text">
+              <h1 class="banner-title">PINES Y TARJETAS</h1>
+              <h2 class="banner-subtitle">GIFT CARDS & DIGITAL CODES</h2>
+              <p class="banner-description">Tarjetas de regalo digitales para gaming, streaming y más</p>
+              <div class="gift-features">
+                <span class="feature-badge">Digital</span>
+                <span class="feature-badge">Inmediato</span>
+                <span class="feature-badge">Gaming</span>
+                <span class="feature-badge">Streaming</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="banner-image">
+              <img src="templates/c-tarjetas-pines.webp" alt="Gift Cards" class="img-fluid">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gift Card Categories Top Filters -->
+  <section class="top-gift-filters">
+    <div class="container-fluid">
+      <div class="filter-container">
+        <h3 class="filter-title">Categorías de Tarjetas</h3>
+        <div class="gift-category-buttons">
+          <button class="gift-cat-btn active" data-category="all">
+            <i class="bi bi-grid-3x3"></i>
+            Todo
+          </button>
+          <button class="gift-cat-btn" data-category="gaming">
+            <i class="bi bi-controller"></i>
+            Gaming
+          </button>
+          <button class="gift-cat-btn" data-category="streaming">
+            <i class="bi bi-play-circle"></i>
+            Streaming
+          </button>
+          <button class="gift-cat-btn" data-category="tiendas">
+            <i class="bi bi-shop"></i>
+            Tiendas
+          </button>
+          <button class="gift-cat-btn" data-category="musica">
+            <i class="bi bi-music-note"></i>
+            Música
+          </button>
+          <button class="gift-cat-btn" data-category="apps">
+            <i class="bi bi-phone"></i>
+            Apps
+          </button>
+          <button class="gift-cat-btn" data-category="suscripciones">
+            <i class="bi bi-calendar-check"></i>
+            Suscripciones
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar Filters -->
+        <aside class="col-lg-3 sidebar">
+          <div class="filters-section">
+            <h4 class="filters-title">Filtros</h4>
+            
+            <!-- Gift Card Category Filter -->
+            <div class="filter-group">
+              <h5 class="filter-group-title">
+                <i class="bi bi-credit-card"></i>
+                Categoría
+              </h5>
+              <div class="filter-options">
+                <div class="filter-option">
+                  <input type="checkbox" id="gaming" name="categoria" value="gaming">
+                  <label for="gaming">Gaming <span class="count">(8)</span></label>
+                </div>
+                <div class="filter-option">
+                  <input type="checkbox" id="streaming" name="categoria" value="streaming">
+                  <label for="streaming">Streaming <span class="count">(5)</span></label>
+                </div>
+                <div class="filter-option">
+                  <input type="checkbox" id="tiendas" name="categoria" value="tiendas">
+                  <label for="tiendas">Tiendas <span class="count">(4)</span></label>
+                </div>
+                <div class="filter-option">
+                  <input type="checkbox" id="musica" name="categoria" value="musica">
+                  <label for="musica">Música <span class="count">(3)</span></label>
+                </div>
+                <div class="filter-option">
+                  <input type="checkbox" id="apps" name="categoria" value="apps">
+                  <label for="apps">Apps <span class="count">(4)</span></label>
+                </div>
+                <div class="filter-option">
+                  <input type="checkbox" id="suscripciones" name="categoria" value="suscripciones">
+                  <label for="suscripciones">Suscripciones <span class="count">(3)</span></label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Platform Filter -->
+            <div class="filter-group">
+              <h5 class="filter-group-title">
+                <i class="bi bi-devices"></i>
+                Plataforma
+              </h5>
+              <div class="filter-options">
+                <div class="filter-option">
+                  <input type="checkbox" id="playstation" name="plataforma" value="playstation">
+                  <label for="playstation">PlayStation <span class="count">(4)</span></label>
+                </div>
+                <div class="filter-option">
+                  <input type="checkbox" id="xbox" name="plataforma" value="xbox">
+                  <label for="xbox">Xbox <span class="count">(3)</span></label>
+                </div>
+                <div class="filter-option">
+                  <input type="checkbox" id="nintendo" name="plataforma" value="nintendo">
+                  <label for="nintendo">Nintendo <span class="count">(3)</span></label>
+                </div>
+                <div class="filter-option">
+                  <input type="checkbox" id="steam" name="plataforma" value="steam">
+                  <label for="steam">Steam <span class="count">(3)</span></label>
+                </div>
+                <div class="filter-option">
+                  <input type="checkbox" id="google" name="plataforma" value="google">
+                  <label for="google">Google <span class="count">(2)</span></label>
+                </div>
+                <div class="filter-option">
+                  <input type="checkbox" id="apple" name="plataforma" value="apple">
+                  <label for="apple">Apple <span class="count">(2)</span></label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Value Filter -->
+            <div class="filter-group">
+              <h5 class="filter-group-title">
+                <i class="bi bi-currency-dollar"></i>
+                Valor
+              </h5>
+              <div class="filter-options">
+                <div class="filter-option">
+                  <input type="checkbox" id="valor-10" name="valor" value="10">
+                  <label for="valor-10">$10 USD <span class="count">(8)</span></label>
+                </div>
+                <div class="filter-option">
+                  <input type="checkbox" id="valor-25" name="valor" value="25">
+                  <label for="valor-25">$25 USD <span class="count">(6)</span></label>
+                </div>
+                <div class="filter-option">
+                  <input type="checkbox" id="valor-50" name="valor" value="50">
+                  <label for="valor-50">$50 USD <span class="count">(7)</span></label>
+                </div>
+                <div class="filter-option">
+                  <input type="checkbox" id="valor-100" name="valor" value="100">
+                  <label for="valor-100">$100 USD <span class="count">(4)</span></label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Delivery Type Filter -->
+            <div class="filter-group">
+              <h5 class="filter-group-title">
+                <i class="bi bi-lightning"></i>
+                Entrega
+              </h5>
+              <div class="filter-options">
+                <div class="filter-option">
+                  <input type="checkbox" id="inmediato" name="entrega" value="inmediato">
+                  <label for="inmediato">Inmediato <span class="count">(20)</span></label>
+                </div>
+                <div class="filter-option">
+                  <input type="checkbox" id="email" name="entrega" value="email">
+                  <label for="email">Por Email <span class="count">(18)</span></label>
+                </div>
+                <div class="filter-option">
+                  <input type="checkbox" id="codigo" name="entrega" value="codigo">
+                  <label for="codigo">Código Digital <span class="count">(22)</span></label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Price Range Filter -->
+            <div class="filter-group">
+              <h5 class="filter-group-title">
+                <i class="bi bi-cash"></i>
+                Rango de Precio
+              </h5>
+              <div class="price-range">
+                <input type="range" class="form-range" id="price-range" min="0" max="500000" value="250000">
+                <div class="price-labels">
+                  <span>$0</span>
+                  <span>$500,000</span>
+                </div>
+                <div class="price-current">
+                  Hasta: <strong>$250,000</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Products Section -->
+        <section class="col-lg-9 products-section">
+          <!-- Results Header -->
+          <div class="results-header">
+            <div class="results-info">
+              <h3>Pines y Tarjetas</h3>
+              <p>Mostrando <span id="showing-count">20</span> de <span id="total-count">25</span> productos</p>
+            </div>
+            
+            <!-- Sort Options -->
+            <div class="sort-controls">
+              <select class="form-select" id="sort-select">
+                <option value="relevancia">Más relevantes</option>
+                <option value="precio-menor">Menor precio</option>
+                <option value="precio-mayor">Mayor precio</option>
+                <option value="mejor-valorados">Mejor valorados</option>
+                <option value="mas-vendidos">Más vendidos</option>
+                <option value="descuento">Mayor descuento</option>
+                <option value="valor">Por valor</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Products Grid -->
+          <div class="products-grid" id="products-grid">
+            <!-- Products will be dynamically loaded here -->
+          </div>
+
+          <!-- Pagination -->
+          <nav class="pagination-nav" aria-label="Navegación de productos">
+            <ul class="pagination justify-content-center">
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Anterior">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Siguiente">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h5>Servicio al Cliente</h5>
+          <ul class="footer-links">
+            <li><a href="#">Contacto</a></li>
+            <li><a href="#">Ayuda</a></li>
+            <li><a href="#">Garantías</a></li>
+            <li><a href="#">Devoluciones</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Información</h5>
+          <ul class="footer-links">
+            <li><a href="#">Sobre Alkosto</a></li>
+            <li><a href="#">Términos y Condiciones</a></li>
+            <li><a href="#">Políticas de Privacidad</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Síguenos</h5>
+          <div class="social-links">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-twitter"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Alkosto. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Account Popup -->
+  <div id="account-popup" class="account-popup" style="display: none;">
+    <div class="account-options">
+      <div class="account-option" onclick="login()">
+        <i class="bi bi-box-arrow-in-right"></i>
+        <span>Iniciar Sesión</span>
+      </div>
+      <div class="account-option" onclick="createAccount()">
+        <i class="bi bi-person-plus"></i>
+        <span>Crear Cuenta</span>
+      </div>
+      <div class="account-option" onclick="viewOrders()">
+        <i class="bi bi-bag-check"></i>
+        <span>Mis Pedidos</span>
+      </div>
+      <div class="account-option" onclick="viewWishlist()">
+        <i class="bi bi-heart"></i>
+        <span>Lista de Deseos</span>
+      </div>
+      <div class="account-option" onclick="accountSettings()">
+        <i class="bi bi-gear"></i>
+        <span>Configuración</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>`n    <script src="search-universal.js"></script>
+  <!-- Custom JS -->
+  <script src="pines.js"></script>
+</body>
+</html>

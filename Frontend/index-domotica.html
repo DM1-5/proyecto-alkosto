@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Domótica - Alkosto</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="domotica.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="templates/alkosto-logo-header.svg" alt="Alkosto" height="40">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-grid-3x3-gap me-1"></i> Categorías
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="index-televisores.html"><i class="bi bi-tv me-2"></i>Televisores</a></li>
+                            <li><a class="dropdown-item" href="index-celulares.html"><i class="bi bi-phone me-2"></i>Celulares</a></li>
+                            <li><a class="dropdown-item" href="index-computadores.html"><i class="bi bi-laptop me-2"></i>Computadores</a></li>
+                            <li><a class="dropdown-item" href="index-electrohogar.html"><i class="bi bi-house me-2"></i>Electrohogar</a></li>
+                            <li><a class="dropdown-item" href="index-electro.html"><i class="bi bi-lightning me-2"></i>Electro</a></li>
+                            <li><a class="dropdown-item" href="index-gaming.html"><i class="bi bi-controller me-2"></i>Gaming</a></li>
+                            <li><a class="dropdown-item" href="index-audio.html"><i class="bi bi-speaker me-2"></i>Audio</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-house-gear me-2"></i>Domótica</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index-ofertas-bancos.html">
+                            <i class="bi bi-credit-card me-1"></i> Ofertas Bancos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index-hiperofertas.html">
+                            <i class="bi bi-lightning me-1"></i> Hiperofertas
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex align-items-center">
+                    <form class="search-form me-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Buscar productos...">
+                            <button class="btn btn-outline-secondary" type="submit">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <a href="#" class="nav-link me-3">
+                        <i class="bi bi-person"></i> Mi cuenta
+                    </a>
+                    
+                    <a href="#" class="nav-link position-relative">
+                        <i class="bi bi-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+  <!-- Smart Home Banner -->
+  <section class="smart-hero-banner">
+    <div class="container-fluid">
+      <div class="banner-content">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <div class="banner-text">
+              <h1 class="banner-title">DOMÓTICA</h1>
+              <h2 class="banner-subtitle">SMART HOME TECHNOLOGY</h2>
+              <p class="banner-description">Convierte tu hogar en un espacio inteligente con la mejor tecnología</p>
+              <div class="smart-features">
+                <span class="feature-badge">IoT</span>
+                <span class="feature-badge">Alexa</span>
+                <span class="feature-badge">Google</span>
+                <span class="feature-badge">WiFi 6</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="banner-image">
+              <img src="templates/c-domotica-2.webp" alt="Smart Home" class="img-fluid">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Smart Categories Top Filters -->
+  <section class="top-smart-filters">
+    <div class="container-fluid">
+      <div class="filter-container">
+        <h3 class="filter-title">Categorías Smart Home</h3>
+        <div class="smart-category-buttons">
+          <button class="smart-cat-btn active" data-category="all">
+            <i class="bi bi-house-gear"></i>
+            Todo
+          </button>
+          <button class="smart-cat-btn" data-category="asistentes">
+            <i class="bi bi-mic"></i>
+            Asistentes
+          </button>
+          <button class="smart-cat-btn" data-category="iluminacion">
+            <i class="bi bi-lightbulb"></i>
+            Iluminación
+          </button>
+          <button class="smart-cat-btn" data-category="seguridad">
+            <i class="bi bi-shield-check"></i>
+            Seguridad
+          </button>
+          <button class="smart-cat-btn" data-category="climatizacion">
+            <i class="bi bi-thermometer-half"></i>
+            Clima
+          </button>
+          <button class="smart-cat-btn" data-category="electrodomesticos">
+            <i class="bi bi-house"></i>
+            Electrodomésticos
+          </button>
+          <button class="smart-cat-btn" data-category="sensores">
+            <i class="bi bi-broadcast"></i>
+            Sensores
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar Filters -->
+        <aside class="col-lg-3 sidebar">
+          <div class="filters-section">
+            <h4 class="filters-title">Filtros</h4>
+            
+            <!-- Smart Category Filter -->
+            <div class="filter-group">
+              <h5 class="filter-group-title">
+                <i class="bi bi-house-gear"></i>
+                Categoría
+              </h5>
+              <div class="filter-options">
+                <div class="filter-option">
+                  <input type="checkbox" id="asistentes" name="categoria" value="asistentes">
+                  <label for="asistentes">Asistentes Virtuales <span class="count">(4)</span></label>
+                </div>
+                <div class="filter-option">
+                  <input type="checkbox" id="iluminacion" name="categoria" value="iluminacion">
+                  <label for="iluminacion">Iluminación Smart <span class="count">(5)</span></label>
+                </div>
+                <div class="filter-option">
+                  <input type="checkbox" id="seguridad" name="categoria" value="seguridad">
+                  <label for="seguridad">Seguridad <span class="count">(4)</span></label>
+                </div>
+                <div class="filter-option">
+                  <input type="checkbox" id="climatizacion" name="categoria" value="climatizacion">
+                  <label for="climatizacion">Climatización <span class="count">(3)</span></label>
+                </div>
+                <div class="filter-option">
+                  <input type="checkbox" id="electrodomesticos" name="categoria" value="electrodomesticos">
+                  <label for="electrodomesticos">Electrodomésticos <span class="count">(4)</span></label>
+                </div>
+                <div class="filter-option">
+                  <input type="checkbox" id="sensores" name="categoria" value="sensores">
+                  <label for="sensores">Sensores <span class="count">(3)</span></label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Brand Filter -->
+            <div class="filter-group">
+              <h5 class="filter-group-title">
+                <i class="bi bi-star"></i>
+                Marca
+              </h5>
+              <div class="filter-options">
+                <div class="filter-option">
+                  <input type="checkbox" id="amazon" name="marca" value="amazon">
+                  <label for="amazon">Amazon <span class="count">(4)</span></label>
+                </div>
+                <div class="filter-option">
+                  <input type="checkbox" id="google" name="marca" value="google">
+                  <label for="google">Google <span class="count">(3)</span></label>
+                </div>
+                <div class="filter-option">
+                  <input type="checkbox" id="philips" name="marca" value="philips">
+                  <label for="philips">Philips <span class="count">(3)</span></label>
+                </div>
+                <div class="filter-option">
+                  <input type="checkbox" id="tp-link" name="marca" value="tp-link">
+                  <label for="tp-link">TP-Link <span class="count">(4)</span></label>
+                </div>
+                <div class="filter-option">
+                  <input type="checkbox" id="xiaomi" name="marca" value="xiaomi">
+                  <label for="xiaomi">Xiaomi <span class="count">(3)</span></label>
+                </div>
+                <div class="filter-option">
+                  <input type="checkbox" id="samsung" name="marca" value="samsung">
+                  <label for="samsung">Samsung <span class="count">(3)</span></label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Compatibility Filter -->
+            <div class="filter-group">
+              <h5 class="filter-group-title">
+                <i class="bi bi-wifi"></i>
+                Compatibilidad
+              </h5>
+              <div class="filter-options">
+                <div class="filter-option">
+                  <input type="checkbox" id="alexa" name="compatibilidad" value="alexa">
+                  <label for="alexa">Alexa <span class="count">(15)</span></label>
+                </div>
+                <div class="filter-option">
+                  <input type="checkbox" id="google-assistant" name="compatibilidad" value="google-assistant">
+                  <label for="google-assistant">Google Assistant <span class="count">(12)</span></label>
+                </div>
+                <div class="filter-option">
+                  <input type="checkbox" id="apple-homekit" name="compatibilidad" value="apple-homekit">
+                  <label for="apple-homekit">Apple HomeKit <span class="count">(8)</span></label>
+                </div>
+                <div class="filter-option">
+                  <input type="checkbox" id="wifi" name="compatibilidad" value="wifi">
+                  <label for="wifi">WiFi <span class="count">(20)</span></label>
+                </div>
+                <div class="filter-option">
+                  <input type="checkbox" id="bluetooth" name="compatibilidad" value="bluetooth">
+                  <label for="bluetooth">Bluetooth <span class="count">(10)</span></label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Price Range Filter -->
+            <div class="filter-group">
+              <h5 class="filter-group-title">
+                <i class="bi bi-currency-dollar"></i>
+                Rango de Precio
+              </h5>
+              <div class="price-range">
+                <input type="range" class="form-range" id="price-range" min="0" max="2000000" value="1000000">
+                <div class="price-labels">
+                  <span>$0</span>
+                  <span>$2,000,000</span>
+                </div>
+                <div class="price-current">
+                  Hasta: <strong>$1,000,000</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Products Section -->
+        <section class="col-lg-9 products-section">
+          <!-- Results Header -->
+          <div class="results-header">
+            <div class="results-info">
+              <h3>Domótica</h3>
+              <p>Mostrando <span id="showing-count">20</span> de <span id="total-count">23</span> productos</p>
+            </div>
+            
+            <!-- Sort Options -->
+            <div class="sort-controls">
+              <select class="form-select" id="sort-select">
+                <option value="relevancia">Más relevantes</option>
+                <option value="precio-menor">Menor precio</option>
+                <option value="precio-mayor">Mayor precio</option>
+                <option value="mejor-valorados">Mejor valorados</option>
+                <option value="mas-vendidos">Más vendidos</option>
+                <option value="descuento">Mayor descuento</option>
+                <option value="novedades">Novedades</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Products Grid -->
+          <div class="products-grid" id="products-grid">
+            <!-- Products will be dynamically loaded here -->
+          </div>
+
+          <!-- Pagination -->
+          <nav class="pagination-nav" aria-label="Navegación de productos">
+            <ul class="pagination justify-content-center">
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Anterior">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Siguiente">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h5>Servicio al Cliente</h5>
+          <ul class="footer-links">
+            <li><a href="#">Contacto</a></li>
+            <li><a href="#">Ayuda</a></li>
+            <li><a href="#">Garantías</a></li>
+            <li><a href="#">Devoluciones</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Información</h5>
+          <ul class="footer-links">
+            <li><a href="#">Sobre Alkosto</a></li>
+            <li><a href="#">Términos y Condiciones</a></li>
+            <li><a href="#">Políticas de Privacidad</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Síguenos</h5>
+          <div class="social-links">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-twitter"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Alkosto. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+    <!-- Account Popup -->
+    <div id="account-popup" class="account-popup" style="display: none;">
+        <div class="popup-content">
+            <h4><i class="bi bi-person-circle me-2"></i>Mi Cuenta</h4>
+            <div class="account-options">
+                <a href="#" class="account-option">
+                    <i class="bi bi-box-arrow-in-right me-2"></i>Iniciar Sesión
+                </a>
+                <a href="#" class="account-option">
+                    <i class="bi bi-person-plus me-2"></i>Crear Cuenta
+                </a>
+                <a href="#" class="account-option">
+                    <i class="bi bi-bag me-2"></i>Mis Pedidos
+                </a>
+                <a href="#" class="account-option">
+                    <i class="bi bi-heart me-2"></i>Lista de Deseos
+                </a>
+                <a href="#" class="account-option">
+                    <i class="bi bi-gear me-2"></i>Configuración
+                </a>
+            </div>
+        </div>
+    </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>`n    <script src="search-universal.js"></script>
+  <!-- Custom JS -->
+  <script src="domotica.js"></script>
+</body>
+</html>

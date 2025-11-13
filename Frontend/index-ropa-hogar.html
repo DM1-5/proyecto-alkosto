@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ropa Hogar - Alkosto</title>
+    <meta name="description" content="Encuentra la mejor ropa de hogar en Alkosto. Sábanas, cortinas, toallas, edredones y textiles decorativos para tu hogar. Calidad y estilo garantizados.">
+    <meta name="keywords" content="ropa hogar, sábanas, cortinas, toallas, edredones, textiles, decoración hogar, ropa de cama, baño, cocina">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link href="ropa-hogar.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <img src="templates/alkosto-logo-header.svg" alt="Alkosto" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="bi bi-house"></i> Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="bi bi-search"></i> Buscar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link position-relative" href="#">
+                            <i class="bi bi-cart"></i> Carrito
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning" id="cartCounter" style="display: none;">
+                                0
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🔹 Pop-up de Mi cuenta -->
+<div id="account-popup" class="account-popup">
+  <div class="popup-content">
+    <h5>Ingresar o crear cuenta</h5>
+    <p>Accede a tus datos personales, pedidos y solicitudes de devolución.</p>
+    <input type="email" placeholder="Correo electrónico" class="form-control mb-3">
+    <button class="btn btn-warning w-100">Continuar</button>
+
+    <hr class="my-3">
+
+    <div class="extra-options">
+      <a href="#">Sigue tu pedido</a>
+      <a href="#">Descarga tu factura</a>
+    </div>
+  </div>
+</div>
+
+    <!-- Hero Banner -->
+    <section class="ropa-hogar-hero-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="ropa-hogar-hero-title">Textiles Premium</h1>
+                    <p class="ropa-hogar-hero-subtitle">Transforma tu hogar con textiles de alta calidad y diseño elegante</p>
+                    <div class="ropa-hogar-hero-features">
+                        <div class="feature-item">
+                            <i class="bi bi-shield-check"></i>
+                            <span>100% Algodón</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-water"></i>
+                            <span>Fácil Lavado</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-palette"></i>
+                            <span>Diseños Únicos</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-house-heart"></i>
+                            <span>Hogar Acogedor</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ropa-hogar-hero-image text-center">
+                        <img src="templates/ropa-hogar-2.webp" alt="Textiles Premium para Hogar" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Navigation -->
+    <section class="ropa-hogar-categories py-4">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="ropa-hogar-cat-btn active" data-category="todos">
+                        <i class="bi bi-grid"></i>
+                        <span>Todos</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="ropa-hogar-cat-btn" data-category="ropa-cama">
+                        <i class="bi bi-moon"></i>
+                        <span>Ropa Cama</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="ropa-hogar-cat-btn" data-category="cortinas">
+                        <i class="bi bi-columns-gap"></i>
+                        <span>Cortinas</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="ropa-hogar-cat-btn" data-category="toallas">
+                        <i class="bi bi-droplet"></i>
+                        <span>Toallas</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="ropa-hogar-cat-btn" data-category="cocina">
+                        <i class="bi bi-cup-hot"></i>
+                        <span>Cocina</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="ropa-hogar-cat-btn" data-category="decorativo">
+                        <i class="bi bi-star"></i>
+                        <span>Decorativo</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Filters Sidebar -->
+            <div class="col-lg-3 mb-4">
+                <div class="filters-sidebar">
+                    <h5><i class="bi bi-funnel"></i> Filtros</h5>
+                    
+                    <!-- Categoría -->
+                    <div class="filter-section">
+                        <h6>Categoría</h6>
+                        <div class="filter-option">
+                            <input type="checkbox" id="ropa-cama" name="categoria" value="ropa-cama">
+                            <label for="ropa-cama">
+                                <span>Ropa de Cama</span>
+                                <span class="count" data-count="ropa-cama">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="cortinas" name="categoria" value="cortinas">
+                            <label for="cortinas">
+                                <span>Cortinas</span>
+                                <span class="count" data-count="cortinas">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="toallas" name="categoria" value="toallas">
+                            <label for="toallas">
+                                <span>Toallas</span>
+                                <span class="count" data-count="toallas">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="cocina" name="categoria" value="cocina">
+                            <label for="cocina">
+                                <span>Cocina</span>
+                                <span class="count" data-count="cocina">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="decorativo" name="categoria" value="decorativo">
+                            <label for="decorativo">
+                                <span>Decorativo</span>
+                                <span class="count" data-count="decorativo">0</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Material -->
+                    <div class="filter-section">
+                        <h6>Material</h6>
+                        <div class="filter-option">
+                            <input type="checkbox" id="algodon" name="material" value="algodon">
+                            <label for="algodon">
+                                <span>100% Algodón</span>
+                                <span class="count" data-count="algodon">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="microfibra" name="material" value="microfibra">
+                            <label for="microfibra">
+                                <span>Microfibra</span>
+                                <span class="count" data-count="microfibra">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="lino" name="material" value="lino">
+                            <label for="lino">
+                                <span>Lino</span>
+                                <span class="count" data-count="lino">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="poliester" name="material" value="poliester">
+                            <label for="poliester">
+                                <span>Poliéster</span>
+                                <span class="count" data-count="poliester">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="bambu" name="material" value="bambu">
+                            <label for="bambu">
+                                <span>Bambú</span>
+                                <span class="count" data-count="bambu">0</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Tamaño -->
+                    <div class="filter-section">
+                        <h6>Tamaño</h6>
+                        <div class="filter-option">
+                            <input type="checkbox" id="individual" name="tamaño" value="individual">
+                            <label for="individual">
+                                <span>Individual</span>
+                                <span class="count" data-count="individual">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="matrimonial" name="tamaño" value="matrimonial">
+                            <label for="matrimonial">
+                                <span>Matrimonial</span>
+                                <span class="count" data-count="matrimonial">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="queen" name="tamaño" value="queen">
+                            <label for="queen">
+                                <span>Queen</span>
+                                <span class="count" data-count="queen">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="king" name="tamaño" value="king">
+                            <label for="king">
+                                <span>King</span>
+                                <span class="count" data-count="king">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="estandar" name="tamaño" value="estandar">
+                            <label for="estandar">
+                                <span>Estándar</span>
+                                <span class="count" data-count="estandar">0</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Color -->
+                    <div class="filter-section">
+                        <h6>Color</h6>
+                        <div class="filter-option">
+                            <input type="checkbox" id="blanco" name="color" value="blanco">
+                            <label for="blanco">
+                                <span>Blanco</span>
+                                <span class="count" data-count="blanco">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="beige" name="color" value="beige">
+                            <label for="beige">
+                                <span>Beige</span>
+                                <span class="count" data-count="beige">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="gris" name="color" value="gris">
+                            <label for="gris">
+                                <span>Gris</span>
+                                <span class="count" data-count="gris">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="azul" name="color" value="azul">
+                            <label for="azul">
+                                <span>Azul</span>
+                                <span class="count" data-count="azul">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="rosa" name="color" value="rosa">
+                            <label for="rosa">
+                                <span>Rosa</span>
+                                <span class="count" data-count="rosa">0</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Características -->
+                    <div class="filter-section">
+                        <h6>Características</h6>
+                        <div class="filter-option">
+                            <input type="checkbox" id="antibacterial" name="caracteristicas" value="antibacterial">
+                            <label for="antibacterial">
+                                <span>Antibacterial</span>
+                                <span class="count" data-count="antibacterial">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="hipoalergenico" name="caracteristicas" value="hipoalergenico">
+                            <label for="hipoalergenico">
+                                <span>Hipoalergénico</span>
+                                <span class="count" data-count="hipoalergenico">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="secado-rapido" name="caracteristicas" value="secado-rapido">
+                            <label for="secado-rapido">
+                                <span>Secado Rápido</span>
+                                <span class="count" data-count="secado-rapido">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="suave" name="caracteristicas" value="suave">
+                            <label for="suave">
+                                <span>Extra Suave</span>
+                                <span class="count" data-count="suave">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="resistente" name="caracteristicas" value="resistente">
+                            <label for="resistente">
+                                <span>Resistente</span>
+                                <span class="count" data-count="resistente">0</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Precio -->
+                    <div class="filter-section">
+                        <h6>Rango de Precio</h6>
+                        <div class="price-filter">
+                            <input type="range" class="form-range" id="priceRange" min="15000" max="500000" value="500000" step="5000">
+                            <div class="price-display">
+                                <span class="price-current" id="priceValue">$500.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-outline-secondary w-100 mt-3" id="clearFilters">
+                        <i class="bi bi-arrow-clockwise"></i> Limpiar Filtros
+                    </button>
+                </div>
+            </div>
+
+            <!-- Products Section -->
+            <div class="col-lg-9">
+                <!-- Results Header -->
+                <div class="results-header">
+                    <div class="results-info" id="resultsInfo">
+                        Cargando productos...
+                    </div>
+                    <div class="sort-options">
+                        <select class="form-select" id="sortSelect">
+                            <option value="relevancia">Más Relevante</option>
+                            <option value="precio-asc">Precio: Menor a Mayor</option>
+                            <option value="precio-desc">Precio: Mayor a Menor</option>
+                            <option value="rating">Mejor Calificación</option>
+                            <option value="descuento">Mayor Descuento</option>
+                            <option value="nombre">Nombre A-Z</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be loaded here by JavaScript -->
+                </div>
+
+                <!-- Pagination -->
+                <nav aria-label="Navegación de productos" class="mt-4">
+                    <ul class="pagination justify-content-center" id="pagination">
+                        <!-- Pagination will be generated by JavaScript -->
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Care Guide Section -->
+    <section class="care-guide py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="care-guide-title">Guía de Cuidado</h2>
+                    <p class="care-guide-subtitle">Mantén tus textiles como nuevos con estos consejos</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="care-guide-card">
+                        <div class="guide-icon">
+                            <i class="bi bi-water"></i>
+                        </div>
+                        <h4>Lavado</h4>
+                        <p>Lava en agua fría con detergente suave para preservar colores y textura</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="care-guide-card">
+                        <div class="guide-icon">
+                            <i class="bi bi-wind"></i>
+                        </div>
+                        <h4>Secado</h4>
+                        <p>Seca al aire libre o usa temperatura baja en la secadora</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="care-guide-card">
+                        <div class="guide-icon">
+                            <i class="bi bi-thermometer-half"></i>
+                        </div>
+                        <h4>Planchado</h4>
+                        <p>Plancha a temperatura media mientras aún esté ligeramente húmedo</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="care-guide-card">
+                        <div class="guide-icon">
+                            <i class="bi bi-box"></i>
+                        </div>
+                        <h4>Almacenaje</h4>
+                        <p>Guarda en lugar seco y ventilado, evita la humedad</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Features -->
+    <section class="py-4 bg-light">
+        <div class="container">
+            <div class="ropa-hogar-footer-features">
+                <span><i class="bi bi-truck"></i> Envío gratis en compras mayores a $100.000</span>
+                <span><i class="bi bi-arrow-repeat"></i> Cambios fáciles hasta 30 días</span>
+                <span><i class="bi bi-shield-check"></i> Garantía de calidad</span>
+                <span><i class="bi bi-credit-card"></i> Pago seguro y confiable</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>`n    <script src="search-universal.js"></script>
+    <!-- Custom JS -->
+    <script src="ropa-hogar.js"></script>
+</body>
+</html>

@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultados de búsqueda - Alkosto</title>
+  
+  <!-- Bootstrap 5.3.0 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  
+  <!-- Global Search Styles -->
+  <link rel="stylesheet" href="css/global-search.css">
+  
+  <!-- Search Results Styles -->
+  <style>
+    :root {
+      --alkosto-primary: #ff6900;
+      --alkosto-secondary: #2c3e50;
+      --alkosto-light: #f8f9fa;
+      --alkosto-border: #e1e5e9;
+      --alkosto-success: #28a745;
+      --alkosto-danger: #dc3545;
+      --alkosto-warning: #ffc107;
+    }
+
+    body {
+      background-color: var(--alkosto-light);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Header fijo */
+    .navbar {
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar-brand img {
+      height: 40px;
+    }
+
+    /* Área de búsqueda en header */
+    .header-search {
+      flex: 1;
+      max-width: 600px;
+      margin: 0 2rem;
+    }
+
+    /* Contenido principal */
+    .search-results-container {
+      background: white;
+      margin-top: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      overflow: hidden;
+    }
+
+    /* Header de resultados */
+    .results-header {
+      background: linear-gradient(135deg, var(--alkosto-primary), #e55a00);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .results-query {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .results-summary {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    /* Filtros y ordenamiento */
+    .filters-section {
+      background: white;
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--alkosto-border);
+      position: sticky;
+      top: 80px;
+      z-index: 999;
+    }
+
+    .filter-group {
+      background: var(--alkosto-light);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .filter-title {
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--alkosto-secondary);
+    }
+
+    .filter-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .filter-option {
+      background: white;
+      border: 1px solid var(--alkosto-border);
+      border-radius: 20px;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      user-select: none;
+    }
+
+    .filter-option:hover {
+      border-color: var(--alkosto-primary);
+      background: rgba(255, 105, 0, 0.1);
+    }
+
+    .filter-option.active {
+      background: var(--alkosto-primary);
+      color: white;
+      border-color: var(--alkosto-primary);
+    }
+
+    /* Grid de productos */
+    .products-grid {
+      padding: 2rem;
+    }
+
+    .product-card {
+      background: white;
+      border: 1px solid var(--alkosto-border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      height: 100%;
+      margin-bottom: 1.5rem;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      border-color: var(--alkosto-primary);
+    }
+
+    .product-image {
+      position: relative;
+      height: 250px;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.05);
+    }
+
+    .product-discount {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--alkosto-danger);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .product-favorite {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 40px;
+      height: 40px;
+      border: none;
+      background: rgba(255,255,255,0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6c757d;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .product-favorite:hover {
+      background: var(--alkosto-primary);
+      color: white;
+    }
+
+    .product-info {
+      padding: 1.5rem;
+    }
+
+    .product-category {
+      color: var(--alkosto-primary);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--alkosto-secondary);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .product-brand {
+      color: #6c757d;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .product-rating {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .stars {
+      color: var(--alkosto-warning);
+      font-size: 1rem;
+    }
+
+    .rating-count {
+      color: #6c757d;
+      font-size: 0.8rem;
+    }
+
+    .product-pricing {
+      margin-bottom: 1.5rem;
+    }
+
+    .price-original {
+      color: #6c757d;
+      text-decoration: line-through;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .price-current {
+      color: var(--alkosto-success);
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .product-actions {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .btn-add-cart {
+      flex: 1;
+      background: var(--alkosto-primary);
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-add-cart:hover {
+      background: #e55a00;
+      transform: translateY(-2px);
+    }
+
+    .btn-quick-view {
+      width: 45px;
+      height: 45px;
+      border: 1px solid var(--alkosto-border);
+      background: white;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--alkosto-secondary);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-quick-view:hover {
+      border-color: var(--alkosto-primary);
+      color: var(--alkosto-primary);
+    }
+
+    /* Paginación */
+    .pagination-section {
+      padding: 2rem;
+      border-top: 1px solid var(--alkosto-border);
+      background: var(--alkosto-light);
+    }
+
+    .pagination {
+      justify-content: center;
+    }
+
+    .page-link {
+      color: var(--alkosto-secondary);
+      border-color: var(--alkosto-border);
+    }
+
+    .page-link:hover {
+      color: var(--alkosto-primary);
+      border-color: var(--alkosto-primary);
+      background-color: rgba(255, 105, 0, 0.1);
+    }
+
+    .page-item.active .page-link {
+      background-color: var(--alkosto-primary);
+      border-color: var(--alkosto-primary);
+    }
+
+    /* Estados especiales */
+    .no-results {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: #6c757d;
+    }
+
+    .no-results-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      color: var(--alkosto-border);
+    }
+
+    .loading-state {
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .loading-spinner-lg {
+      width: 60px;
+      height: 60px;
+      border: 4px solid var(--alkosto-light);
+      border-top: 4px solid var(--alkosto-primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1rem auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-search {
+        margin: 1rem 0 0 0;
+        order: 3;
+        width: 100%;
+      }
+
+      .results-query {
+        font-size: 1.5rem;
+      }
+
+      .filters-section {
+        padding: 1rem;
+        position: static;
+      }
+
+      .filter-group {
+        margin-bottom: 0.75rem;
+      }
+
+      .products-grid {
+        padding: 1rem;
+      }
+
+      .product-card {
+        margin-bottom: 1rem;
+      }
+
+      .product-image {
+        height: 200px;
+      }
+
+      .product-info {
+        padding: 1rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .product-actions {
+        flex-direction: column;
+      }
+
+      .btn-quick-view {
+        width: 100%;
+        height: 40px;
+      }
+    }
+
+    /* Highlighting para términos de búsqueda */
+    .search-highlight {
+      background: rgba(255, 105, 0, 0.2);
+      color: var(--alkosto-primary);
+      font-weight: 600;
+      padding: 0 2px;
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header con navegación -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <!-- Logo -->
+      <a class="navbar-brand" href="index.html">
+        <img src="https://via.placeholder.com/120x40/ff6900/white?text=ALKOSTO" alt="Alkosto">
+      </a>
+
+      <!-- Botón móvil -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Búsqueda en header -->
+      <div class="header-search d-none d-lg-block">
+        <div id="global-search-container"></div>
+      </div>
+
+      <!-- Navegación -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- Búsqueda móvil -->
+        <div class="header-search d-lg-none w-100 mt-3">
+          <div id="global-search-container-mobile"></div>
+        </div>
+
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="bi bi-person"></i> Mi cuenta</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="bi bi-heart"></i> Favoritos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link position-relative" href="#">
+              <i class="bi bi-cart3"></i> Carrito
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenido principal -->
+  <div class="container">
+    <div class="search-results-container">
+      <!-- Header de resultados -->
+      <div class="results-header">
+        <div class="results-query" id="search-query">Cargando búsqueda...</div>
+        <div class="results-summary" id="search-summary">Preparando resultados...</div>
+      </div>
+
+      <!-- Filtros y ordenamiento -->
+      <div class="filters-section">
+        <div class="row">
+          <!-- Categorías -->
+          <div class="col-lg-3 col-md-6 mb-3">
+            <div class="filter-group">
+              <div class="filter-title">Categorías</div>
+              <div class="filter-options" id="category-filters">
+                <!-- Dinámico -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Precio -->
+          <div class="col-lg-3 col-md-6 mb-3">
+            <div class="filter-group">
+              <div class="filter-title">Precio</div>
+              <div class="filter-options" id="price-filters">
+                <div class="filter-option" data-price="0-500000">Hasta $500,000</div>
+                <div class="filter-option" data-price="500000-1500000">$500K - $1.5M</div>
+                <div class="filter-option" data-price="1500000-5000000">$1.5M - $5M</div>
+                <div class="filter-option" data-price="5000000-999999999">Más de $5M</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Marca -->
+          <div class="col-lg-3 col-md-6 mb-3">
+            <div class="filter-group">
+              <div class="filter-title">Marca</div>
+              <div class="filter-options" id="brand-filters">
+                <!-- Dinámico -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Ordenamiento -->
+          <div class="col-lg-3 col-md-6 mb-3">
+            <div class="filter-group">
+              <div class="filter-title">Ordenar por</div>
+              <select class="form-select" id="sort-select">
+                <option value="relevance">Relevancia</option>
+                <option value="price_asc">Precio: Menor a mayor</option>
+                <option value="price_desc">Precio: Mayor a menor</option>
+                <option value="rating">Mejor calificados</option>
+                <option value="popularity">Más populares</option>
+                <option value="newest">Más recientes</option>
+                <option value="name">Nombre A-Z</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grid de productos -->
+      <div class="products-grid">
+        <!-- Estado de carga -->
+        <div class="loading-state" id="loading-state">
+          <div class="loading-spinner-lg"></div>
+          <h4>Buscando productos...</h4>
+          <p>Estamos encontrando los mejores resultados para ti</p>
+        </div>
+
+        <!-- Contenedor de productos -->
+        <div class="row" id="products-container" style="display: none;">
+          <!-- Productos se cargan dinámicamente -->
+        </div>
+
+        <!-- Sin resultados -->
+        <div class="no-results" id="no-results" style="display: none;">
+          <i class="bi bi-search no-results-icon"></i>
+          <h3>No se encontraron productos</h3>
+          <p>Intenta con términos diferentes o explora nuestras categorías populares</p>
+          <div class="mt-4">
+            <a href="index-celulares.html" class="btn btn-outline-primary me-2">Celulares</a>
+            <a href="index-gaming.html" class="btn btn-outline-primary me-2">Gaming</a>
+            <a href="index-televisores.html" class="btn btn-outline-primary me-2">Televisores</a>
+            <a href="index-computadores.html" class="btn btn-outline-primary">Computadores</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paginación -->
+      <div class="pagination-section" id="pagination-section" style="display: none;">
+        <nav aria-label="Paginación de resultados">
+          <ul class="pagination" id="pagination-container">
+            <!-- Paginación dinámica -->
+          </ul>
+        </nav>
+        <div class="text-center mt-3">
+          <small class="text-muted" id="pagination-info">Mostrando productos</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light py-5 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h5>Alkosto</h5>
+          <p>Tu tienda de tecnología y electrodomésticos de confianza.</p>
+        </div>
+        <div class="col-md-4">
+          <h5>Enlaces rápidos</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-light">Celulares</a></li>
+            <li><a href="#" class="text-light">Gaming</a></li>
+            <li><a href="#" class="text-light">Televisores</a></li>
+            <li><a href="#" class="text-light">Computadores</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Contacto</h5>
+          <p><i class="bi bi-telephone"></i> (01) 800-123-4567</p>
+          <p><i class="bi bi-envelope"></i> soporte@alkosto.com</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/data/products-database.js"></script>
+  <script src="js/components/global-search.js"></script>
+  
+  <!-- Script principal de la página de resultados -->
+  <script>
+    class SearchResultsPage {
+      constructor() {
+        this.currentQuery = '';
+        this.currentFilters = {
+          category: null,
+          minPrice: 0,
+          maxPrice: Infinity,
+          brand: null,
+          sortBy: 'relevance'
+        };
+        this.currentPage = 1;
+        this.itemsPerPage = 12;
+        this.allResults = [];
+        this.filteredResults = [];
+        
+        this.init();
+      }
+
+      init() {
+        this.extractQueryFromUrl();
+        this.setupEventListeners();
+        this.initializeGlobalSearch();
+        this.executeSearch();
+      }
+
+      extractQueryFromUrl() {
+        const urlParams = new URLSearchParams(window.location.search);
+        this.currentQuery = urlParams.get('q') || '';
+        
+        // Actualizar título de la página
+        if (this.currentQuery) {
+          document.title = `"${this.currentQuery}" - Resultados de búsqueda - Alkosto`;
+        }
+      }
+
+      setupEventListeners() {
+        // Filtros de categoría
+        document.addEventListener('click', (e) => {
+          if (e.target.matches('[data-category]')) {
+            this.handleCategoryFilter(e.target);
+          }
+        });
+
+        // Filtros de precio
+        document.addEventListener('click', (e) => {
+          if (e.target.matches('[data-price]')) {
+            this.handlePriceFilter(e.target);
+          }
+        });
+
+        // Filtros de marca
+        document.addEventListener('click', (e) => {
+          if (e.target.matches('[data-brand]')) {
+            this.handleBrandFilter(e.target);
+          }
+        });
+
+        // Ordenamiento
+        document.getElementById('sort-select').addEventListener('change', (e) => {
+          this.currentFilters.sortBy = e.target.value;
+          this.applyFilters();
+        });
+
+        // Paginación
+        document.addEventListener('click', (e) => {
+          if (e.target.matches('[data-page]')) {
+            e.preventDefault();
+            this.currentPage = parseInt(e.target.dataset.page);
+            this.renderResults();
+            this.scrollToTop();
+          }
+        });
+
+        // Botones de acción en productos
+        document.addEventListener('click', (e) => {
+          if (e.target.matches('.btn-add-cart')) {
+            this.addToCart(e.target.dataset.productId);
+          }
+          if (e.target.matches('.btn-quick-view')) {
+            this.quickView(e.target.dataset.productId);
+          }
+          if (e.target.matches('.product-favorite')) {
+            this.toggleFavorite(e.target.dataset.productId);
+          }
+        });
+      }
+
+      initializeGlobalSearch() {
+        // Inicializar búsqueda global en desktop
+        if (document.getElementById('global-search-container')) {
+          new GlobalSearch({ containerId: 'global-search-container' });
+        }
+        
+        // Inicializar búsqueda global en móvil
+        if (document.getElementById('global-search-container-mobile')) {
+          new GlobalSearch({ containerId: 'global-search-container-mobile' });
+        }
+
+        // Establecer query actual en los inputs
+        setTimeout(() => {
+          const searchInputs = document.querySelectorAll('.search-input');
+          searchInputs.forEach(input => {
+            input.value = this.currentQuery;
+          });
+        }, 500);
+      }
+
+      async executeSearch() {
+        if (!this.currentQuery) {
+          this.showNoResults();
+          return;
+        }
+
+        // Mostrar estado de carga
+        this.showLoading();
+
+        try {
+          const response = await window.ProductsAPI.search(this.currentQuery, {
+            limit: 1000, // Obtener todos para filtrado local
+            sortBy: this.currentFilters.sortBy
+          });
+
+          if (response.success) {
+            this.allResults = response.data.products;
+            this.updateResultsHeader(response.data);
+            this.setupFilters();
+            this.applyFilters();
+          } else {
+            throw new Error(response.error);
+          }
+        } catch (error) {
+          console.error('Error en búsqueda:', error);
+          this.showError();
+        }
+      }
+
+      updateResultsHeader(data) {
+        document.getElementById('search-query').textContent = `"${this.currentQuery}"`;
+        document.getElementById('search-summary').textContent = 
+          `${data.total} producto${data.total !== 1 ? 's' : ''} encontrado${data.total !== 1 ? 's' : ''}`;
+      }
+
+      setupFilters() {
+        // Configurar filtros de categoría
+        const categories = [...new Set(this.allResults.map(p => p.category))];
+        const categoryFilters = document.getElementById('category-filters');
+        categoryFilters.innerHTML = categories.map(cat => 
+          `<div class="filter-option" data-category="${cat}">${cat}</div>`
+        ).join('');
+
+        // Configurar filtros de marca
+        const brands = [...new Set(this.allResults.map(p => p.brand))];
+        const brandFilters = document.getElementById('brand-filters');
+        brandFilters.innerHTML = brands.slice(0, 6).map(brand => 
+          `<div class="filter-option" data-brand="${brand}">${brand}</div>`
+        ).join('');
+      }
+
+      handleCategoryFilter(element) {
+        const category = element.dataset.category;
+        
+        // Toggle activo
+        document.querySelectorAll('[data-category]').forEach(el => el.classList.remove('active'));
+        
+        if (this.currentFilters.category === category) {
+          this.currentFilters.category = null;
+        } else {
+          this.currentFilters.category = category;
+          element.classList.add('active');
+        }
+        
+        this.applyFilters();
+      }
+
+      handlePriceFilter(element) {
+        const priceRange = element.dataset.price;
+        const [min, max] = priceRange.split('-').map(Number);
+        
+        // Toggle activo
+        document.querySelectorAll('[data-price]').forEach(el => el.classList.remove('active'));
+        
+        if (this.currentFilters.minPrice === min && this.currentFilters.maxPrice === max) {
+          this.currentFilters.minPrice = 0;
+          this.currentFilters.maxPrice = Infinity;
+        } else {
+          this.currentFilters.minPrice = min;
+          this.currentFilters.maxPrice = max;
+          element.classList.add('active');
+        }
+        
+        this.applyFilters();
+      }
+
+      handleBrandFilter(element) {
+        const brand = element.dataset.brand;
+        
+        // Toggle activo
+        document.querySelectorAll('[data-brand]').forEach(el => el.classList.remove('active'));
+        
+        if (this.currentFilters.brand === brand) {
+          this.currentFilters.brand = null;
+        } else {
+          this.currentFilters.brand = brand;
+          element.classList.add('active');
+        }
+        
+        this.applyFilters();
+      }
+
+      applyFilters() {
+        // Aplicar filtros
+        this.filteredResults = this.allResults.filter(product => {
+          // Filtro de categoría
+          if (this.currentFilters.category && product.category !== this.currentFilters.category) {
+            return false;
+          }
+          
+          // Filtro de precio
+          if (product.price < this.currentFilters.minPrice || product.price > this.currentFilters.maxPrice) {
+            return false;
+          }
+          
+          // Filtro de marca
+          if (this.currentFilters.brand && product.brand !== this.currentFilters.brand) {
+            return false;
+          }
+          
+          return true;
+        });
+
+        // Aplicar ordenamiento
+        this.sortResults();
+        
+        // Resetear página
+        this.currentPage = 1;
+        
+        // Renderizar resultados
+        this.renderResults();
+      }
+
+      sortResults() {
+        const sortBy = this.currentFilters.sortBy;
+        
+        this.filteredResults.sort((a, b) => {
+          switch (sortBy) {
+            case 'price_asc':
+              return a.price - b.price;
+            case 'price_desc':
+              return b.price - a.price;
+            case 'rating':
+              return b.rating - a.rating;
+            case 'popularity':
+              return b.reviews - a.reviews;
+            case 'name':
+              return a.name.localeCompare(b.name);
+            case 'newest':
+              return b.id.localeCompare(a.id);
+            case 'relevance':
+            default:
+              return (b._searchScore || 0) - (a._searchScore || 0);
+          }
+        });
+      }
+
+      renderResults() {
+        const container = document.getElementById('products-container');
+        const loadingState = document.getElementById('loading-state');
+        const noResults = document.getElementById('no-results');
+        const paginationSection = document.getElementById('pagination-section');
+
+        // Ocultar estados
+        loadingState.style.display = 'none';
+        noResults.style.display = 'none';
+        
+        if (this.filteredResults.length === 0) {
+          container.style.display = 'none';
+          paginationSection.style.display = 'none';
+          noResults.style.display = 'block';
+          return;
+        }
+
+        // Calcular paginación
+        const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+        const endIndex = startIndex + this.itemsPerPage;
+        const pageResults = this.filteredResults.slice(startIndex, endIndex);
+
+        // Renderizar productos
+        container.innerHTML = pageResults.map(product => this.renderProductCard(product)).join('');
+        container.style.display = 'flex';
+        
+        // Renderizar paginación
+        this.renderPagination();
+        paginationSection.style.display = 'block';
+      }
+
+      renderProductCard(product) {
+        const highlightedName = this.highlightSearchTerms(product.name);
+        
+        return `
+          <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="product-card">
+              <div class="product-image">
+                <img src="${product.image}" alt="${product.name}" loading="lazy">
+                ${product.discount ? `<div class="product-discount">-${product.discount}%</div>` : ''}
+                <button class="product-favorite" data-product-id="${product.id}">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+              <div class="product-info">
+                <div class="product-category">${product.categoryName}</div>
+                <h3 class="product-name">${highlightedName}</h3>
+                <div class="product-brand">${product.brand}</div>
+                <div class="product-rating">
+                  <div class="stars">${this.renderStars(product.rating)}</div>
+                  <span class="rating-count">(${product.reviews})</span>
+                </div>
+                <div class="product-pricing">
+                  ${product.originalPrice && product.originalPrice !== product.price ? 
+                    `<div class="price-original">$${product.originalPrice.toLocaleString()}</div>` : ''}
+                  <div class="price-current">$${product.price.toLocaleString()}</div>
+                </div>
+                <div class="product-actions">
+                  <button class="btn-add-cart" data-product-id="${product.id}">
+                    <i class="bi bi-cart-plus"></i> Agregar al carrito
+                  </button>
+                  <button class="btn-quick-view" data-product-id="${product.id}">
+                    <i class="bi bi-eye"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      renderPagination() {
+        const totalPages = Math.ceil(this.filteredResults.length / this.itemsPerPage);
+        const paginationContainer = document.getElementById('pagination-container');
+        const paginationInfo = document.getElementById('pagination-info');
+
+        if (totalPages <= 1) {
+          paginationContainer.innerHTML = '';
+          paginationInfo.textContent = `Mostrando ${this.filteredResults.length} productos`;
+          return;
+        }
+
+        // Generar paginación
+        let pagination = '';
+        
+        // Anterior
+        pagination += `
+          <li class="page-item ${this.currentPage === 1 ? 'disabled' : ''}">
+            <a class="page-link" href="#" data-page="${this.currentPage - 1}">
+              <i class="bi bi-chevron-left"></i>
+            </a>
+          </li>
+        `;
+
+        // Páginas
+        const startPage = Math.max(1, this.currentPage - 2);
+        const endPage = Math.min(totalPages, this.currentPage + 2);
+
+        if (startPage > 1) {
+          pagination += `<li class="page-item"><a class="page-link" href="#" data-page="1">1</a></li>`;
+          if (startPage > 2) {
+            pagination += `<li class="page-item disabled"><span class="page-link">...</span></li>`;
+          }
+        }
+
+        for (let i = startPage; i <= endPage; i++) {
+          pagination += `
+            <li class="page-item ${i === this.currentPage ? 'active' : ''}">
+              <a class="page-link" href="#" data-page="${i}">${i}</a>
+            </li>
+          `;
+        }
+
+        if (endPage < totalPages) {
+          if (endPage < totalPages - 1) {
+            pagination += `<li class="page-item disabled"><span class="page-link">...</span></li>`;
+          }
+          pagination += `<li class="page-item"><a class="page-link" href="#" data-page="${totalPages}">${totalPages}</a></li>`;
+        }
+
+        // Siguiente
+        pagination += `
+          <li class="page-item ${this.currentPage === totalPages ? 'disabled' : ''}">
+            <a class="page-link" href="#" data-page="${this.currentPage + 1}">
+              <i class="bi bi-chevron-right"></i>
+            </a>
+          </li>
+        `;
+
+        paginationContainer.innerHTML = pagination;
+
+        // Info de paginación
+        const startItem = (this.currentPage - 1) * this.itemsPerPage + 1;
+        const endItem = Math.min(this.currentPage * this.itemsPerPage, this.filteredResults.length);
+        paginationInfo.textContent = `Mostrando ${startItem}-${endItem} de ${this.filteredResults.length} productos`;
+      }
+
+      highlightSearchTerms(text) {
+        if (!this.currentQuery) return text;
+        const regex = new RegExp(`(${this.escapeRegex(this.currentQuery)})`, 'gi');
+        return text.replace(regex, '<span class="search-highlight">$1</span>');
+      }
+
+      escapeRegex(string) {
+        return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      }
+
+      renderStars(rating) {
+        const fullStars = Math.floor(rating);
+        const hasHalfStar = rating % 1 !== 0;
+        return '★'.repeat(fullStars) + (hasHalfStar ? '☆' : '') + '☆'.repeat(5 - fullStars - (hasHalfStar ? 1 : 0));
+      }
+
+      showLoading() {
+        document.getElementById('loading-state').style.display = 'block';
+        document.getElementById('products-container').style.display = 'none';
+        document.getElementById('no-results').style.display = 'none';
+        document.getElementById('pagination-section').style.display = 'none';
+      }
+
+      showNoResults() {
+        document.getElementById('loading-state').style.display = 'none';
+        document.getElementById('products-container').style.display = 'none';
+        document.getElementById('no-results').style.display = 'block';
+        document.getElementById('pagination-section').style.display = 'none';
+        
+        document.getElementById('search-query').textContent = this.currentQuery || 'Búsqueda vacía';
+        document.getElementById('search-summary').textContent = 'No se encontraron productos';
+      }
+
+      showError() {
+        document.getElementById('loading-state').innerHTML = `
+          <div class="text-center">
+            <i class="bi bi-exclamation-triangle display-1 text-warning"></i>
+            <h4>Error de conexión</h4>
+            <p>No se pudieron cargar los resultados. Por favor, intenta nuevamente.</p>
+            <button class="btn btn-primary" onclick="location.reload()">Reintentar</button>
+          </div>
+        `;
+      }
+
+      scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      // Métodos de acción (placeholder)
+      addToCart(productId) {
+        // Implementar lógica de carrito
+        console.log('Agregar al carrito:', productId);
+        
+        // Mostrar feedback visual
+        const button = document.querySelector(`[data-product-id="${productId}"].btn-add-cart`);
+        const originalText = button.innerHTML;
+        button.innerHTML = '<i class="bi bi-check"></i> ¡Agregado!';
+        button.style.background = '#28a745';
+        
+        setTimeout(() => {
+          button.innerHTML = originalText;
+          button.style.background = '';
+        }, 2000);
+      }
+
+      quickView(productId) {
+        // Implementar vista rápida
+        console.log('Vista rápida:', productId);
+      }
+
+      toggleFavorite(productId) {
+        // Implementar favoritos
+        const button = document.querySelector(`[data-product-id="${productId}"].product-favorite`);
+        const icon = button.querySelector('i');
+        
+        if (icon.classList.contains('bi-heart')) {
+          icon.classList.remove('bi-heart');
+          icon.classList.add('bi-heart-fill');
+          button.style.color = '#dc3545';
+        } else {
+          icon.classList.remove('bi-heart-fill');
+          icon.classList.add('bi-heart');
+          button.style.color = '';
+        }
+      }
+    }
+
+    // Inicializar página cuando el DOM esté listo
+    document.addEventListener('DOMContentLoaded', () => {
+      new SearchResultsPage();
+    });
+  </script>
+</body>
+</html>

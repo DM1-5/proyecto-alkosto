@@ -1,0 +1,363 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Computadores - Alkosto</title>
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Custom styles -->
+  <link href="style.css" rel="stylesheet">
+  <link href="computadores.css" rel="stylesheet">
+  <link href="search-styles.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="templates/alkosto-logo-header.svg" alt="Alkosto" height="40">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-grid-3x3-gap me-1"></i> CategorÃ­as
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="index-televisores.html"><i class="bi bi-tv me-2"></i>Televisores</a></li>
+                            <li><a class="dropdown-item" href="index-celulares.html"><i class="bi bi-phone me-2"></i>Celulares</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-laptop me-2"></i>Computadores</a></li>
+                            <li><a class="dropdown-item" href="index-electrohogar.html"><i class="bi bi-house me-2"></i>Electrohogar</a></li>
+                            <li><a class="dropdown-item" href="index-electro.html"><i class="bi bi-lightning me-2"></i>Electro</a></li>
+                            <li><a class="dropdown-item" href="index-gaming.html"><i class="bi bi-controller me-2"></i>Gaming</a></li>
+                            <li><a class="dropdown-item" href="index-audio.html"><i class="bi bi-speaker me-2"></i>Audio</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="index-videojuegos.html"><i class="bi bi-joystick me-2"></i>Videojuegos</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index-ofertas-bancos.html">
+                            <i class="bi bi-credit-card me-1"></i> Ofertas Bancos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index-hiperofertas.html">
+                            <i class="bi bi-lightning me-1"></i> Hiperofertas
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex align-items-center">
+                    <form class="search-form me-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Buscar productos...">
+                            <button class="btn btn-outline-secondary" type="submit">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <a href="#" class="nav-link me-3">
+                        <i class="bi bi-person"></i> Mi cuenta
+                    </a>
+                    
+                    <a href="#" class="nav-link position-relative">
+                        <i class="bi bi-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+  <!-- Breadcrumb -->
+  <nav aria-label="breadcrumb" class="breadcrumb-nav">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Computadores</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Filtros superiores de marca -->
+  <div class="top-brand-filters">
+    <div class="container">
+      <h6>Filtrar por marca</h6>
+      <div class="brand-buttons">
+        <button class="brand-btn active" data-brand="hp">
+          <span>HP</span>
+        </button>
+        <button class="brand-btn" data-brand="dell">
+          <span>Dell</span>
+        </button>
+        <button class="brand-btn" data-brand="asus">
+          <span>ASUS</span>
+        </button>
+        <button class="brand-btn" data-brand="lenovo">
+          <span>Lenovo</span>
+        </button>
+        <button class="brand-btn" data-brand="acer">
+          <span>Acer</span>
+        </button>
+        <button class="brand-btn" data-brand="apple">
+          <span>Apple</span>
+        </button>
+        <button class="brand-btn" data-brand="msi">
+          <span>MSI</span>
+        </button>
+        <button class="brand-btn" data-brand="alienware">
+          <span>Alienware</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filtro de tipo de producto -->
+  <div class="type-filter-section">
+    <div class="container">
+      <h6>Filtrar por tipo</h6>
+      <div class="type-buttons">
+        <button class="type-filter-btn active" data-type="all">Todos</button>
+        <button class="type-filter-btn" data-type="laptops">Laptops</button>
+        <button class="type-filter-btn" data-type="desktops">PC Escritorio</button>
+        <button class="type-filter-btn" data-type="gaming">Gaming</button>
+        <button class="type-filter-btn" data-type="tablets">Tablets</button>
+        <button class="type-filter-btn" data-type="all-in-one">All in One</button>
+        <button class="type-filter-btn" data-type="mini-pc">Mini PC</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Banner promocional -->
+  <div class="promo-banner">
+    <div class="container">
+      <img src="templates/macbook.webp" alt="MacBook Pro" class="promo-device">
+      <div class="promo-content">
+        <h2>MacBook Pro M3 - Potencia Profesional</h2>
+        <div class="promo-features">
+          <span>Chip M3 Pro</span>
+          <span>18GB RAM Unificada</span>
+          <span>512GB SSD</span>
+        </div>
+        <div class="promo-benefits">
+          <span class="benefit-tag">EnvÃ­o Gratis</span>
+          <span class="benefit-tag">12 Meses Sin Intereses</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar filters -->
+        <div class="col-md-3 sidebar">
+          <div class="filters-section">
+            <h5>Filtrar por:</h5>
+            
+            <div class="filter-group">
+              <button class="filter-header" type="button" data-bs-toggle="collapse" data-bs-target="#marcaFilter">
+                <span>Marca</span>
+                <i class="bi bi-chevron-down"></i>
+              </button>
+              <div class="collapse show" id="marcaFilter">
+                <div class="filter-content">
+                  <div class="filter-options">
+                    <label class="filter-option">
+                      <input type="checkbox" name="marca" value="hp">
+                      <span>HP</span>
+                      <span class="count">(42)</span>
+                    </label>
+                    <label class="filter-option">
+                      <input type="checkbox" name="marca" value="dell">
+                      <span>DELL</span>
+                      <span class="count">(38)</span>
+                    </label>
+                    <label class="filter-option">
+                      <input type="checkbox" name="marca" value="asus">
+                      <span>ASUS</span>
+                      <span class="count">(35)</span>
+                    </label>
+                    <label class="filter-option">
+                      <input type="checkbox" name="marca" value="lenovo">
+                      <span>LENOVO</span>
+                      <span class="count">(32)</span>
+                    </label>
+                    <label class="filter-option">
+                      <input type="checkbox" name="marca" value="acer">
+                      <span>ACER</span>
+                      <span class="count">(28)</span>
+                    </label>
+                    <label class="filter-option">
+                      <input type="checkbox" name="marca" value="apple">
+                      <span>APPLE</span>
+                      <span class="count">(15)</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <button class="filter-header" type="button" data-bs-toggle="collapse" data-bs-target="#ramFilter">
+                <span>Memoria RAM</span>
+                <i class="bi bi-chevron-down"></i>
+              </button>
+              <div class="collapse show" id="ramFilter">
+                <div class="filter-content">
+                  <div class="filter-options">
+                    <label class="filter-option">
+                      <input type="checkbox" name="ram" value="4gb">
+                      <span>4 GB</span>
+                      <span class="count">(24)</span>
+                    </label>
+                    <label class="filter-option">
+                      <input type="checkbox" name="ram" value="8gb">
+                      <span>8 GB</span>
+                      <span class="count">(45)</span>
+                    </label>
+                    <label class="filter-option">
+                      <input type="checkbox" name="ram" value="16gb">
+                      <span>16 GB</span>
+                      <span class="count">(38)</span>
+                    </label>
+                    <label class="filter-option">
+                      <input type="checkbox" name="ram" value="32gb">
+                      <span>32 GB o mÃ¡s</span>
+                      <span class="count">(18)</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <button class="filter-header" type="button" data-bs-toggle="collapse" data-bs-target="#storageFilter">
+                <span>Almacenamiento</span>
+                <i class="bi bi-chevron-down"></i>
+              </button>
+              <div class="collapse show" id="storageFilter">
+                <div class="filter-content">
+                  <div class="filter-options">
+                    <label class="filter-option">
+                      <input type="checkbox" name="storage" value="256gb">
+                      <span>256 GB SSD</span>
+                      <span class="count">(28)</span>
+                    </label>
+                    <label class="filter-option">
+                      <input type="checkbox" name="storage" value="512gb">
+                      <span>512 GB SSD</span>
+                      <span class="count">(35)</span>
+                    </label>
+                    <label class="filter-option">
+                      <input type="checkbox" name="storage" value="1tb">
+                      <span>1 TB SSD</span>
+                      <span class="count">(32)</span>
+                    </label>
+                    <label class="filter-option">
+                      <input type="checkbox" name="storage" value="1tb-hdd">
+                      <span>1 TB HDD</span>
+                      <span class="count">(25)</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Products area -->
+        <div class="col-md-9 products-area">
+          <div class="results-header">
+            <div class="results-count">
+              <span>Mostrando <span id="showing-count">20</span> de <span id="total-count">186</span> resultados</span>
+            </div>
+            <div class="sort-controls">
+              <label for="sort-select">Ordenar por</label>
+              <select id="sort-select" class="form-select">
+                <option value="relevancia">Relevancia</option>
+                <option value="precio-menor">Precio: menor a mayor</option>
+                <option value="precio-mayor">Precio: mayor a menor</option>
+                <option value="mejor-valorados">Mejor valorados</option>
+                <option value="mas-vendidos">MÃ¡s vendidos</option>
+                <option value="descuento">Mayor descuento</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Products grid -->
+          <div class="products-grid" id="products-grid">
+            <!-- Los productos se cargarÃ¡n dinÃ¡micamente aquÃ­ -->
+          </div>
+
+          <!-- Pagination -->
+          <nav aria-label="PaginaciÃ³n de productos" class="pagination-nav">
+            <ul class="pagination justify-content-center">
+              <li class="page-item disabled">
+                <a class="page-link" href="#" aria-label="Anterior">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Siguiente">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Account Popup -->
+    <div id="account-popup" class="account-popup" style="display: none;">
+        <div class="popup-content">
+            <h4><i class="bi bi-person-circle me-2"></i>Mi Cuenta</h4>
+            <div class="account-options">
+                <a href="#" class="account-option">
+                    <i class="bi bi-box-arrow-in-right me-2"></i>Iniciar SesiÃ³n
+                </a>
+                <a href="#" class="account-option">
+                    <i class="bi bi-person-plus me-2"></i>Crear Cuenta
+                </a>
+                <a href="#" class="account-option">
+                    <i class="bi bi-bag me-2"></i>Mis Pedidos
+                </a>
+                <a href="#" class="account-option">
+                    <i class="bi bi-heart me-2"></i>Lista de Deseos
+                </a>
+                <a href="#" class="account-option">
+                    <i class="bi bi-gear me-2"></i>ConfiguraciÃ³n
+                </a>
+            </div>
+        </div>
+    </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="search-universal.js"></script>
+  <script src="search-global.js"></script>
+  <script type="module">
+    import universalLoader from './js/universal-category-loader.js';
+    window.addEventListener('DOMContentLoaded', async () => { await universalLoader.inicializar(); });
+  </script>
+  
+  <script src="computadores.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Proyectores - Alkosto</title>
+    <meta name="description" content="Encuentra los mejores proyectores en Alkosto. Proyectores para cine en casa, oficina, gaming y presentaciones. Marcas reconocidas, alta definición y tecnología avanzada.">
+    <meta name="keywords" content="proyectores, cine casa, presentaciones, oficina, gaming, 4K, HD, portátil, láser, LED">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link href="proyectores.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <img src="templates/alkosto-logo-header.svg" alt="Alkosto" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="bi bi-house"></i> Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="bi bi-search"></i> Buscar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link position-relative" href="#">
+                            <i class="bi bi-cart"></i> Carrito
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning" id="cartCounter" style="display: none;">
+                                0
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🔹 Pop-up de Mi cuenta -->
+<div id="account-popup" class="account-popup">
+  <div class="popup-content">
+    <h5>Ingresar o crear cuenta</h5>
+    <p>Accede a tus datos personales, pedidos y solicitudes de devolución.</p>
+    <input type="email" placeholder="Correo electrónico" class="form-control mb-3">
+    <button class="btn btn-warning w-100">Continuar</button>
+
+    <hr class="my-3">
+
+    <div class="extra-options">
+      <a href="#">Sigue tu pedido</a>
+      <a href="#">Descarga tu factura</a>
+    </div>
+  </div>
+</div>
+
+    <!-- Hero Banner -->
+    <section class="proyectores-hero-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="proyectores-hero-title">Proyectores Cinema</h1>
+                    <p class="proyectores-hero-subtitle">Vive la experiencia de cine en casa con la mejor tecnología de proyección</p>
+                    <div class="proyectores-hero-features">
+                        <div class="feature-item">
+                            <i class="bi bi-badge-4k"></i>
+                            <span>Ultra HD 4K</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-brightness-high"></i>
+                            <span>Alto Brillo</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-volume-up"></i>
+                            <span>Audio Integrado</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-wifi"></i>
+                            <span>Conectividad Total</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="proyectores-hero-image text-center">
+                        <img src="templates/proyectores-2.webp" alt="Proyectores Premium" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Navigation -->
+    <section class="proyectores-categories py-4">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="proyectores-cat-btn active" data-category="todos">
+                        <i class="bi bi-grid"></i>
+                        <span>Todos</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="proyectores-cat-btn" data-category="cine-casa">
+                        <i class="bi bi-film"></i>
+                        <span>Cine Casa</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="proyectores-cat-btn" data-category="oficina">
+                        <i class="bi bi-building"></i>
+                        <span>Oficina</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="proyectores-cat-btn" data-category="portatil">
+                        <i class="bi bi-briefcase"></i>
+                        <span>Portátil</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="proyectores-cat-btn" data-category="gaming">
+                        <i class="bi bi-controller"></i>
+                        <span>Gaming</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="#" class="proyectores-cat-btn" data-category="accesorios">
+                        <i class="bi bi-tools"></i>
+                        <span>Accesorios</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Filters Sidebar -->
+            <div class="col-lg-3 mb-4">
+                <div class="filters-sidebar">
+                    <h5><i class="bi bi-funnel"></i> Filtros</h5>
+                    
+                    <!-- Tipo -->
+                    <div class="filter-section">
+                        <h6>Tipo</h6>
+                        <div class="filter-option">
+                            <input type="checkbox" id="cine-casa" name="tipo" value="cine-casa">
+                            <label for="cine-casa">
+                                <span>Cine en Casa</span>
+                                <span class="count" data-count="cine-casa">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="oficina" name="tipo" value="oficina">
+                            <label for="oficina">
+                                <span>Oficina/Presentaciones</span>
+                                <span class="count" data-count="oficina">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="portatil" name="tipo" value="portatil">
+                            <label for="portatil">
+                                <span>Portátil</span>
+                                <span class="count" data-count="portatil">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="gaming" name="tipo" value="gaming">
+                            <label for="gaming">
+                                <span>Gaming</span>
+                                <span class="count" data-count="gaming">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="accesorios" name="tipo" value="accesorios">
+                            <label for="accesorios">
+                                <span>Accesorios</span>
+                                <span class="count" data-count="accesorios">0</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Marca -->
+                    <div class="filter-section">
+                        <h6>Marca</h6>
+                        <div class="filter-option">
+                            <input type="checkbox" id="epson" name="marca" value="Epson">
+                            <label for="epson">
+                                <span>Epson</span>
+                                <span class="count" data-count="Epson">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="benq" name="marca" value="BenQ">
+                            <label for="benq">
+                                <span>BenQ</span>
+                                <span class="count" data-count="BenQ">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="lg" name="marca" value="LG">
+                            <label for="lg">
+                                <span>LG</span>
+                                <span class="count" data-count="LG">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="sony" name="marca" value="Sony">
+                            <label for="sony">
+                                <span>Sony</span>
+                                <span class="count" data-count="Sony">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="viewsonic" name="marca" value="ViewSonic">
+                            <label for="viewsonic">
+                                <span>ViewSonic</span>
+                                <span class="count" data-count="ViewSonic">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="optoma" name="marca" value="Optoma">
+                            <label for="optoma">
+                                <span>Optoma</span>
+                                <span class="count" data-count="Optoma">0</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Resolución -->
+                    <div class="filter-section">
+                        <h6>Resolución</h6>
+                        <div class="filter-option">
+                            <input type="checkbox" id="hd" name="resolucion" value="HD">
+                            <label for="hd">
+                                <span>HD (720p)</span>
+                                <span class="count" data-count="HD">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="full-hd" name="resolucion" value="Full HD">
+                            <label for="full-hd">
+                                <span>Full HD (1080p)</span>
+                                <span class="count" data-count="Full HD">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="4k" name="resolucion" value="4K">
+                            <label for="4k">
+                                <span>4K Ultra HD</span>
+                                <span class="count" data-count="4K">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="wuxga" name="resolucion" value="WUXGA">
+                            <label for="wuxga">
+                                <span>WUXGA</span>
+                                <span class="count" data-count="WUXGA">0</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Tecnología -->
+                    <div class="filter-section">
+                        <h6>Tecnología</h6>
+                        <div class="filter-option">
+                            <input type="checkbox" id="lcd" name="tecnologia" value="LCD">
+                            <label for="lcd">
+                                <span>LCD</span>
+                                <span class="count" data-count="LCD">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="led" name="tecnologia" value="LED">
+                            <label for="led">
+                                <span>LED</span>
+                                <span class="count" data-count="LED">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="laser" name="tecnologia" value="Laser">
+                            <label for="laser">
+                                <span>Láser</span>
+                                <span class="count" data-count="Laser">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="dlp" name="tecnologia" value="DLP">
+                            <label for="dlp">
+                                <span>DLP</span>
+                                <span class="count" data-count="DLP">0</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Características -->
+                    <div class="filter-section">
+                        <h6>Características</h6>
+                        <div class="filter-option">
+                            <input type="checkbox" id="wifi" name="caracteristicas" value="wifi">
+                            <label for="wifi">
+                                <span>WiFi Integrado</span>
+                                <span class="count" data-count="wifi">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="bluetooth" name="caracteristicas" value="bluetooth">
+                            <label for="bluetooth">
+                                <span>Bluetooth</span>
+                                <span class="count" data-count="bluetooth">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="hdr" name="caracteristicas" value="hdr">
+                            <label for="hdr">
+                                <span>HDR Support</span>
+                                <span class="count" data-count="hdr">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="3d" name="caracteristicas" value="3d">
+                            <label for="3d">
+                                <span>3D Ready</span>
+                                <span class="count" data-count="3d">0</span>
+                            </label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="keystone" name="caracteristicas" value="keystone">
+                            <label for="keystone">
+                                <span>Corrección Keystone</span>
+                                <span class="count" data-count="keystone">0</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Precio -->
+                    <div class="filter-section">
+                        <h6>Rango de Precio</h6>
+                        <div class="price-filter">
+                            <input type="range" class="form-range" id="priceRange" min="200000" max="15000000" value="15000000" step="100000">
+                            <div class="price-display">
+                                <span class="price-current" id="priceValue">$15.000.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-outline-secondary w-100 mt-3" id="clearFilters">
+                        <i class="bi bi-arrow-clockwise"></i> Limpiar Filtros
+                    </button>
+                </div>
+            </div>
+
+            <!-- Products Section -->
+            <div class="col-lg-9">
+                <!-- Results Header -->
+                <div class="results-header">
+                    <div class="results-info" id="resultsInfo">
+                        Cargando productos...
+                    </div>
+                    <div class="sort-options">
+                        <select class="form-select" id="sortSelect">
+                            <option value="relevancia">Más Relevante</option>
+                            <option value="precio-asc">Precio: Menor a Mayor</option>
+                            <option value="precio-desc">Precio: Mayor a Menor</option>
+                            <option value="rating">Mejor Calificación</option>
+                            <option value="descuento">Mayor Descuento</option>
+                            <option value="nombre">Nombre A-Z</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be loaded here by JavaScript -->
+                </div>
+
+                <!-- Pagination -->
+                <nav aria-label="Navegación de productos" class="mt-4">
+                    <ul class="pagination justify-content-center" id="pagination">
+                        <!-- Pagination will be generated by JavaScript -->
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tech Guide Section -->
+    <section class="tech-guide py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="tech-guide-title">Guía de Proyectores</h2>
+                    <p class="tech-guide-subtitle">Encuentra el proyector perfecto para tus necesidades</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="tech-guide-card">
+                        <div class="guide-icon">
+                            <i class="bi bi-house"></i>
+                        </div>
+                        <h4>Cine en Casa</h4>
+                        <p>Para entretenimiento familiar con alta calidad de imagen y sonido envolvente</p>
+                        <ul class="guide-specs">
+                            <li>Resolución: Full HD o 4K</li>
+                            <li>Brillo: 2000-3500 lúmenes</li>
+                            <li>Tecnología: LCD/LED</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="tech-guide-card">
+                        <div class="guide-icon">
+                            <i class="bi bi-presentation"></i>
+                        </div>
+                        <h4>Presentaciones</h4>
+                        <p>Ideal para oficinas y salas de conferencias con imagen nítida y brillante</p>
+                        <ul class="guide-specs">
+                            <li>Resolución: WUXGA/Full HD</li>
+                            <li>Brillo: 3000-5000 lúmenes</li>
+                            <li>Tecnología: LCD/DLP</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="tech-guide-card">
+                        <div class="guide-icon">
+                            <i class="bi bi-backpack"></i>
+                        </div>
+                        <h4>Portátil</h4>
+                        <p>Compacto y ligero para presentaciones móviles y entretenimiento</p>
+                        <ul class="guide-specs">
+                            <li>Resolución: HD/Full HD</li>
+                            <li>Brillo: 1000-2500 lúmenes</li>
+                            <li>Peso: Menos de 2kg</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="tech-guide-card">
+                        <div class="guide-icon">
+                            <i class="bi bi-controller"></i>
+                        </div>
+                        <h4>Gaming</h4>
+                        <p>Baja latencia y alta frecuencia de actualización para gamers exigentes</p>
+                        <ul class="guide-specs">
+                            <li>Resolución: Full HD/4K</li>
+                            <li>Latencia: Menos de 16ms</li>
+                            <li>Frecuencia: 120Hz+</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Features -->
+    <section class="py-4 bg-light">
+        <div class="container">
+            <div class="proyectores-footer-features">
+                <span><i class="bi bi-truck"></i> Envío gratis en compras mayores a $500.000</span>
+                <span><i class="bi bi-tools"></i> Instalación profesional disponible</span>
+                <span><i class="bi bi-shield-check"></i> Garantía extendida hasta 3 años</span>
+                <span><i class="bi bi-headset"></i> Soporte técnico especializado</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>`n    <script src="search-universal.js"></script>
+    <!-- Custom JS -->
+    <script src="proyectores.js"></script>
+</body>
+</html>

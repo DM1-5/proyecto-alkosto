@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ofertas Bancarias - Alkosto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="ofertas-bancos.css">
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="templates/alkosto-logo-header.svg" alt="Alkosto" height="40">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                            Categorías
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="index-celulares.html">Celulares</a></li>
+                            <li><a class="dropdown-item" href="index-electrodomesticos.html">Electrodomésticos</a></li>
+                            <li><a class="dropdown-item" href="index-computadores.html">Computadores</a></li>
+                            <li><a class="dropdown-item" href="index-televisores.html">Televisores</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <div class="d-flex align-items-center gap-3">
+                    <div class="search-box">
+                        <input type="text" class="form-control" placeholder="Buscar ofertas bancarias..." id="searchInput">
+                        <i class="bi bi-search search-icon"></i>
+                    </div>
+                    <a href="#" class="position-relative">
+                        <i class="bi bi-cart3 fs-4"></i>
+                        <span class="cart-count badge bg-danger position-absolute top-0 start-100 translate-middle">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🔹 Pop-up de Mi cuenta -->
+<div id="account-popup" class="account-popup">
+  <div class="popup-content">
+    <h5>Ingresar o crear cuenta</h5>
+    <p>Accede a tus datos personales, pedidos y solicitudes de devolución.</p>
+    <input type="email" placeholder="Correo electrónico" class="form-control mb-3">
+    <button class="btn btn-warning w-100">Continuar</button>
+
+    <hr class="my-3">
+
+    <div class="extra-options">
+      <a href="#">Sigue tu pedido</a>
+      <a href="#">Descarga tu factura</a>
+    </div>
+  </div>
+</div>
+
+    <!-- Hero Banner -->
+    <section class="bancos-hero-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="bancos-hero-title">Ofertas Bancarias Exclusivas</h1>
+                    <p class="bancos-hero-subtitle">Descubre las mejores promociones financieras y ofertas especiales con nuestros bancos aliados</p>
+                    <div class="bancos-hero-features">
+                        <div class="feature-item">
+                            <i class="bi bi-credit-card"></i>
+                            <span>Tarjetas de Crédito</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-percent"></i>
+                            <span>0% Interés</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-calendar-check"></i>
+                            <span>Cuotas Flexibles</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-shield-check"></i>
+                            <span>Aprobación Garantizada</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center bancos-hero-image">
+                    <img src="templates/medios-pago-6.webp" alt="Ofertas Bancarias" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financial Categories -->
+    <section class="bancos-categories py-4">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-6 col-md-3">
+                    <a href="#" class="bancos-cat-btn" data-category="todos">
+                        <i class="bi bi-grid-3x3-gap"></i>
+                        <span>Todas las Ofertas</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3">
+                    <a href="#" class="bancos-cat-btn" data-category="tarjetas-credito">
+                        <i class="bi bi-credit-card-2-front"></i>
+                        <span>Tarjetas de Crédito</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3">
+                    <a href="#" class="bancos-cat-btn" data-category="financiacion">
+                        <i class="bi bi-cash-coin"></i>
+                        <span>Financiación</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3">
+                    <a href="#" class="bancos-cat-btn" data-category="seguros">
+                        <i class="bi bi-shield-plus"></i>
+                        <span>Seguros</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3">
+                    <a href="#" class="bancos-cat-btn" data-category="cuentas">
+                        <i class="bi bi-bank"></i>
+                        <span>Cuentas Bancarias</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3">
+                    <a href="#" class="bancos-cat-btn" data-category="inversiones">
+                        <i class="bi bi-graph-up-arrow"></i>
+                        <span>Inversiones</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3">
+                    <a href="#" class="bancos-cat-btn" data-category="prestamos">
+                        <i class="bi bi-currency-dollar"></i>
+                        <span>Préstamos</span>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3">
+                    <a href="#" class="bancos-cat-btn" data-category="beneficios">
+                        <i class="bi bi-gift"></i>
+                        <span>Beneficios Especiales</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Filters Sidebar -->
+                <div class="col-lg-3 mb-4">
+                    <div class="filters-sidebar">
+                        <h5><i class="bi bi-funnel"></i> Filtrar Ofertas</h5>
+                        
+                        <!-- Bank Filter -->
+                        <div class="filter-section">
+                            <h6>Banco</h6>
+                            <div class="filter-option">
+                                <input type="checkbox" id="bancolombia" name="bank" value="bancolombia">
+                                <label for="bancolombia">
+                                    <span>Bancolombia</span>
+                                    <span class="count">8</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="banco-bogota" name="bank" value="banco-bogota">
+                                <label for="banco-bogota">
+                                    <span>Banco de Bogotá</span>
+                                    <span class="count">6</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="davivienda" name="bank" value="davivienda">
+                                <label for="davivienda">
+                                    <span>Davivienda</span>
+                                    <span class="count">5</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="bbva" name="bank" value="bbva">
+                                <label for="bbva">
+                                    <span>BBVA</span>
+                                    <span class="count">4</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="colpatria" name="bank" value="colpatria">
+                                <label for="colpatria">
+                                    <span>Scotiabank Colpatria</span>
+                                    <span class="count">3</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Interest Rate Filter -->
+                        <div class="filter-section">
+                            <h6>Tasa de Interés</h6>
+                            <div class="filter-option">
+                                <input type="checkbox" id="sin-interes" name="interest" value="0">
+                                <label for="sin-interes">
+                                    <span>0% Sin Interés</span>
+                                    <span class="count">12</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="bajo-interes" name="interest" value="low">
+                                <label for="bajo-interes">
+                                    <span>Bajo Interés (1-5%)</span>
+                                    <span class="count">8</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="interes-preferencial" name="interest" value="preferential">
+                                <label for="interes-preferencial">
+                                    <span>Tasa Preferencial</span>
+                                    <span class="count">6</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Term Filter -->
+                        <div class="filter-section">
+                            <h6>Plazo</h6>
+                            <div class="filter-option">
+                                <input type="checkbox" id="3-meses" name="term" value="3">
+                                <label for="3-meses">
+                                    <span>3 Meses</span>
+                                    <span class="count">15</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="6-meses" name="term" value="6">
+                                <label for="6-meses">
+                                    <span>6 Meses</span>
+                                    <span class="count">18</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="12-meses" name="term" value="12">
+                                <label for="12-meses">
+                                    <span>12 Meses</span>
+                                    <span class="count">20</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="24-meses" name="term" value="24">
+                                <label for="24-meses">
+                                    <span>24 Meses</span>
+                                    <span class="count">10</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="36-meses" name="term" value="36">
+                                <label for="36-meses">
+                                    <span>36 Meses</span>
+                                    <span class="count">8</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Benefits Filter -->
+                        <div class="filter-section">
+                            <h6>Beneficios</h6>
+                            <div class="filter-option">
+                                <input type="checkbox" id="cashback" name="benefits" value="cashback">
+                                <label for="cashback">
+                                    <span>Cashback</span>
+                                    <span class="count">14</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="puntos" name="benefits" value="points">
+                                <label for="puntos">
+                                    <span>Acumulación de Puntos</span>
+                                    <span class="count">16</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="millas" name="benefits" value="miles">
+                                <label for="millas">
+                                    <span>Millas Aéreas</span>
+                                    <span class="count">9</span>
+                                </label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="descuentos" name="benefits" value="discounts">
+                                <label for="descuentos">
+                                    <span>Descuentos Especiales</span>
+                                    <span class="count">22</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Amount Filter -->
+                        <div class="filter-section">
+                            <h6>Monto Mínimo</h6>
+                            <div class="price-filter">
+                                <input type="range" class="form-range" id="amountRange" min="100000" max="10000000" value="10000000" step="100000">
+                                <div class="price-display" id="amountDisplay">
+                                    <span>Monto mínimo:</span>
+                                    <span class="price-current">$10,000,000</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="col-lg-9">
+                    <!-- Results Header -->
+                    <div class="results-header">
+                        <div class="results-info">
+                            <span id="resultsCount">26 ofertas encontradas</span>
+                        </div>
+                        <div class="sort-options">
+                            <select class="form-select" id="sortSelect">
+                                <option value="featured">Destacadas</option>
+                                <option value="interest-low">Menor Interés</option>
+                                <option value="interest-high">Mayor Interés</option>
+                                <option value="amount-low">Menor Monto</option>
+                                <option value="amount-high">Mayor Monto</option>
+                                <option value="term-short">Menor Plazo</option>
+                                <option value="term-long">Mayor Plazo</option>
+                                <option value="bank">Por Banco</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Offers Grid -->
+                    <div class="row" id="offersGrid">
+                        <!-- Offers will be dynamically loaded here -->
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="d-flex justify-content-center mt-5">
+                        <div id="pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financial Guide Section -->
+    <section class="financial-guide py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="financial-guide-title">Guía Financiera</h2>
+                <p class="financial-guide-subtitle">Aprende a elegir la mejor opción financiera para tus necesidades</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="financial-guide-card">
+                        <div class="guide-icon">
+                            <i class="bi bi-credit-card-2-front"></i>
+                        </div>
+                        <h4>Tarjetas de Crédito</h4>
+                        <p>Encuentra la tarjeta perfecta según tu perfil crediticio y necesidades de consumo.</p>
+                        <ul class="guide-specs">
+                            <li>Cupo según ingresos</li>
+                            <li>Tasas preferenciales</li>
+                            <li>Beneficios exclusivos</li>
+                            <li>Sin cuota de manejo</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="financial-guide-card">
+                        <div class="guide-icon">
+                            <i class="bi bi-percent"></i>
+                        </div>
+                        <h4>Financiación 0%</h4>
+                        <p>Compra ahora y paga después sin intereses con nuestros planes especiales.</p>
+                        <ul class="guide-specs">
+                            <li>3, 6, 12 cuotas sin interés</li>
+                            <li>Aprobación inmediata</li>
+                            <li>Montos desde $300,000</li>
+                            <li>Sin codeudor</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="financial-guide-card">
+                        <div class="guide-icon">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h4>Seguros</h4>
+                        <p>Protege tus compras y tu familia con nuestros seguros especializados.</p>
+                        <ul class="guide-specs">
+                            <li>Seguro de vida</li>
+                            <li>Protección de compras</li>
+                            <li>Seguro de electrodomésticos</li>
+                            <li>Cobertura total</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="financial-guide-card">
+                        <div class="guide-icon">
+                            <i class="bi bi-gift"></i>
+                        </div>
+                        <h4>Beneficios</h4>
+                        <p>Disfruta de ventajas exclusivas y recompensas por ser nuestro cliente.</p>
+                        <ul class="guide-specs">
+                            <li>Cashback hasta 5%</li>
+                            <li>Puntos canjeables</li>
+                            <li>Descuentos especiales</li>
+                            <li>Acceso prioritario</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust-section py-4 bg-light">
+        <div class="container">
+            <div class="bancos-footer-features">
+                <span><i class="bi bi-shield-check"></i> Seguridad Bancaria</span>
+                <span><i class="bi bi-award"></i> Bancos Certificados</span>
+                <span><i class="bi bi-headset"></i> Soporte 24/7</span>
+                <span><i class="bi bi-lightning"></i> Aprobación Rápida</span>
+                <span><i class="bi bi-graph-up"></i> Mejores Tasas</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Alkosto</h5>
+                    <p>Tu tienda en línea de confianza con las mejores ofertas bancarias y financieras.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50">Inicio</a></li>
+                        <li><a href="#" class="text-white-50">Ofertas</a></li>
+                        <li><a href="#" class="text-white-50">Ayuda</a></li>
+                        <li><a href="#" class="text-white-50">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Síguenos</h5>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white-50"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white-50"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white-50"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2024 Alkosto. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>`n    <script src="search-universal.js"></script>
+    <script src="ofertas-bancos.js"></script>
+</body>
+</html>
